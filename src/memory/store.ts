@@ -9,6 +9,7 @@
 import { config } from "../config.ts";
 import { OfflineMemory, extractEntities } from "./offline.ts";
 import { hasSensitive as routeIsSensitive } from "./router.ts";
+import { live, decayed, reviseDirectives } from "./supersede.ts";
 import type { MemoryRow, ServiceAction } from "../types.ts";
 
 function splitLines(text: string): string[] {
@@ -241,10 +242,40 @@ export class MemoryStore {
    * plus the floor's shared context" cannot be one search — each scope goes in
    * its own pool and recall unions them.
    */
-  async recall(query: string, pools: Scope[], limit = 10): Promise<{ memories: MemoryRow[]; prompt: string; scopes: Array<{ scope: string; count: number }> }> {
-    if (this.offline) return this.local!.recall({ query, pools, limit });
-    const res = await this.client.memories.recall({ query, pools, limit });
-    return { memories: res.memories as MemoryRow[], prompt: res.prompt, scopes: res.scopes };
+  async recall(
+    query: string,
+    pools: Scope[],
+    limit = 10,
+    /**
+     * Supersession and decay are Mise features, not properties of the memory
+     * service, so the pooled baseline does not get them for free. Turning this
+     * off is what "one catch-all group and nothing else" actually means.
+     */
+    curate = true,
+  ): Promise<{ memories: MemoryRow[]; prompt: string; scopes: Array<{ scope: string; count: number }> }> {
+    const raw = this.offline
+      ? this.local!.recall({ query, pools, limit })
+      : await this.client.memories
+          .recall({ query, pools, limit })
+          .then((r: { memories: MemoryRow[]; prompt: string; scopes: Array<{ scope: string; count: number }> }) => ({
+            memories: r.memories, prompt: r.prompt, scopes: r.scopes,
+          }));
+
+    if (!curate) return raw;
+
+    // Retire contradicted facts, then let recency break near-ties. Both run
+    // client-side so they apply identically to the hosted and offline paths.
+    const current = decayed(live(raw.memories));
+    const dropped = raw.memories.length - current.length;
+    if (dropped > 0) this.emit("superseded", { query, dropped });
+
+    return {
+      memories: current,
+      prompt: current.length
+        ? "What you already know:\n" + current.map((m) => `- ${m.text}`).join("\n")
+        : "No relevant memory yet.",
+      scopes: raw.scopes,
+    };
   }
 
   /**
@@ -255,8 +286,16 @@ export class MemoryStore {
   async trigger(action: ServiceAction, scope: Scope, task?: string): Promise<{ rows: MemoryRow[]; context: string | null }> {
     if (this.offline) {
       const res = this.local!.trigger({ action, ...scope, namespace: config.namespace });
-      if (res.data.length) this.emit("trigger", { action, rows: res.data });
-      return { rows: res.data, context: res.context };
+      const revised = reviseDirectives(res.data);
+      if (revised.length) {
+        this.emit("trigger", { action, rows: revised, retired: res.data.length - revised.length });
+      }
+      return {
+        rows: revised,
+        context: revised.length
+          ? "Before you act, past services recorded this:\n" + revised.map((d) => `- ${d.text}`).join("\n")
+          : null,
+      };
     }
     // The tripwire matches on exact identifier overlap, which means both sides
     // have to be speaking the same vocabulary. Offline that is easy — the same
@@ -301,12 +340,15 @@ export class MemoryStore {
       return namesTool && readsAsRule;
     });
 
-    if (directives.length) {
-      this.emit("trigger", { action, rows: directives });
+    // One rule per subject. A later debrief that escalates an earlier rule
+    // replaces it rather than firing alongside it.
+    const revised = reviseDirectives(directives);
+    if (revised.length) {
+      this.emit("trigger", { action, rows: revised, retired: directives.length - revised.length });
       return {
-        rows: directives,
+        rows: revised,
         context: "Before you act, past services recorded this:\n" +
-          directives.map((d) => `- ${d.text}`).join("\n"),
+          revised.map((d) => `- ${d.text}`).join("\n"),
       };
     }
 

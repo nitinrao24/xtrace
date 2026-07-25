@@ -153,6 +153,7 @@ export async function run(opts: RunOptions = {}): Promise<{
       // is an estimate and the docs say so; what matters is that it is applied
       // identically to all three arms, so the ratio between them is sound even
       // where the absolute number is approximate.
+      const staleHits = probes.reduce((a, p) => a + p.stale.length, 0);
       const sensitiveInPrompt = Math.round(
         probes.reduce((a, p) => a + p.sensitiveInPrompt, 0) / Math.max(1, probes.length),
       );
@@ -171,6 +172,7 @@ export async function run(opts: RunOptions = {}): Promise<{
         directivesFired,
         tokensPerAnswer,
         sensitiveInPrompt,
+        staleHits,
         probes,
       };
       results.push(result);
@@ -201,8 +203,8 @@ async function inParallel<T>(items: T[], limit: number, fn: (item: T) => Promise
   await Promise.all(workers);
 }
 
-export function summarise(results: ShiftResult[]): Record<Arm, { fidelity: number; exposed: number; lift: string; tokens: number; tokenGrowth: string; sensitive: number }> {
-  const out = {} as Record<Arm, { fidelity: number; exposed: number; lift: string; tokens: number; tokenGrowth: string; sensitive: number }>;
+export function summarise(results: ShiftResult[]): Record<Arm, { fidelity: number; exposed: number; lift: string; tokens: number; tokenGrowth: string; sensitive: number; stale: number }> {
+  const out = {} as Record<Arm, { fidelity: number; exposed: number; lift: string; tokens: number; tokenGrowth: string; sensitive: number; stale: number }>;
   const arms = [...new Set(results.map((r) => r.arm))];
   for (const arm of arms) {
     const rows = results.filter((r) => r.arm === arm);
@@ -215,6 +217,7 @@ export function summarise(results: ShiftResult[]): Record<Arm, { fidelity: numbe
       tokens: Math.round(rows.reduce((a, r) => a + r.tokensPerAnswer, 0) / rows.length),
       tokenGrowth: `${rows[0]!.tokensPerAnswer} → ${rows[rows.length - 1]!.tokensPerAnswer}`,
       sensitive: Math.max(...rows.map((r) => r.sensitiveInPrompt)),
+      stale: rows.reduce((a, r) => a + r.staleHits, 0),
       lift: `${(first * 100).toFixed(0)}% → ${(last * 100).toFixed(0)}%`,
     };
   }

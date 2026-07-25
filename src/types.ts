@@ -67,6 +67,8 @@ export interface ProbeResult {
   contextChars: number;
   /** Protected lines sitting in the prompt itself, shipped to the model each call. */
   sensitiveInPrompt: number;
+  /** Facts in the brief that stopped being true. Retrieved anyway. */
+  stale: string[];
 }
 
 export interface ShiftResult {
@@ -83,6 +85,8 @@ export interface ShiftResult {
   tokensPerAnswer: number;
   /** Mean protected lines per prompt. Transmission, as distinct from storage. */
   sensitiveInPrompt: number;
+  /** Superseded facts that still reached the answer. Lower is better. */
+  staleHits: number;
   probes: ProbeResult[];
 }
 

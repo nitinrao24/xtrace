@@ -750,6 +750,159 @@
         }
       ],
       "debrief": "Clean service. Ninety one covers, no comps, no near misses. The procedures held. Keep the pre-doors read of the book, the two-wave confirmation, the dedicated fry basket, and the dupe-level alcohol marker as standing house procedure."
+    },
+    {
+      "n": 6,
+      "date": "2026-03-15",
+      "covers": 88,
+      "title": "Saturday. The world changes underneath the memory.",
+      "turns": [
+        {
+          "user_id": "maya",
+          "groups": [
+            "service"
+          ],
+          "messages": [
+            {
+              "role": "user",
+              "content": "We have moved off Bayview Produce to Coastline Growers. Nettles now arrive reliably every Tuesday."
+            },
+            {
+              "role": "assistant",
+              "content": "Noted."
+            }
+          ]
+        },
+        {
+          "user_id": "dev",
+          "groups": [
+            "service"
+          ],
+          "messages": [
+            {
+              "role": "user",
+              "content": "New wood grill went in this morning. Scallops now take six minutes on it."
+            },
+            {
+              "role": "assistant",
+              "content": "Noted."
+            }
+          ]
+        },
+        {
+          "user_id": "dev",
+          "groups": [
+            "service"
+          ],
+          "messages": [
+            {
+              "role": "user",
+              "content": "The cavatelli is off the menu permanently, it never sold at this price."
+            },
+            {
+              "role": "assistant",
+              "content": "Noted."
+            }
+          ]
+        },
+        {
+          "user_id": "maya",
+          "groups": [
+            "service"
+          ],
+          "messages": [
+            {
+              "role": "user",
+              "content": "The walk-in compressor was replaced on Thursday. The 41F rule no longer applies, it holds at 38 now."
+            },
+            {
+              "role": "assistant",
+              "content": "Noted."
+            }
+          ]
+        },
+        {
+          "user_id": "tom",
+          "groups": [
+            "service"
+          ],
+          "messages": [
+            {
+              "role": "user",
+              "content": "Ada Okonkwo now drinks alcohol-free sparkling, as of tonight."
+            },
+            {
+              "role": "assistant",
+              "content": "Noted."
+            }
+          ],
+          "guest_id": "g_okonkwo"
+        },
+        {
+          "user_id": "priya",
+          "groups": [
+            "service"
+          ],
+          "messages": [
+            {
+              "role": "user",
+              "content": "Full book again, no incidents."
+            },
+            {
+              "role": "assistant",
+              "content": "Noted."
+            }
+          ]
+        }
+      ],
+      "probes": [
+        {
+          "query": "How long do the scallops need?",
+          "user_id": "dev",
+          "scope": "service",
+          "must_recall": [
+            "six"
+          ],
+          "must_avoid": [
+            "nine"
+          ]
+        },
+        {
+          "query": "Who supplies our nettles and how reliable are they?",
+          "user_id": "dev",
+          "scope": "service",
+          "must_recall": [
+            "Coastline"
+          ],
+          "must_avoid": [
+            "short-ship"
+          ]
+        },
+        {
+          "query": "What do I pour for Ada on 14?",
+          "user_id": "priya",
+          "scope": "service",
+          "must_recall": [
+            "alcohol-free",
+            "sparkling"
+          ],
+          "must_avoid": [
+            "Basque"
+          ]
+        },
+        {
+          "query": "Can I sell the cavatelli tonight?",
+          "user_id": "priya",
+          "scope": "service",
+          "must_recall": [
+            "off the menu"
+          ],
+          "must_avoid": [
+            "pea shoot"
+          ]
+        }
+      ],
+      "debrief": "Nothing went wrong tonight, but four things we had written down stopped being true this week. Any standing note about the old supplier, the old grill timing, the cavatelli, or the 41F threshold is retired as of today."
     }
   ]
 }

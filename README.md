@@ -56,6 +56,53 @@ lesson to live. Mise climbs.
 The full argument, including where long context genuinely wins and what we'd need
 to prove this properly, is in [docs/MEMORY-THESIS.md](docs/MEMORY-THESIS.md).
 
+## Service six: when the world changes
+
+Everything above holds a corpus still. Real operations don't. So there is a sixth
+service in which four established facts stop being true on the same night — the
+produce supplier changes, a new grill halves the scallop time, a dish comes off
+the menu, and the walk-in compressor is replaced so the 41°F rule retires.
+
+Every arm finds the new facts. The question is whether it stops offering the old
+ones.
+
+| | retired facts still reaching the answer |
+|---|---|
+| Full transcript in context | **4** |
+| Single shared pool | **3** |
+| **Mise** | **1** |
+
+**A window cannot supersede.** It holds both versions and has no way to know which
+one won — attention has no notion of "this replaced that." So it retrieves the old
+grill timing with the same confidence as the new one. This is where the
+long-context argument actually breaks: not on cost, on correctness.
+
+Three mechanisms, in `src/memory/supersede.ts`:
+
+- **Supersession.** A later statement that contradicts an earlier one retires it.
+  Two routes: an explicit change marker plus topical overlap, or two measurements
+  in the same unit that disagree. The old row is kept — history is not deleted —
+  it just stops being offered as current.
+- **Recency decay.** 45-day half-life, floored so it reorders near-ties without
+  ever burying the only answer to a question.
+- **Directive revision.** Newest rule wins per tool and subject, so shift 4's
+  escalated alcohol rule replaces shift 2's rather than firing alongside it.
+
+All three run client-side and are gated to Mise, so the pooled baseline does not
+get them for free.
+
+### Why Mise is at 1 and not 0
+
+The retired fact that survives is *"we are out of Basque cider until Thursday"* —
+a stock note from service one. Ada switching to alcohol-free sparkling contradicts
+her stated preference and retires that; it does not contradict a statement about
+inventory levels, so that one stands.
+
+That is arguably correct behaviour, and it is also the honest boundary:
+supersession retires what is *contradicted*, not everything that has become
+irrelevant. Retiring by association would need a model rather than a lexical rule.
+
+
 ---
 
 ## The four memory kinds, all load-bearing

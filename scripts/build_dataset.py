@@ -321,6 +321,35 @@ SHIFTS = [
             "dupe-level alcohol marker as standing house procedure."
         ),
     },
+    {
+        "n": 6,
+        "date": "2026-03-15",
+        "covers": 88,
+        "title": "Saturday. The world changes underneath the memory.",
+        "turns": [
+            turn("maya", "We have moved off Bayview Produce to Coastline Growers. Nettles now arrive reliably every Tuesday."),
+            turn("dev", "New wood grill went in this morning. Scallops now take six minutes on it."),
+            turn("dev", "The cavatelli is off the menu permanently, it never sold at this price."),
+            turn("maya", "The walk-in compressor was replaced on Thursday. The 41F rule no longer applies, it holds at 38 now."),
+            turn("tom", "Ada Okonkwo now drinks alcohol-free sparkling, as of tonight.", guest="g_okonkwo"),
+            turn("priya", "Full book again, no incidents."),
+        ],
+        "probes": [
+            probe("How long do the scallops need?", "dev",
+                  ["six"], must_avoid=["nine"]),
+            probe("Who supplies our nettles and how reliable are they?", "dev",
+                  ["Coastline"], must_avoid=["short-ship"]),
+            probe("What do I pour for Ada on 14?", "priya",
+                  ["alcohol-free", "sparkling"], must_avoid=["Basque"]),
+            probe("Can I sell the cavatelli tonight?", "priya",
+                  ["off the menu"], must_avoid=["pea shoot"]),
+        ],
+        "debrief": (
+            "Nothing went wrong tonight, but four things we had written down stopped being true "
+            "this week. Any standing note about the old supplier, the old grill timing, the "
+            "cavatelli, or the 41F threshold is retired as of today."
+        ),
+    },
 ]
 
 # ---------------------------------------------------------------- noise

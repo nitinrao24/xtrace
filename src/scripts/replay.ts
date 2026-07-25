@@ -83,11 +83,12 @@ async function main(): Promise<void> {
     const rows = results.filter((r) => r.arm === arm);
     console.log(`  ${bold(ARM_NAME[arm].padEnd(22))}`);
     for (const r of rows) {
+      const staleMark = r.staleHits > 0 ? red(` ${r.staleHits} stale`) : "";
       const leakMark = r.exposed > 0 ? red(` ${String(r.exposed).padStart(2)} exposed`) : r.arm === "blind" ? dim("     —") : green("   0 exposed");
       const fired = r.directivesFired > 0 ? amber(` ${r.directivesFired}▲`) : "   ";
       console.log(
         `    service ${r.shift}  ${bar(r.fidelity)} ${String(Math.round(r.fidelity * 100)).padStart(3)}%` +
-        `${fired}${leakMark}   ${dim(r.title)}`,
+        `${fired}${leakMark}${staleMark}   ${dim(r.title)}`,
       );
     }
     console.log();
@@ -95,12 +96,12 @@ async function main(): Promise<void> {
 
   const summary = summarise(results);
   console.log(bold("  Across five services"));
-  console.log(dim("    architecture            avg fidelity   service 1 → 5   exposed   tokens/answer"));
+  console.log(dim("    architecture            avg fidelity   service 1 → 6   exposed   stale   tokens/answer"));
   for (const [arm, s] of Object.entries(summary)) {
     const leak = s.exposed > 0 ? red(String(s.exposed).padStart(6)) : green("     0");
     console.log(
       `    ${ARM_NAME[arm as Arm].padEnd(22)}  ${String(Math.round(s.fidelity * 100)).padStart(9)}%` +
-      `   ${s.lift.padStart(11)}   ${leak}   ${String(s.tokens).padStart(6)}  ${dim(s.tokenGrowth)}`,
+      `   ${s.lift.padStart(11)}   ${leak}   ${(s.stale > 0 ? red(String(s.stale)) : green("0")).padStart(s.stale > 0 ? 14 : 16)}   ${String(s.tokens).padStart(6)}  ${dim(s.tokenGrowth)}`,
     );
   }
   console.log();
@@ -135,7 +136,27 @@ async function main(): Promise<void> {
   const mise = summary.mise;
   const pooled = summary.pooled;
   if (mise && pooled) {
-    console.log(bold("  Where the data goes"));
+    if (blind && summary.mise) {
+    console.log(bold("  Service six — four things stopped being true"));
+    console.log(dim("    a new supplier, a new grill, a dish off the menu, a replaced compressor"));
+    console.log(
+      `    full transcript        ${(blind.stale > 0 ? red(String(blind.stale) + " retired facts") : green("0"))} still reaching the answer`,
+    );
+    console.log(
+      `    single shared pool     ${(summary.pooled!.stale > 0 ? red(String(summary.pooled!.stale) + " retired facts") : green("0"))} still reaching the answer`,
+    );
+    console.log(
+      `    Mise                   ${(summary.mise.stale > 0 ? red(String(summary.mise.stale) + " retired facts") : green("0 retired facts"))} — superseded before retrieval`,
+    );
+    console.log();
+    console.log(
+      dim("    Every arm found the new facts. Only one stopped offering the old ones.\n") +
+      dim("    A window cannot supersede: it has both versions and no way to know which won."),
+    );
+    console.log();
+  }
+
+  console.log(bold("  Where the data goes"));
     console.log(
       `    single shared pool     ${red(String(pooled.exposed) + " guest medical records")} written to a hosted memory service`,
     );

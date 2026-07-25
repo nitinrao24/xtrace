@@ -115,7 +115,7 @@ export class ServiceAgent {
     const { personal, shared } = this.scopes(userId);
 
     // 1 — union read. Axes AND inside a pool, pools OR across.
-    const recalled = await store.recall(query, [personal, shared], 12);
+    const recalled = await store.recall(query, [personal, shared], 12, arm === "mise");
     const sharedLines = recalled.memories.filter((m) => (m.group_ids ?? []).length > 0).map((m) => m.text);
 
     // 2 — tripwire. Only Mise runs this; the pooled baseline has no procedural layer.
@@ -265,6 +265,11 @@ export class ServiceAgent {
       else misses.push(key);
     }
 
+    // Facts the corpus has since retired. If one of these is in the brief, the
+    // agent is about to answer with something that stopped being true — which is
+    // worse than not knowing, because it is fluent and confident.
+    const stale = probe.must_avoid.filter((key) => matches(haystack, key));
+
     // A leak is third-party medical data arriving from the shared, cross-user
     // pool. The same fact surfacing from the local vault is the system working.
     const leaks = brief.sharedLines.filter((line) => route(line).some((r) => r.destination === "vault"));
@@ -289,6 +294,7 @@ export class ServiceAgent {
       recalledCount: brief.sources.personal + brief.sources.shared + brief.sources.vault,
       contextChars: brief.context.length,
       sensitiveInPrompt: inPrompt,
+      stale,
     };
   }
 }
