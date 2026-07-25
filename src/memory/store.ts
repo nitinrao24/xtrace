@@ -258,8 +258,18 @@ export class MemoryStore {
       if (res.data.length) this.emit("trigger", { action, rows: res.data });
       return { rows: res.data, context: res.context };
     }
+    // The tripwire matches on exact identifier overlap, which means both sides
+    // have to be speaking the same vocabulary. Offline that is easy — the same
+    // file writes the anchors and reads them. On the hosted path the server
+    // extracts entities from the debrief text itself, so it knows "second wave"
+    // and "fry station" but has never heard of a tool called `fire_ticket`.
+    //
+    // So send both: the action for the server's own matching, and the domain
+    // words that action implies. Extra entities can only widen the match, never
+    // narrow it, so this is safe even where the server already got it right.
     const res = await this.client.memories.trigger({
       action,
+      entities: [...new Set([...extractEntities(action), ...vocabularyFor(action.tool)])],
       task,
       namespace: config.namespace,
       mode: "compose",
@@ -283,3 +293,23 @@ export class MemoryStore {
 }
 
 export { extractEntities };
+
+/**
+ * The words a given action implies in service vernacular.
+ *
+ * A cook writing a debrief says "before firing any second wave"; the extraction
+ * pass records that phrasing. Nobody writes "fire_ticket". This bridges the tool
+ * name to the language the directive was actually written in.
+ */
+function vocabularyFor(tool: string): string[] {
+  const map: Record<string, string[]> = {
+    fire_ticket:   ["fire", "ticket", "wave", "second wave", "first wave", "covers", "table", "dupe"],
+    fry_station:   ["fry station", "fryer", "fry", "basket", "dedicated basket", "cross-contamination", "dessert"],
+    pour_drink:    ["alcohol", "wine", "pairing", "pour", "bar", "drink", "no-alcohol", "marker"],
+    check_walkin:  ["walk-in", "temp log", "compressor", "raw fish", "41F", "temperature"],
+    open_doors:    ["reservation", "reservation book", "press", "doors", "before doors", "pre-service"],
+    seat_guest:    ["seat", "table", "guest", "reservation", "section"],
+    grill_station: ["grill", "wood grill", "charcoal", "scallops"],
+  };
+  return map[tool] ?? [];
+}

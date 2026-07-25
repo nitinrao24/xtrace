@@ -4,7 +4,9 @@
   "private": true,
   "type": "module",
   "description": "A service agent that learns the house. Built on XTrace Memory.",
-  "engines": { "node": ">=20" },
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "setup": "node --experimental-strip-types src/scripts/bootstrap.ts",
     "seed": "node --experimental-strip-types src/scripts/seed.ts",
@@ -12,7 +14,8 @@
     "inspect": "node --experimental-strip-types src/scripts/inspect.ts",
     "dev": "node --experimental-strip-types src/server.ts",
     "demo": "npm run seed && npm run replay",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "doctor": "node --experimental-strip-types src/scripts/doctor.ts"
   },
   "dependencies": {
     "@xtraceai/memory": "^0.6.0"

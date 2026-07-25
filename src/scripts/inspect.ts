@@ -34,6 +34,51 @@ async function main(): Promise<void> {
   store.setGroupIds(groups);
   const agent = new ServiceAgent({ store, vault, groups, arm: "mise" });
 
+  // --directives : dump every lesson and procedure on record, with the entities
+  // the server extracted for each. If this comes back empty, the tripwire has
+  // nothing to fire and the problem is the ingest, not the matching.
+  if (argv.includes("--directives")) {
+    if (store.offline) {
+      console.log();
+      console.log(amber("  The offline store lives in this process only."));
+      console.log(dim("  Nothing persists between commands, so there is nothing to list."));
+      console.log(dim("  This diagnostic is for the hosted path — set XTRACE_API_KEY and rerun."));
+      console.log();
+      return;
+    }
+    const scope = { group_ids: [groups.service!, groups.playbook!].filter(Boolean) };
+    const all = await store.dump(scope);
+    const directives = all.filter((m) => m.type === "lesson" || m.type === "procedure");
+
+    console.log();
+    console.log(bold(`  ${all.length} memories in the floor groups`));
+    const byType: Record<string, number> = {};
+    for (const m of all) byType[m.type] = (byType[m.type] ?? 0) + 1;
+    for (const [t, n] of Object.entries(byType).sort((a, b) => b[1] - a[1])) {
+      console.log(dim(`    ${String(n).padStart(4)}  ${t}`));
+    }
+
+    console.log();
+    if (!directives.length) {
+      console.log(amber("  No lesson or procedure memories exist."));
+      console.log(dim("  The debriefs went in, but the agentic pass did not produce directives."));
+      console.log(dim("  Nothing can fire on the tripwire until they do."));
+      console.log();
+      return;
+    }
+
+    console.log(bold(`  ${directives.length} directive(s)`));
+    for (const d of directives) {
+      const details = (d.details ?? {}) as { trigger_entities?: string[] };
+      console.log();
+      console.log(`  ${amber("▲")} ${d.text}`);
+      console.log(dim(`    type ${d.type}`));
+      console.log(dim(`    fires on: ${(details.trigger_entities ?? []).join(", ") || "(no entities recorded)"}`));
+    }
+    console.log();
+    return;
+  }
+
   if (triggerFlag >= 0) {
     const tool = argv[triggerFlag + 1] ?? "fire_ticket";
     const res = await store.trigger({ tool, args: {} }, { group_ids: [groups.service!, groups.playbook!].filter(Boolean) });

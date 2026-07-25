@@ -25,11 +25,20 @@ Most memory demos do the first and quietly fail the second. Mise measures both.
 
 Five services at a 60-seat restaurant, run three ways, scored identically.
 
+Measured against the hosted XTrace service:
+
 | | avg fidelity | service 1 → 5 | guest records exposed |
 |---|---|---|---|
 | Context window only | 48% | 71% → 40% | 0 |
-| Single shared pool | 88% | 88% → 100% | **6** |
-| **Mise** | **90%** | **88% → 100%** | **0** |
+| Single shared pool | 88% | 88% → 88% | **6** |
+| **Mise** | **96%** | **88% → 100%** | **0** |
+
+The pooled baseline is flat. It ends its fifth service no better than its first,
+because one undifferentiated bucket has nowhere for a lesson to live. Mise climbs.
+
+(The offline stand-in scores Mise at 90% rather than 96% — real extraction and real
+vector search beat a keyword approximation, so the gap the architecture produces is
+wider on the hosted path than in the fallback.)
 
 **Context fidelity** — of the facts the agent needed in hand to answer correctly, how many it actually retrieved. Scored against the brief the agent assembled, not against prose it generated, so no model judges another model and the number means exactly one thing.
 

@@ -6,215 +6,237 @@
 <title>Mise · the pass</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --pass:#14181d;      /* the kitchen after dark */
-  --steel:#1c2229;     /* panel */
-  --steel-2:#222a32;
-  --edge:#2c353f;      /* hairline */
-  --dupe:#f4efe3;      /* thermal ticket paper */
-  --ink:#1a1a17;       /* what a dot-matrix head puts on it */
-  --lamp:#ffae28;      /* heat lamp over the pass */
-  --walkin:#5bd6c0;    /* walk-in cool */
-  --eightysix:#ff5f52;
-  --text:#e7ecf1;
-  --mute:#8a97a5;
-  --faint:#5c6875;
+  --void:#08090a;
+  --panel:#101315;
+  --panel-2:#15191c;
+  --edge:#272d33;
+  --track:#191d21;
+  --grid:#2d343b;
+  --ember:#ff3b30;      /* the coal at the centre of a wood grill */
+  --ember-mid:#d42620;
+  --ember-deep:#6b1210;
+  --ember-dim:#3d0f0e;
+  --bar-blind:#5b646d;
+  --bar-pooled:#a3adb6;
+  --bone:#f3f6f8;
+  --ash:#9aa4ac;
+  --faint:#69737c;
+  --dupe:#f4efe4;       /* thermal ticket paper */
+  --ink:#15151a;
 }
 *{box-sizing:border-box}
-html,body{margin:0;padding:0}
+html,body{margin:0;padding:0;background:var(--void)}
 body{
-  background:var(--pass);
-  color:var(--text);
+  color:var(--bone);
   font-family:'Archivo',system-ui,sans-serif;
-  font-size:15px;
-  line-height:1.5;
+  font-size:15px;line-height:1.5;
   -webkit-font-smoothing:antialiased;
 }
-.mono{font-family:'Courier Prime',ui-monospace,monospace}
 
-/* ------------------------------------------------------------------ header */
-header{
-  display:flex;align-items:baseline;gap:20px;flex-wrap:wrap;
-  padding:22px 28px 20px;
-  border-bottom:1px solid var(--edge);
-  position:relative;
-}
-header::after{ /* the lamp */
-  content:'';position:absolute;left:0;right:0;top:0;height:1px;
-  background:linear-gradient(90deg,transparent,var(--lamp),transparent);
-  opacity:.5;
-}
-.wordmark{
-  font-weight:800;font-size:23px;letter-spacing:-.02em;margin:0;
-}
-.wordmark span{color:var(--lamp)}
-.tagline{color:var(--mute);font-size:13.5px}
+/* ---------------------------------------------------------------- header */
+header{position:sticky;top:0;z-index:20;background:var(--void);border-bottom:1px solid var(--edge)}
+.head-row{display:flex;align-items:center;gap:24px;flex-wrap:wrap;padding:20px 32px 18px}
+.wordmark{font-weight:900;font-size:26px;letter-spacing:-.035em;margin:0;line-height:1}
+.wordmark i{color:var(--ember);font-style:normal}
+.tagline{color:var(--ash);font-size:13.5px}
 .spacer{flex:1}
-.link{
-  font-family:'Courier Prime',monospace;font-size:12px;color:var(--faint);
-  text-transform:uppercase;letter-spacing:.09em;
+.status{
+  font-family:'Courier Prime',monospace;font-size:11px;color:var(--ash);
+  text-transform:uppercase;letter-spacing:.11em;text-align:right;
 }
+.status b{color:var(--ember);font-weight:700}
 .run{
-  font-family:'Archivo';font-weight:600;font-size:14px;
-  background:var(--lamp);color:#241a05;border:0;border-radius:2px;
-  padding:9px 20px;cursor:pointer;letter-spacing:.01em;
+  font-family:'Archivo';font-weight:700;font-size:14px;
+  background:var(--ember);color:#160404;border:0;border-radius:3px;
+  padding:11px 26px;cursor:pointer;
 }
-.run:hover{background:#ffc059}
-.run:disabled{background:var(--edge);color:var(--faint);cursor:default}
-.run:focus-visible{outline:2px solid var(--dupe);outline-offset:2px}
+.run:hover:not(:disabled){background:#ff5a50}
+.run:disabled{background:var(--panel-2);color:var(--faint);cursor:default;box-shadow:inset 0 0 0 1px var(--edge)}
+.run:focus-visible{outline:2px solid var(--bone);outline-offset:3px}
 
-/* ------------------------------------------------------------------ layout */
-main{display:grid;grid-template-columns:1fr 380px;min-height:calc(100vh - 74px)}
-@media(max-width:1000px){main{grid-template-columns:1fr}}
-.pass{padding:26px 28px 40px}
-.rail{
-  border-left:1px solid var(--edge);
-  background:#11151a;
-  padding:22px 20px 40px;
-  overflow:hidden;
+.progress{height:3px;background:var(--panel-2);position:relative;overflow:hidden}
+.progress-fill{
+  height:100%;width:0;position:relative;overflow:hidden;
+  background:linear-gradient(90deg,var(--ember-deep),var(--ember));
+  transition:width .45s cubic-bezier(.2,.7,.3,1);
 }
+.progress.live .progress-fill::after{
+  content:'';position:absolute;top:0;right:0;width:80px;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.65));
+  animation:sweep 1.1s linear infinite;
+}
+@keyframes sweep{from{transform:translateX(-80px)}to{transform:translateX(80px)}}
 
+/* ---------------------------------------------------------------- layout */
+main{display:grid;grid-template-columns:minmax(0,1fr) 400px}
+@media(max-width:1060px){main{grid-template-columns:1fr}}
+.pass{padding:30px 32px 52px;min-width:0}
+.rail{border-left:1px solid var(--edge);background:#0b0d0e;padding:26px 22px 52px}
 .eyebrow{
   font-family:'Courier Prime',monospace;font-size:11px;
-  text-transform:uppercase;letter-spacing:.16em;color:var(--faint);
-  margin:0 0 14px;
+  text-transform:uppercase;letter-spacing:.18em;color:var(--ash);margin:0 0 6px;
 }
+.subhead{color:var(--faint);font-size:12.5px;margin:0 0 22px}
 
-/* ------------------------------------------------------------------ arms */
-.arm{margin-bottom:26px}
-.arm-head{display:flex;align-items:baseline;gap:10px;margin-bottom:9px}
-.arm-name{font-weight:600;font-size:15px}
+/* ---------------------------------------------------------------- arms */
+.arm{margin-bottom:32px;transition:opacity .3s}
+.arm.idle{opacity:.5}
+.arm-head{display:flex;align-items:baseline;gap:12px;margin-bottom:13px}
+.arm-swatch{width:10px;height:10px;flex:0 0 auto;align-self:center}
+.arm-blind  .arm-swatch{background:var(--bar-blind)}
+.arm-pooled .arm-swatch{background:var(--bar-pooled)}
+.arm-mise   .arm-swatch{background:var(--ember)}
+.arm-name{font-weight:700;font-size:16.5px;letter-spacing:-.014em}
+.arm-mise .arm-name{color:var(--ember)}
 .arm-note{color:var(--faint);font-size:12.5px}
-.arm-badge{
-  margin-left:auto;font-family:'Courier Prime',monospace;font-size:11.5px;
-  color:var(--mute);
+.arm-avg{margin-left:auto;font-family:'Courier Prime',monospace;font-size:12.5px;color:var(--bone)}
+.arm-avg span{color:var(--faint)}
+
+.services{display:flex;flex-direction:column;gap:7px}
+.svc{display:grid;grid-template-columns:64px minmax(0,1fr) 74px 88px;gap:16px;align-items:center}
+.svc-n{font-family:'Courier Prime',monospace;font-size:11.5px;color:var(--ash)}
+.track{
+  height:20px;background:var(--track);position:relative;overflow:hidden;
+  box-shadow:inset 0 0 0 1px var(--edge);
 }
-.services{display:flex;flex-direction:column;gap:5px}
-.svc{display:grid;grid-template-columns:64px 1fr 46px 92px;gap:12px;align-items:center}
-.svc-n{font-family:'Courier Prime',monospace;font-size:11.5px;color:var(--faint)}
-.track{height:15px;background:#181d23;border:1px solid var(--edge);position:relative;overflow:hidden}
-.fill{height:100%;width:0;transition:width .5s cubic-bezier(.2,.7,.3,1)}
-.arm-blind  .fill{background:#3d4854}
-.arm-pooled .fill{background:#5f6f80}
-.arm-mise   .fill{background:linear-gradient(90deg,#c07a12,var(--lamp))}
-.pct{font-family:'Courier Prime',monospace;font-size:12.5px;text-align:right}
+/* quarter marks, so a bar length is readable without a ruler */
+.track::before{
+  content:'';position:absolute;inset:0;pointer-events:none;z-index:2;
+  background:
+    linear-gradient(90deg,transparent 24.85%,var(--grid) 24.85% 25.15%,transparent 25.15%),
+    linear-gradient(90deg,transparent 49.85%,var(--grid) 49.85% 50.15%,transparent 50.15%),
+    linear-gradient(90deg,transparent 74.85%,var(--grid) 74.85% 75.15%,transparent 75.15%);
+}
+.fill{height:100%;width:0;position:relative;z-index:1;transition:width .55s cubic-bezier(.2,.7,.3,1)}
+.arm-blind  .fill{background:var(--bar-blind)}
+.arm-pooled .fill{background:var(--bar-pooled)}
+.arm-mise   .fill{background:linear-gradient(90deg,var(--ember-mid),var(--ember))}
+.arm-mise   .track{box-shadow:inset 0 0 0 1px var(--ember-dim)}
+
+.pct{font-family:'Courier Prime',monospace;font-size:13px;text-align:right;color:var(--bone);font-weight:700}
+.pct.none{color:var(--faint);font-weight:400;font-size:11px}
+.fired{color:var(--ember);font-size:10.5px;margin-left:6px;font-weight:700}
 .tag{font-family:'Courier Prime',monospace;font-size:11px;text-align:right}
-.tag.clean{color:var(--walkin)}
-.tag.exposed{color:var(--eightysix)}
+.tag.clean{color:var(--bone)}
+.tag.exposed{color:var(--ember);font-weight:700}
 .tag.na{color:var(--faint)}
 
-/* ------------------------------------------------------------------ scores */
-.scores{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
-  background:var(--edge);border:1px solid var(--edge);margin-top:28px;
-}
-.score{background:var(--steel);padding:16px 18px}
+/* ---------------------------------------------------------------- scores */
+.scores{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--edge);border:1px solid var(--edge);margin-top:36px}
+.score{background:var(--panel);padding:20px 22px 22px}
 .score-k{
-  font-family:'Courier Prime',monospace;font-size:10.5px;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--faint);margin-bottom:7px;
+  font-family:'Courier Prime',monospace;font-size:10.5px;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--ash);margin-bottom:12px;
 }
-.score-v{font-size:30px;font-weight:800;letter-spacing:-.02em;line-height:1}
-.score-v.good{color:var(--walkin)}
-.score-v.bad{color:var(--eightysix)}
-.score-v.lamp{color:var(--lamp)}
-.score-s{color:var(--mute);font-size:12.5px;margin-top:6px}
+.score-v{font-size:42px;font-weight:900;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums;color:var(--bone)}
+.score-v.ember{color:var(--ember)}
+.score-v.idle{color:var(--faint);font-size:22px;font-weight:600;letter-spacing:0}
+.score-s{color:var(--ash);font-size:12.5px;margin-top:10px;line-height:1.45}
+.score-s em{color:var(--ember);font-style:normal;font-weight:700}
 
 .note{
-  margin-top:22px;padding:14px 16px;border-left:2px solid var(--lamp);
-  background:#191d23;color:var(--mute);font-size:13.5px;max-width:62ch;
+  margin-top:28px;padding:18px 20px;border-left:3px solid var(--ember);
+  background:var(--panel);color:var(--ash);font-size:13.5px;max-width:68ch;
 }
-.note b{color:var(--text);font-weight:600}
+.note b{color:var(--bone);font-weight:600}
+.note .m{color:var(--ember);font-weight:700}
 
-/* ------------------------------------------------------------------ tickets */
-.rail-inner{display:flex;flex-direction:column;gap:9px;max-height:calc(100vh - 150px);overflow-y:auto;padding-right:4px}
+/* ---------------------------------------------------------------- rail */
+.rail-inner{display:flex;flex-direction:column;gap:10px;max-height:calc(100vh - 165px);overflow-y:auto;padding-right:6px}
 .rail-inner::-webkit-scrollbar{width:5px}
 .rail-inner::-webkit-scrollbar-thumb{background:var(--edge)}
+.rail-inner::-webkit-scrollbar-track{background:transparent}
 
 .ticket{
   background:var(--dupe);color:var(--ink);
-  font-family:'Courier Prime',monospace;font-size:11.5px;line-height:1.45;
-  padding:9px 11px 10px;position:relative;
-  animation:feed .34s cubic-bezier(.2,.8,.3,1);
-  transform-origin:top center;
+  font-family:'Courier Prime',monospace;font-size:11.5px;line-height:1.5;
+  padding:11px 13px 12px;position:relative;
+  animation:feed .32s cubic-bezier(.2,.85,.3,1);
+  box-shadow:0 1px 0 rgba(0,0,0,.6);
 }
-/* perforated top edge, the way a dupe tears off the printer */
-.ticket::before{
+.ticket::before{ /* perforation, the way a dupe tears off the printer */
   content:'';position:absolute;left:0;right:0;top:0;height:3px;
   background:repeating-linear-gradient(90deg,var(--dupe) 0 3px,transparent 3px 6px);
 }
-@keyframes feed{
-  from{opacity:0;transform:translateY(-9px) scaleY(.9)}
-  to{opacity:1;transform:none}
-}
+.ticket.hot{box-shadow:0 0 0 1px var(--ember),0 0 18px rgba(255,59,48,.22),0 1px 0 rgba(0,0,0,.6)}
+@keyframes feed{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){
   .ticket{animation:none}
-  .fill{transition:none}
+  .fill,.progress-fill{transition:none}
+  .progress.live .progress-fill::after{animation:none}
 }
 .t-head{
-  display:flex;gap:7px;align-items:center;
-  font-size:9.5px;letter-spacing:.11em;text-transform:uppercase;
-  border-bottom:1px dashed #c9c1af;padding-bottom:5px;margin-bottom:6px;
+  display:flex;gap:8px;align-items:center;
+  font-size:9px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;
+  border-bottom:1px dashed #c6bda9;padding-bottom:6px;margin-bottom:8px;
 }
-.t-kind{font-weight:700;padding:1px 5px;color:var(--dupe)}
-.t-kind.floor{background:#3f6b52}
-.t-kind.vault{background:#4a3f6b}
-.t-kind.proc{background:#8a5a08}
-.t-kind.expose{background:#a3352c}
-.t-meta{color:#7d7566;margin-left:auto}
+.t-kind{padding:2px 6px;color:var(--dupe)}
+.t-kind.floor{background:#2f3438}
+.t-kind.vault{background:#1c4a43}
+.t-kind.proc{background:#b81f16}
+.t-kind.arm{background:#15151a}
+.t-kind.err{background:#b81f16}
+.t-meta{color:#867d6c;margin-left:auto;letter-spacing:.06em}
 .t-body{white-space:pre-wrap;word-break:break-word}
-.t-fire{color:#8a5a08;font-weight:700;margin-top:5px;font-size:10.5px}
-
-.empty{color:var(--faint);font-size:13px;font-family:'Courier Prime',monospace}
+.t-fire{color:#b81f16;font-weight:700;margin-top:8px;font-size:10px;border-top:1px dashed #c6bda9;padding-top:7px}
+.empty{color:var(--faint);font-size:12.5px;font-family:'Courier Prime',monospace;line-height:1.8}
+.empty b{color:var(--ash)}
 </style>
 </head>
 <body>
 
 <header>
-  <h1 class="wordmark">MISE<span>.</span></h1>
-  <div class="tagline">Verano &middot; five services, three architectures</div>
-  <div class="spacer"></div>
-  <div class="link" id="mode">checking</div>
-  <button class="run" id="run">Run the pass</button>
+  <div class="head-row">
+    <h1 class="wordmark">MISE<i>.</i></h1>
+    <div class="tagline">Verano &middot; five services, three architectures</div>
+    <div class="spacer"></div>
+    <div class="status" id="status">connecting</div>
+    <button class="run" id="run">Run the pass</button>
+  </div>
+  <div class="progress" id="progress"><div class="progress-fill" id="progress-fill"></div></div>
 </header>
 
 <main>
   <section class="pass">
-    <p class="eyebrow">Context fidelity &middot; did the agent have the right thing in hand before it acted</p>
+    <p class="eyebrow">Context fidelity</p>
+    <p class="subhead">Of the facts the agent needed in hand before it acted, how many it actually retrieved.</p>
     <div id="arms"></div>
 
     <div class="scores">
       <div class="score">
-        <div class="score-k">Mise, service five</div>
-        <div class="score-v lamp" id="s-fid">&mdash;</div>
-        <div class="score-s" id="s-fid-sub">not run yet</div>
+        <div class="score-k">Mise &middot; service five</div>
+        <div class="score-v idle" id="s-fid">not run</div>
+        <div class="score-s" id="s-fid-sub">press run the pass</div>
       </div>
       <div class="score">
         <div class="score-k">Guest records exposed</div>
-        <div class="score-v" id="s-exp">&mdash;</div>
+        <div class="score-v idle" id="s-exp">&mdash;</div>
         <div class="score-s" id="s-exp-sub">medical facts sent to a hosted service</div>
       </div>
       <div class="score">
         <div class="score-k">Procedures fired</div>
-        <div class="score-v lamp" id="s-dir">&mdash;</div>
+        <div class="score-v idle" id="s-dir">&mdash;</div>
         <div class="score-s">unprompted, on the tripwire</div>
       </div>
     </div>
 
-    <div class="note" id="note">
+    <div class="note">
       Three ways to run the same five services. <b>Context window only</b> knows everything said
       tonight and nothing said before. <b>Single shared pool</b> puts every message in one
-      catch-all group &mdash; the shortcut most memory demos take. <b>Mise</b> routes each line
-      before writing it, keeps guest medical data in an encrypted local vault, and fires house
-      procedure off a tripwire on the action about to run.
+      catch-all group &mdash; the shortcut most memory demos take. <span class="m">Mise</span> routes
+      each line before writing it, keeps guest medical data in an encrypted local vault, and fires
+      house procedure off a tripwire on the action about to run.
     </div>
   </section>
 
   <aside class="rail">
-    <p class="eyebrow">The rail &middot; memory as it is written</p>
+    <p class="eyebrow">The rail</p>
+    <p class="subhead">Memory as it is written, and where each line was allowed to go.</p>
     <div class="rail-inner" id="rail">
-      <div class="empty">Press <b>Run the pass</b>.</div>
+      <div class="empty">Nothing on the rail.<br>Press <b>Run the pass</b>.</div>
     </div>
   </aside>
 </main>
@@ -225,25 +247,27 @@ const ARMS = [
   { key:'pooled', name:'Single shared pool',  note:'one catch-all group' },
   { key:'mise',   name:'Mise',                note:'routed, grouped, tripwired' },
 ];
+const TOTAL_SHIFTS = ARMS.length * 5;
 
 const $ = (id) => document.getElementById(id);
 const railEl = $('rail');
-let ticketCount = 0;
+let tickets = 0, shiftsDone = 0, expectedShifts = TOTAL_SHIFTS;
 
-function paintArms() {
+function paintArms(){
   $('arms').innerHTML = ARMS.map(a => `
-    <div class="arm arm-${a.key}" id="arm-${a.key}">
+    <div class="arm arm-${a.key} idle" id="arm-${a.key}">
       <div class="arm-head">
+        <span class="arm-swatch"></span>
         <span class="arm-name">${a.name}</span>
         <span class="arm-note">${a.note}</span>
-        <span class="arm-badge" id="badge-${a.key}"></span>
+        <span class="arm-avg" id="avg-${a.key}"></span>
       </div>
       <div class="services">
         ${[1,2,3,4,5].map(n => `
           <div class="svc">
             <span class="svc-n">service ${n}</span>
             <span class="track"><span class="fill" id="fill-${a.key}-${n}"></span></span>
-            <span class="pct" id="pct-${a.key}-${n}">&middot;</span>
+            <span class="pct none" id="pct-${a.key}-${n}">not run</span>
             <span class="tag" id="tag-${a.key}-${n}"></span>
           </div>`).join('')}
       </div>
@@ -251,145 +275,167 @@ function paintArms() {
 }
 paintArms();
 
-function ticket({ kind, label, meta, body, fire }) {
-  if (ticketCount === 0) railEl.innerHTML = '';
+function esc(s){ return String(s == null ? '' : s).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
+
+function ticket(o){
+  if (tickets === 0) railEl.innerHTML = '';
   const el = document.createElement('div');
-  el.className = 'ticket';
-  el.innerHTML = `
-    <div class="t-head">
-      <span class="t-kind ${kind}">${label}</span>
-      <span class="t-meta">${meta ?? ''}</span>
-    </div>
-    <div class="t-body">${escape(body)}</div>
-    ${fire ? `<div class="t-fire">▲ ${escape(fire)}</div>` : ''}`;
+  el.className = 'ticket' + (o.hot ? ' hot' : '');
+  el.innerHTML =
+    '<div class="t-head"><span class="t-kind ' + o.kind + '">' + o.label + '</span>' +
+    '<span class="t-meta">' + esc(o.meta) + '</span></div>' +
+    '<div class="t-body">' + esc(o.body) + '</div>' +
+    (o.fire ? '<div class="t-fire">&#9650; ' + esc(o.fire) + '</div>' : '');
   railEl.prepend(el);
-  ticketCount++;
-  while (railEl.children.length > 40) railEl.lastChild.remove();
+  tickets++;
+  while (railEl.children.length > 44) railEl.lastChild.remove();
 }
 
-function escape(s) {
-  return String(s ?? '').replace(/[&<>]/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;' }[c]));
+/** Counts a number up rather than snapping to it. */
+function countTo(el, target, suffix){
+  const dur = 640, t0 = performance.now();
+  el.classList.remove('idle');
+  function frame(t){
+    const p = Math.min(1, (t - t0) / dur);
+    el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3))) + (suffix || '');
+    if (p < 1) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+}
+
+function setProgress(v, live){
+  $('progress-fill').style.width = (Math.min(1, v) * 100).toFixed(1) + '%';
+  $('progress').classList.toggle('live', !!live);
+}
+
+function paintShift(r){
+  const fill = $('fill-' + r.arm + '-' + r.shift);
+  if (fill) fill.style.width = (r.fidelity * 100).toFixed(0) + '%';
+  const pct = $('pct-' + r.arm + '-' + r.shift);
+  if (pct){
+    pct.className = 'pct';
+    pct.innerHTML = Math.round(r.fidelity * 100) + '%' +
+      (r.directivesFired ? '<span class="fired">&#9650;' + r.directivesFired + '</span>' : '');
+  }
+  const tag = $('tag-' + r.arm + '-' + r.shift);
+  if (!tag) return;
+  if (r.arm === 'blind'){ tag.className = 'tag na'; tag.textContent = 'n/a'; }
+  else if (r.exposed > 0){ tag.className = 'tag exposed'; tag.textContent = r.exposed + ' exposed'; }
+  else { tag.className = 'tag clean'; tag.textContent = '0 exposed'; }
 }
 
 fetch('/api/state').then(r => r.json()).then(s => {
-  $('mode').textContent = s.offline ? 'offline stand-in' : 'xtrace hosted · ' + s.namespace;
-  if (s.last) apply(s.last.results, s.last.summary);
+  $('status').innerHTML = s.offline
+    ? 'offline stand-in'
+    : '<b>xtrace hosted</b> &middot; ' + esc(s.namespace);
+  if (s.last && s.last.results && s.last.results.length){
+    ARMS.forEach(a => $('arm-' + a.key).classList.remove('idle'));
+    apply(s.last.results, true);
+  }
 });
 
-$('run').addEventListener('click', () => {
+$('run').addEventListener('click', function(){
   const btn = $('run');
-  btn.disabled = true;
-  btn.textContent = 'Running…';
-  railEl.innerHTML = '';
-  ticketCount = 0;
-  paintArms();
+  btn.disabled = true; btn.textContent = 'Running';
+  railEl.innerHTML = ''; tickets = 0; shiftsDone = 0; expectedShifts = TOTAL_SHIFTS;
+  paintArms(); setProgress(0, true);
+  ['s-fid','s-exp','s-dir'].forEach(function(id){
+    $(id).className = 'score-v idle'; $(id).textContent = '—';
+  });
 
   const src = new EventSource('/api/replay');
-  let arm = null;
 
-  src.onmessage = (e) => {
-    const { kind, payload } = JSON.parse(e.data);
+  src.onmessage = function(e){
+    const msg = JSON.parse(e.data);
+    const kind = msg.kind, payload = msg.payload;
 
-    if (kind === 'arm') {
-      arm = payload.arm;
-      ticket({ kind:'proc', label:'ARM', meta:payload.arm, body:payload.label });
+    if (kind === 'arm'){
+      ARMS.forEach(a => $('arm-' + a.key).classList.toggle('idle', a.key !== payload.arm));
+      btn.textContent = 'Running · ' + payload.label;
+      ticket({ kind:'arm', label:'ARM', meta:payload.arm, body:payload.label });
     }
-
-    if (kind === 'seeded' && payload.arm === 'mise') {
+    if (kind === 'seeded' && payload.arm === 'mise'){
       ticket({ kind:'floor', label:'SEED', meta:'pre-service',
-        body:`${payload.conversations} house conversations + ${payload.background} background messages loaded` });
+        body: payload.conversations + ' house conversations and ' + payload.background + ' background messages loaded' });
     }
-
-    if (kind === 'turn' && payload.arm === 'mise') {
-      ticket({ kind:'floor', label:'FLOOR', meta:`svc ${payload.shift} · ${payload.user}`, body:payload.text });
+    if (kind === 'turn' && payload.arm === 'mise'){
+      ticket({ kind:'floor', label:'FLOOR', meta:'svc ' + payload.shift + ' · ' + payload.user, body:payload.text });
     }
-
-    if (kind === 'trigger') {
-      ticket({ kind:'proc', label:'PROCEDURE', meta:payload.action.tool,
-        body:payload.rows[0]?.text ?? '', fire:`fired before ${payload.action.tool} ran` });
+    if (kind === 'trigger'){
+      ticket({ kind:'proc', label:'PROCEDURE', meta:payload.action.tool, hot:true,
+        body:(payload.rows[0] && payload.rows[0].text) || '',
+        fire:'fired before ' + payload.action.tool + ' ran' });
     }
-
-    if (kind === 'probe' && payload.arm === 'mise' && payload.recalledCount) {
-      const v = payload.vaultLines ?? [];
-      if (payload.fidelity === 1) {
-        ticket({ kind:'vault', label:'BRIEF', meta:`svc ${payload.shift} · ${payload.asker}`,
-          body:payload.query, fire:`answered from ${payload.recalledCount} recalled rows` });
-      }
-    }
-
-    if (kind === 'shift') {
-      const p = payload;
-      const fill = $(`fill-${p.arm}-${p.shift}`);
-      if (fill) fill.style.width = (p.fidelity * 100).toFixed(0) + '%';
-      const pct = $(`pct-${p.arm}-${p.shift}`);
-      if (pct) pct.textContent = Math.round(p.fidelity * 100) + '%';
-      const tag = $(`tag-${p.arm}-${p.shift}`);
-      if (tag) {
-        if (p.arm === 'blind') { tag.className = 'tag na'; tag.textContent = '—'; }
-        else if (p.exposed > 0) { tag.className = 'tag exposed'; tag.textContent = p.exposed + ' exposed'; }
-        else { tag.className = 'tag clean'; tag.textContent = '0 exposed'; }
-      }
-    }
-
-    if (kind === 'debrief' && payload.arm === 'mise') {
-      ticket({ kind:'proc', label:'DEBRIEF', meta:`svc ${payload.shift}`,
-        body:`${payload.directives} standing procedure(s) learned — condition redacted, category kept`,
+    if (kind === 'debrief' && payload.arm === 'mise'){
+      ticket({ kind:'vault', label:'DEBRIEF', meta:'svc ' + payload.shift,
+        body: payload.directives + ' standing procedure(s) learned. Condition redacted, category kept.',
         fire:'available to tomorrow\u2019s tripwire' });
     }
-
-    if (kind === 'done') {
+    if (kind === 'shift'){
+      paintShift(payload);
+      shiftsDone++;
+      setProgress(shiftsDone / expectedShifts, true);
+    }
+    if (kind === 'done'){
+      setProgress(1, false);
+      ARMS.forEach(a => $('arm-' + a.key).classList.remove('idle'));
       apply(payload.results);
-      btn.disabled = false;
-      btn.textContent = 'Run again';
+      btn.disabled = false; btn.textContent = 'Run again';
       src.close();
     }
-
-    if (kind === 'error') {
-      ticket({ kind:'expose', label:'ERROR', meta:'', body:payload.message });
-      btn.disabled = false;
-      btn.textContent = 'Run the pass';
+    if (kind === 'error'){
+      ticket({ kind:'err', label:'ERROR', meta:'run stopped', body:payload.message });
+      setProgress(shiftsDone / expectedShifts, false);
+      btn.disabled = false; btn.textContent = 'Run the pass';
       src.close();
     }
   };
 
-  src.onerror = () => { btn.disabled = false; btn.textContent = 'Run the pass'; src.close(); };
+  src.onerror = function(){
+    setProgress(shiftsDone / expectedShifts, false);
+    btn.disabled = false; btn.textContent = 'Run the pass';
+    src.close();
+  };
 });
 
-function apply(results) {
-  for (const r of results) {
-    const fill = $(`fill-${r.arm}-${r.shift}`);
-    if (fill) fill.style.width = (r.fidelity * 100).toFixed(0) + '%';
-    const pct = $(`pct-${r.arm}-${r.shift}`);
-    if (pct) pct.textContent = Math.round(r.fidelity * 100) + '%';
-    const tag = $(`tag-${r.arm}-${r.shift}`);
-    if (tag) {
-      if (r.arm === 'blind') { tag.className = 'tag na'; tag.textContent = '—'; }
-      else if (r.exposed > 0) { tag.className = 'tag exposed'; tag.textContent = r.exposed + ' exposed'; }
-      else { tag.className = 'tag clean'; tag.textContent = '0 exposed'; }
-    }
-  }
+function apply(results, quiet){
+  results.forEach(paintShift);
 
-  for (const a of ARMS) {
+  ARMS.forEach(function(a){
     const rows = results.filter(r => r.arm === a.key);
-    if (!rows.length) continue;
+    const el = $('avg-' + a.key);
+    if (!rows.length){ el.innerHTML = '<span>not run</span>'; return; }
     const avg = rows.reduce((s, r) => s + r.fidelity, 0) / rows.length;
-    $(`badge-${a.key}`).textContent = `avg ${Math.round(avg * 100)}%`;
-  }
+    el.innerHTML = '<span>avg</span> ' + Math.round(avg * 100) + '%';
+  });
 
   const mise = results.filter(r => r.arm === 'mise');
   const pooled = results.filter(r => r.arm === 'pooled');
-  if (mise.length) {
+
+  if (mise.length){
     const last = mise[mise.length - 1];
-    $('s-fid').textContent = Math.round(last.fidelity * 100) + '%';
-    $('s-fid-sub').textContent = `up from ${Math.round(mise[0].fidelity * 100)}% on service one`;
-    $('s-dir').textContent = mise.reduce((s, r) => s + r.directivesFired, 0);
+    const el = $('s-fid');
+    el.className = 'score-v ember';
+    if (quiet) el.textContent = Math.round(last.fidelity * 100) + '%';
+    else countTo(el, Math.round(last.fidelity * 100), '%');
+    $('s-fid-sub').textContent = 'up from ' + Math.round(mise[0].fidelity * 100) + '% on service one';
+
+    const dirs = mise.reduce((s, r) => s + r.directivesFired, 0);
+    const d = $('s-dir');
+    d.className = 'score-v ember';
+    if (quiet) d.textContent = dirs; else countTo(d, dirs);
   }
-  if (pooled.length) {
-    const worst = Math.max(...pooled.map(r => r.exposed));
-    const el = $('s-exp');
+
+  const el = $('s-exp');
+  if (pooled.length){
+    const worst = Math.max.apply(null, pooled.map(r => r.exposed));
+    el.className = 'score-v';
     el.textContent = '0';
-    el.className = 'score-v good';
-    $('s-exp-sub').textContent = `the pooled baseline is holding ${worst}`;
+    $('s-exp-sub').innerHTML = 'the pooled baseline is holding <em>' + worst + '</em>';
+  } else if (mise.length){
+    el.className = 'score-v';
+    el.textContent = '0';
+    $('s-exp-sub').innerHTML = 'run all three arms to see the baseline';
   }
 }
 </script>

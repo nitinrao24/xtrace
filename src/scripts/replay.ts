@@ -9,6 +9,25 @@ import { run, summarise } from "../eval/harness.ts";
 import { saveState, explain } from "../config.ts";
 import type { Arm } from "../types.ts";
 
+// A run that ends without either a report or an error is the worst outcome to
+// debug, so make every abnormal exit say something.
+let finished = false;
+process.on("unhandledRejection", (reason) => {
+  console.error("\n  unhandled rejection:", explain(reason));
+  process.exit(1);
+});
+process.on("uncaughtException", (err) => {
+  console.error("\n  uncaught exception:", explain(err));
+  process.exit(1);
+});
+process.on("exit", (code) => {
+  if (!finished) {
+    console.error(`\n  exited early (code ${code}) with no result.`);
+    console.error("  The event loop drained mid-run — usually a request that never settled.");
+    console.error("  Run  npm run doctor  to test each call on its own.");
+  }
+});
+
 const dim = (s: string) => `\x1b[2m${s}\x1b[0m`;
 const bold = (s: string) => `\x1b[1m${s}\x1b[0m`;
 const amber = (s: string) => `\x1b[38;5;214m${s}\x1b[0m`;
@@ -96,12 +115,14 @@ async function main(): Promise<void> {
     console.log();
   }
 
+  finished = true;
   saveState("last-run.json", { offline, vaultBackend, results, summary });
   console.log(dim("  written to .mise/last-run.json  ·  npm run dev for the live board"));
   console.log();
 }
 
 main().catch((err) => {
+  finished = true;
   console.error("\n  replay failed:", explain(err));
   console.error(dim("  If this is a network error, check the proxy/VPN or run with MISE_OFFLINE=1."));
   process.exit(1);
