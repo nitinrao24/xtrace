@@ -3,397 +3,454 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mise · the pass</title>
+<title>Mise · the board</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --void:#08090a;
-  --panel:#101315;
-  --panel-2:#15191c;
-  --edge:#272d33;
-  --track:#191d21;
-  --grid:#2d343b;
-  --ember:#ff3b30;      /* the coal at the centre of a wood grill */
-  --ember-mid:#d42620;
-  --ember-deep:#6b1210;
-  --ember-dim:#3d0f0e;
-  --bar-blind:#5b646d;
-  --bar-pooled:#a3adb6;
-  --bone:#f3f6f8;
-  --ash:#9aa4ac;
-  --faint:#69737c;
-  --dupe:#f4efe4;       /* thermal ticket paper */
-  --ink:#15151a;
+  --void:#0a0d0e;
+  --panel:#101617;
+  --track:#141b1d;
+  --line:rgba(255,255,255,0.09);
+  --mint:#5fe3c2;
+  --mint-soft:#9ff0dd;
+  --coral:#ff8a7a;
+  --amber:#f2b45c;
+  --white:#ffffff;
+  --text:#f0f5f5;
+  --text-2:#dae5e6;
+  --text-3:#a7b4b7;
+  --mute:#8d9a9d;
+  --faint:#6e7b7e;
+  --dim:#657174;
+  --bar-blind:#5a686b;
+  --bar-pooled:#8d9a9d;
 }
 *{box-sizing:border-box}
 html,body{margin:0;padding:0;background:var(--void)}
 body{
-  color:var(--bone);
-  font-family:'Archivo',system-ui,sans-serif;
-  font-size:15px;line-height:1.5;
-  -webkit-font-smoothing:antialiased;
+  min-height:100vh;
+  background:
+    radial-gradient(900px 480px at 12% -8%, rgba(95,227,194,0.09), transparent 62%),
+    radial-gradient(700px 420px at 92% 8%, rgba(242,180,92,0.05), transparent 60%),
+    var(--void);
+  font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
+  color:var(--text);
+}
+.mono{font-family:'IBM Plex Mono',ui-monospace,monospace}
+
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes riseIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes pulseDot{0%,100%{opacity:1}50%{opacity:.15}}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
 }
 
 /* ---------------------------------------------------------------- header */
-header{position:sticky;top:0;z-index:20;background:var(--void);border-bottom:1px solid var(--edge)}
-.head-row{display:flex;align-items:center;gap:24px;flex-wrap:wrap;padding:20px 32px 18px}
-.wordmark{font-weight:900;font-size:26px;letter-spacing:-.035em;margin:0;line-height:1}
-.wordmark i{color:var(--ember);font-style:normal}
-.tagline{color:var(--ash);font-size:13.5px}
-.spacer{flex:1}
-.status{
-  font-family:'Courier Prime',monospace;font-size:11px;color:var(--ash);
-  text-transform:uppercase;letter-spacing:.11em;text-align:right;
+.head{
+  display:flex;align-items:center;justify-content:space-between;gap:32px;
+  padding:26px 40px;border-bottom:1px solid var(--line);
+  animation:fadeIn .8s ease both;flex-wrap:wrap;
 }
-.status b{color:var(--ember);font-weight:700}
+.brand{display:flex;align-items:baseline;gap:28px;flex-wrap:wrap}
+.wordmark{font-size:34px;font-weight:700;letter-spacing:-.02em;color:var(--white)}
+.wordmark i{color:var(--mint);font-style:normal}
+.sub{font-size:14px;color:#9aa7aa}
+.meta{
+  display:flex;align-items:center;gap:22px;
+  font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:500;
+  letter-spacing:.2em;text-transform:uppercase;
+}
+.meta .live{color:var(--mint)}
+.meta .ns{color:var(--faint)}
 .run{
-  font-family:'Archivo';font-weight:700;font-size:14px;
-  background:var(--ember);color:#160404;border:0;border-radius:3px;
-  padding:11px 26px;cursor:pointer;
+  display:flex;align-items:center;gap:9px;padding:11px 20px;
+  border:1px solid rgba(255,255,255,.14);color:var(--text);
+  background:none;cursor:pointer;
+  font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:500;
+  letter-spacing:.2em;text-transform:uppercase;transition:border-color .25s ease;
 }
-.run:hover:not(:disabled){background:#ff5a50}
-.run:disabled{background:var(--panel-2);color:var(--faint);cursor:default;box-shadow:inset 0 0 0 1px var(--edge)}
-.run:focus-visible{outline:2px solid var(--bone);outline-offset:3px}
+.run:hover:not(:disabled){border-color:rgba(255,255,255,.45)}
+.run:disabled{color:var(--faint);cursor:default}
+.run:focus-visible{outline:2px solid var(--mint);outline-offset:3px}
+.dot{width:5px;height:5px;border-radius:50%;background:var(--mint)}
+.run.busy .dot{animation:pulseDot 1.8s ease-in-out infinite}
 
-.progress{height:3px;background:var(--panel-2);position:relative;overflow:hidden}
-.progress-fill{
-  height:100%;width:0;position:relative;overflow:hidden;
-  background:linear-gradient(90deg,var(--ember-deep),var(--ember));
-  transition:width .45s cubic-bezier(.2,.7,.3,1);
+.progress{height:2px;background:rgba(255,255,255,.06)}
+.progress > div{
+  height:100%;width:100%;transform-origin:left;transform:scaleX(0);
+  transition:transform 1s cubic-bezier(.2,.8,.2,1);will-change:transform;
+  background:linear-gradient(90deg,var(--mint),var(--coral));
 }
-.progress.live .progress-fill::after{
-  content:'';position:absolute;top:0;right:0;width:80px;height:100%;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,.65));
-  animation:sweep 1.1s linear infinite;
-}
-@keyframes sweep{from{transform:translateX(-80px)}to{transform:translateX(80px)}}
 
 /* ---------------------------------------------------------------- layout */
-main{display:grid;grid-template-columns:minmax(0,1fr) 400px}
-@media(max-width:1060px){main{grid-template-columns:1fr}}
-.pass{padding:30px 32px 52px;min-width:0}
-.rail{border-left:1px solid var(--edge);background:#0b0d0e;padding:26px 22px 52px}
-.eyebrow{
-  font-family:'Courier Prime',monospace;font-size:11px;
-  text-transform:uppercase;letter-spacing:.18em;color:var(--ash);margin:0 0 6px;
+main{display:grid;grid-template-columns:minmax(0,1fr) clamp(300px,27%,400px);align-items:start}
+@media(max-width:1040px){main{grid-template-columns:1fr}}
+.pass{padding:44px clamp(24px,3.5vw,48px) 80px;min-width:0}
+
+.masthead{
+  display:flex;align-items:flex-end;justify-content:space-between;gap:40px;
+  animation:riseIn .9s .1s ease both;flex-wrap:wrap;
 }
-.subhead{color:var(--faint);font-size:12.5px;margin:0 0 22px}
+.masthead .copy{display:flex;flex-direction:column;gap:12px;max-width:620px}
+.eyebrow{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:500;
+  letter-spacing:.28em;text-transform:uppercase;color:var(--mint);
+}
+.masthead p{margin:0;font-size:16px;line-height:1.6;color:var(--text-3)}
+.ghost{
+  font-size:96px;font-weight:700;letter-spacing:-.04em;line-height:.8;
+  color:transparent;-webkit-text-stroke:1px rgba(95,227,194,.32);
+  user-select:none;flex:none;font-variant-numeric:tabular-nums;
+}
 
 /* ---------------------------------------------------------------- arms */
-.arm{margin-bottom:32px;transition:opacity .3s}
-.arm.idle{opacity:.5}
-.arm-head{display:flex;align-items:baseline;gap:12px;margin-bottom:13px}
-.arm-swatch{width:10px;height:10px;flex:0 0 auto;align-self:center}
-.arm-blind  .arm-swatch{background:var(--bar-blind)}
-.arm-pooled .arm-swatch{background:var(--bar-pooled)}
-.arm-mise   .arm-swatch{background:var(--ember)}
-.arm-name{font-weight:700;font-size:16.5px;letter-spacing:-.014em}
-.arm-mise .arm-name{color:var(--ember)}
-.arm-note{color:var(--faint);font-size:12.5px}
-.arm-avg{margin-left:auto;font-family:'Courier Prime',monospace;font-size:12.5px;color:var(--bone)}
-.arm-avg span{color:var(--faint)}
+.arm{padding:38px 0 12px;transition:opacity .4s ease}
+.arm.idle{opacity:.45}
+.arm-head{display:flex;align-items:center;gap:14px;margin-bottom:22px;flex-wrap:wrap}
+.swatch{width:10px;height:10px;flex:none}
+.arm-blind  .swatch{background:var(--bar-blind)}
+.arm-pooled .swatch{background:var(--bar-pooled)}
+.arm-mise   .swatch{background:var(--mint)}
+.arm-name{font-size:22px;font-weight:700;letter-spacing:-.01em;color:var(--text-2)}
+.arm-mise .arm-name{color:var(--mint)}
+.arm-note{font-size:14px;color:#7a878a}
+.rule{flex:1;height:1px;background:rgba(255,255,255,.07);min-width:20px}
+.arm-mise .rule{background:rgba(95,227,194,.3)}
+.avg-k{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--faint)}
+.avg-v{font-family:'IBM Plex Mono',monospace;font-size:16px;font-weight:500;color:var(--text-2)}
+.arm-mise .avg-v{color:var(--white)}
 
-.services{display:flex;flex-direction:column;gap:7px}
-.svc{display:grid;grid-template-columns:64px minmax(0,1fr) 74px 88px;gap:16px;align-items:center}
-.svc-n{font-family:'Courier Prime',monospace;font-size:11.5px;color:var(--ash)}
-.track{
-  height:20px;background:var(--track);position:relative;overflow:hidden;
-  box-shadow:inset 0 0 0 1px var(--edge);
+.row{
+  display:grid;grid-template-columns:84px minmax(120px,1fr) 62px 96px;
+  align-items:center;gap:16px;padding:5px 0;
 }
-/* quarter marks, so a bar length is readable without a ruler */
-.track::before{
-  content:'';position:absolute;inset:0;pointer-events:none;z-index:2;
-  background:
-    linear-gradient(90deg,transparent 24.85%,var(--grid) 24.85% 25.15%,transparent 25.15%),
-    linear-gradient(90deg,transparent 49.85%,var(--grid) 49.85% 50.15%,transparent 50.15%),
-    linear-gradient(90deg,transparent 74.85%,var(--grid) 74.85% 75.15%,transparent 75.15%);
+.row-label{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--faint)}
+.arm-mise .row-label{color:#849194}
+.track{height:22px;background:var(--track);position:relative;overflow:hidden}
+.track::before{ /* fifths, so a bar length reads without a ruler */
+  content:'';position:absolute;inset:0;
+  background-image:linear-gradient(90deg,rgba(255,255,255,.05) 0 1px,transparent 1px 100%);
+  background-size:20% 100%;
 }
-.fill{height:100%;width:0;position:relative;z-index:1;transition:width .55s cubic-bezier(.2,.7,.3,1)}
+.fill{
+  position:absolute;inset:0;width:100%;
+  transform-origin:left center;transform:scaleX(0);
+  transition:transform 1.1s cubic-bezier(.2,.8,.2,1);will-change:transform;
+}
 .arm-blind  .fill{background:var(--bar-blind)}
 .arm-pooled .fill{background:var(--bar-pooled)}
-.arm-mise   .fill{background:linear-gradient(90deg,var(--ember-mid),var(--ember))}
-.arm-mise   .track{box-shadow:inset 0 0 0 1px var(--ember-dim)}
-
-.pct{font-family:'Courier Prime',monospace;font-size:13px;text-align:right;color:var(--bone);font-weight:700}
-.pct.none{color:var(--faint);font-weight:400;font-size:11px}
-.fired{color:var(--ember);font-size:10.5px;margin-left:6px;font-weight:700}
-.tag{font-family:'Courier Prime',monospace;font-size:11px;text-align:right}
-.tag.clean{color:var(--bone)}
-.tag.exposed{color:var(--ember);font-weight:700}
-.tag.na{color:var(--faint)}
+.arm-mise   .fill{background:var(--mint);box-shadow:0 0 22px rgba(95,227,194,.35)}
+.pct{font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;text-align:right;color:var(--text-2)}
+.pct.none{color:var(--dim);font-size:10px;letter-spacing:.1em;text-transform:uppercase}
+.fired{color:var(--amber);font-size:10px;margin-left:5px}
+.note{font-family:'IBM Plex Mono',monospace;font-size:11px;text-align:right;color:var(--faint)}
+.note.clean{color:var(--mint)}
+.note.exposed{color:var(--coral)}
 
 /* ---------------------------------------------------------------- scores */
-.scores{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--edge);border:1px solid var(--edge);margin-top:36px}
-.score{background:var(--panel);padding:20px 22px 22px}
-.score-k{
-  font-family:'Courier Prime',monospace;font-size:10.5px;letter-spacing:.15em;
-  text-transform:uppercase;color:var(--ash);margin-bottom:12px;
+.scores{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;margin-top:44px;
+  background:var(--line);border:1px solid var(--line);
 }
-.score-v{font-size:42px;font-weight:900;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums;color:var(--bone)}
-.score-v.ember{color:var(--ember)}
-.score-v.idle{color:var(--faint);font-size:22px;font-weight:600;letter-spacing:0}
-.score-s{color:var(--ash);font-size:12.5px;margin-top:10px;line-height:1.45}
-.score-s em{color:var(--ember);font-style:normal;font-weight:700}
+@media(max-width:900px){.scores{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.card{background:var(--panel);padding:26px 28px;display:flex;flex-direction:column;gap:14px}
+.card-k{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#849194}
+.card-r{width:22px;height:1px;background:#3a474a}
+.card-v{font-size:34px;font-weight:700;letter-spacing:-.02em;line-height:1;color:var(--white);font-variant-numeric:tabular-nums}
+.card-v.idle{font-size:20px;color:var(--dim);font-weight:400}
+.card-v.mint{color:var(--mint)}
+.card-v.coral{color:var(--coral)}
+.card-s{font-size:14px;color:var(--mute);line-height:1.45}
+.card-s em{color:var(--coral);font-style:normal}
 
-.note{
-  margin-top:28px;padding:18px 20px;border-left:3px solid var(--ember);
-  background:var(--panel);color:var(--ash);font-size:13.5px;max-width:68ch;
+.blurb{margin-top:36px;border-left:2px solid var(--mint);background:var(--panel);padding:24px 28px}
+.blurb p{margin:0;font-size:15px;line-height:1.75;color:var(--text-3);max-width:760px}
+.blurb b{color:var(--text);font-weight:700}
+.blurb .m{color:var(--mint);font-weight:700}
+
+.footnote{
+  margin-top:20px;font-family:'IBM Plex Mono',monospace;font-size:11px;
+  color:var(--faint);line-height:1.8;
 }
-.note b{color:var(--bone);font-weight:600}
-.note .m{color:var(--ember);font-weight:700}
 
 /* ---------------------------------------------------------------- rail */
-.rail-inner{display:flex;flex-direction:column;gap:10px;max-height:calc(100vh - 165px);overflow-y:auto;padding-right:6px}
-.rail-inner::-webkit-scrollbar{width:5px}
-.rail-inner::-webkit-scrollbar-thumb{background:var(--edge)}
-.rail-inner::-webkit-scrollbar-track{background:transparent}
-
-.ticket{
-  background:var(--dupe);color:var(--ink);
-  font-family:'Courier Prime',monospace;font-size:11.5px;line-height:1.5;
-  padding:11px 13px 12px;position:relative;
-  animation:feed .32s cubic-bezier(.2,.85,.3,1);
-  box-shadow:0 1px 0 rgba(0,0,0,.6);
+.rail{
+  position:sticky;top:0;height:100vh;border-left:1px solid var(--line);
+  padding:44px 32px;display:flex;flex-direction:column;gap:24px;overflow:hidden;
 }
-.ticket::before{ /* perforation, the way a dupe tears off the printer */
-  content:'';position:absolute;left:0;right:0;top:0;height:3px;
-  background:repeating-linear-gradient(90deg,var(--dupe) 0 3px,transparent 3px 6px);
+@media(max-width:1040px){.rail{position:static;height:auto}}
+.rail-head{display:flex;flex-direction:column;gap:10px;flex:none}
+.rail-head .eyebrow{color:var(--mute)}
+.rail-head p{margin:0;font-size:14px;line-height:1.6;color:var(--text-3)}
+.rail-list{display:flex;flex-direction:column;gap:14px;overflow:hidden;min-height:0;flex:1}
+.entry{
+  display:flex;flex-direction:column;gap:10px;padding:16px 18px;
+  background:var(--panel);border-left:2px solid var(--faint);
+  animation:riseIn .5s ease both;flex:none;
 }
-.ticket.hot{box-shadow:0 0 0 1px var(--ember),0 0 18px rgba(255,59,48,.22),0 1px 0 rgba(0,0,0,.6)}
-@keyframes feed{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:none}}
-@media(prefers-reduced-motion:reduce){
-  .ticket{animation:none}
-  .fill,.progress-fill{transition:none}
-  .progress.live .progress-fill::after{animation:none}
+.entry.floor{border-left-color:var(--bar-pooled)}
+.entry.vault{border-left-color:var(--mint)}
+.entry.proc{border-left-color:var(--amber);box-shadow:0 0 24px rgba(242,180,92,.12)}
+.entry.arm{border-left-color:var(--faint)}
+.entry.err{border-left-color:var(--coral)}
+.entry-head{
+  display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+  font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;
 }
-.t-head{
-  display:flex;gap:8px;align-items:center;
-  font-size:9px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;
-  border-bottom:1px dashed #c6bda9;padding-bottom:6px;margin-bottom:8px;
+.entry.floor .entry-head span:first-child{color:var(--bar-pooled)}
+.entry.vault .entry-head span:first-child{color:var(--mint)}
+.entry.proc  .entry-head span:first-child{color:var(--amber)}
+.entry.err   .entry-head span:first-child{color:var(--coral)}
+.entry.arm   .entry-head span:first-child{color:var(--faint)}
+.entry-head span:last-child{color:var(--dim)}
+.entry-body{font-size:14px;line-height:1.55;color:#dde8e9}
+.entry-fire{
+  font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--amber);padding-top:8px;
+  border-top:1px solid rgba(255,255,255,.07);
 }
-.t-kind{padding:2px 6px;color:var(--dupe)}
-.t-kind.floor{background:#2f3438}
-.t-kind.vault{background:#1c4a43}
-.t-kind.proc{background:#b81f16}
-.t-kind.arm{background:#15151a}
-.t-kind.err{background:#b81f16}
-.t-meta{color:#867d6c;margin-left:auto;letter-spacing:.06em}
-.t-body{white-space:pre-wrap;word-break:break-word}
-.t-fire{color:#b81f16;font-weight:700;margin-top:8px;font-size:10px;border-top:1px dashed #c6bda9;padding-top:7px}
-.empty{color:var(--faint);font-size:12.5px;font-family:'Courier Prime',monospace;line-height:1.8}
-.empty b{color:var(--ash)}
+.rail-foot{
+  margin-top:auto;display:flex;flex-direction:column;gap:10px;
+  padding-top:20px;border-top:1px solid var(--line);flex:none;
+}
+.rail-foot span{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--faint)}
+.rail-foot p{margin:0;font-size:13px;line-height:1.65;color:var(--mute)}
+.empty{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--dim);line-height:1.9}
 </style>
 </head>
 <body>
 
-<header>
-  <div class="head-row">
-    <h1 class="wordmark">MISE<i>.</i></h1>
-    <div class="tagline">Verano &middot; five services, three architectures</div>
-    <div class="spacer"></div>
-    <div class="status" id="status">connecting</div>
-    <button class="run" id="run">Run the pass</button>
+<div class="head">
+  <div class="brand">
+    <span class="wordmark">MISE<i>.</i></span>
+    <span class="sub">Verano · five services, three architectures</span>
   </div>
-  <div class="progress" id="progress"><div class="progress-fill" id="progress-fill"></div></div>
-</header>
+  <div class="meta">
+    <span class="live" id="live">connecting</span>
+    <span class="ns" id="ns"></span>
+    <button class="run" id="run"><span class="dot"></span><span id="run-label">Run the pass</span></button>
+  </div>
+</div>
+<div class="progress"><div id="progress-fill"></div></div>
 
 <main>
   <section class="pass">
-    <p class="eyebrow">Context fidelity</p>
-    <p class="subhead">Of the facts the agent needed in hand before it acted, how many it actually retrieved.</p>
+    <div class="masthead">
+      <div class="copy">
+        <span class="eyebrow">Context fidelity</span>
+        <p>Of the facts the agent needed in hand before it acted, how many it actually retrieved.</p>
+      </div>
+      <span class="ghost" id="ghost">—</span>
+    </div>
+
     <div id="arms"></div>
 
     <div class="scores">
-      <div class="score">
-        <div class="score-k">Mise &middot; service five</div>
-        <div class="score-v idle" id="s-fid">not run</div>
-        <div class="score-s" id="s-fid-sub">press run the pass</div>
+      <div class="card">
+        <span class="card-k">Mise · service five</span><span class="card-r"></span>
+        <span class="card-v idle" id="c-fid">not run</span>
+        <span class="card-s" id="c-fid-s">press run the pass</span>
       </div>
-      <div class="score">
-        <div class="score-k">Guest records exposed</div>
-        <div class="score-v idle" id="s-exp">&mdash;</div>
-        <div class="score-s" id="s-exp-sub">medical facts sent to a hosted service</div>
+      <div class="card">
+        <span class="card-k">Guest records exposed</span><span class="card-r"></span>
+        <span class="card-v idle" id="c-exp">—</span>
+        <span class="card-s" id="c-exp-s">measured at the wire, not at retrieval</span>
       </div>
-      <div class="score">
-        <div class="score-k">Procedures fired</div>
-        <div class="score-v idle" id="s-dir">&mdash;</div>
-        <div class="score-s">unprompted, on the tripwire</div>
+      <div class="card">
+        <span class="card-k">Procedures fired</span><span class="card-r"></span>
+        <span class="card-v idle" id="c-dir">—</span>
+        <span class="card-s">unprompted, on the tripwire</span>
+      </div>
+      <div class="card">
+        <span class="card-k">Tokens per answer</span><span class="card-r"></span>
+        <span class="card-v idle" id="c-tok">—</span>
+        <span class="card-s" id="c-tok-s">bounded by retrieval, not by history</span>
       </div>
     </div>
 
-    <div class="note">
-      Three ways to run the same five services. <b>Context window only</b> knows everything said
-      tonight and nothing said before. <b>Single shared pool</b> puts every message in one
-      catch-all group &mdash; the shortcut most memory demos take. <span class="m">Mise</span> routes
-      each line before writing it, keeps guest medical data in an encrypted local vault, and fires
-      house procedure off a tripwire on the action about to run.
+    <div class="blurb">
+      <p>Three ways to run the same five services. <b>Full transcript in context</b> carries every
+      turn and every debrief forward and never evicts — at this scale it is perfect, and it should
+      be. <b>Single shared pool</b> puts every message in one catch-all group, the shortcut most
+      memory demos take. <span class="m">Mise</span> routes each line before writing it, keeps guest
+      medical data in an encrypted local vault, and fires house procedure off a tripwire on the
+      action about to run.</p>
     </div>
+
+    <div class="footnote" id="footnote"></div>
   </section>
 
   <aside class="rail">
-    <p class="eyebrow">The rail</p>
-    <p class="subhead">Memory as it is written, and where each line was allowed to go.</p>
-    <div class="rail-inner" id="rail">
-      <div class="empty">Nothing on the rail.<br>Press <b>Run the pass</b>.</div>
+    <div class="rail-head">
+      <span class="eyebrow">The rail</span>
+      <p>Memory as it is written, and where each line was allowed to go.</p>
+    </div>
+    <div class="rail-list" id="rail">
+      <div class="empty">Nothing on the rail.<br>Press run the pass.</div>
+    </div>
+    <div class="rail-foot">
+      <span>Hosted · grouped &nbsp;/&nbsp; Vault · sealed</span>
+      <p>Public pointer, private payload. Hosted memory holds that a named guest is in the room;
+      the vault holds what that name implies.</p>
     </div>
   </aside>
 </main>
 
 <script>
-const ARMS = [
-  { key:'blind',  name:'Context window only', note:'no persistence' },
-  { key:'pooled', name:'Single shared pool',  note:'one catch-all group' },
-  { key:'mise',   name:'Mise',                note:'routed, grouped, tripwired' },
+var ARMS = [
+  { key:'blind',  name:'Full transcript in context', note:'no memory layer' },
+  { key:'pooled', name:'Single shared pool',         note:'one catch-all group' },
+  { key:'mise',   name:'Mise',                       note:'routed, grouped, tripwired' }
 ];
-const TOTAL_SHIFTS = ARMS.length * 5;
+var TOTAL = ARMS.length * 5;
+var $ = function(id){ return document.getElementById(id); };
+var rail = $('rail'), tickets = 0, done = 0;
 
-const $ = (id) => document.getElementById(id);
-const railEl = $('rail');
-let tickets = 0, shiftsDone = 0, expectedShifts = TOTAL_SHIFTS;
+function esc(s){ return String(s == null ? '' : s).replace(/[&<>]/g, function(c){
+  return { '&':'&amp;','<':'&lt;','>':'&gt;' }[c]; }); }
 
 function paintArms(){
-  $('arms').innerHTML = ARMS.map(a => `
-    <div class="arm arm-${a.key} idle" id="arm-${a.key}">
-      <div class="arm-head">
-        <span class="arm-swatch"></span>
-        <span class="arm-name">${a.name}</span>
-        <span class="arm-note">${a.note}</span>
-        <span class="arm-avg" id="avg-${a.key}"></span>
-      </div>
-      <div class="services">
-        ${[1,2,3,4,5].map(n => `
-          <div class="svc">
-            <span class="svc-n">service ${n}</span>
-            <span class="track"><span class="fill" id="fill-${a.key}-${n}"></span></span>
-            <span class="pct none" id="pct-${a.key}-${n}">not run</span>
-            <span class="tag" id="tag-${a.key}-${n}"></span>
-          </div>`).join('')}
-      </div>
-    </div>`).join('');
+  $('arms').innerHTML = ARMS.map(function(a){
+    return '<div class="arm arm-' + a.key + ' idle" id="arm-' + a.key + '">' +
+      '<div class="arm-head">' +
+        '<span class="swatch"></span>' +
+        '<span class="arm-name">' + a.name + '</span>' +
+        '<span class="arm-note">' + a.note + '</span>' +
+        '<div class="rule"></div>' +
+        '<span class="avg-k">avg</span>' +
+        '<span class="avg-v" id="avg-' + a.key + '">—</span>' +
+      '</div>' +
+      [1,2,3,4,5].map(function(n){
+        return '<div class="row">' +
+          '<span class="row-label">service ' + n + '</span>' +
+          '<div class="track"><div class="fill" id="fill-' + a.key + '-' + n + '"></div></div>' +
+          '<span class="pct none" id="pct-' + a.key + '-' + n + '">idle</span>' +
+          '<span class="note" id="note-' + a.key + '-' + n + '"></span>' +
+        '</div>';
+      }).join('') +
+    '</div>';
+  }).join('');
 }
 paintArms();
 
-function esc(s){ return String(s == null ? '' : s).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
-
-function ticket(o){
-  if (tickets === 0) railEl.innerHTML = '';
-  const el = document.createElement('div');
-  el.className = 'ticket' + (o.hot ? ' hot' : '');
+function entry(o){
+  if (tickets === 0) rail.innerHTML = '';
+  var el = document.createElement('div');
+  el.className = 'entry ' + o.kind;
   el.innerHTML =
-    '<div class="t-head"><span class="t-kind ' + o.kind + '">' + o.label + '</span>' +
-    '<span class="t-meta">' + esc(o.meta) + '</span></div>' +
-    '<div class="t-body">' + esc(o.body) + '</div>' +
-    (o.fire ? '<div class="t-fire">&#9650; ' + esc(o.fire) + '</div>' : '');
-  railEl.prepend(el);
+    '<div class="entry-head"><span>' + esc(o.dest) + '</span><span>' + esc(o.meta) + '</span></div>' +
+    '<div class="entry-body">' + esc(o.text) + '</div>' +
+    (o.fire ? '<div class="entry-fire">▲ ' + esc(o.fire) + '</div>' : '');
+  rail.insertBefore(el, rail.firstChild);
   tickets++;
-  while (railEl.children.length > 44) railEl.lastChild.remove();
+  while (rail.children.length > 14) rail.removeChild(rail.lastChild);
 }
 
-/** Counts a number up rather than snapping to it. */
+function setProgress(v){
+  $('progress-fill').style.transform = 'scaleX(' + Math.min(1, v) + ')';
+}
+
+function paintShift(r){
+  var fill = $('fill-' + r.arm + '-' + r.shift);
+  if (fill) fill.style.transform = 'scaleX(' + r.fidelity.toFixed(3) + ')';
+  var pct = $('pct-' + r.arm + '-' + r.shift);
+  if (pct){
+    pct.className = 'pct';
+    pct.innerHTML = Math.round(r.fidelity * 100) + '%' +
+      (r.directivesFired ? '<span class="fired">▲' + r.directivesFired + '</span>' : '');
+  }
+  var note = $('note-' + r.arm + '-' + r.shift);
+  if (!note) return;
+  if (r.arm === 'blind'){
+    note.className = 'note';
+    note.textContent = (r.tokensPerAnswer || 0) + ' tok';
+  } else if (r.exposed > 0){
+    note.className = 'note exposed';
+    note.textContent = r.exposed + ' exposed';
+  } else {
+    note.className = 'note clean';
+    note.textContent = '0 exposed';
+  }
+}
+
 function countTo(el, target, suffix){
-  const dur = 640, t0 = performance.now();
-  el.classList.remove('idle');
+  var t0 = performance.now();
+  el.className = el.className.replace(' idle','');
   function frame(t){
-    const p = Math.min(1, (t - t0) / dur);
+    var p = Math.min(1, (t - t0) / 640);
     el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3))) + (suffix || '');
     if (p < 1) requestAnimationFrame(frame);
   }
   requestAnimationFrame(frame);
 }
 
-function setProgress(v, live){
-  $('progress-fill').style.width = (Math.min(1, v) * 100).toFixed(1) + '%';
-  $('progress').classList.toggle('live', !!live);
-}
-
-function paintShift(r){
-  const fill = $('fill-' + r.arm + '-' + r.shift);
-  if (fill) fill.style.width = (r.fidelity * 100).toFixed(0) + '%';
-  const pct = $('pct-' + r.arm + '-' + r.shift);
-  if (pct){
-    pct.className = 'pct';
-    pct.innerHTML = Math.round(r.fidelity * 100) + '%' +
-      (r.directivesFired ? '<span class="fired">&#9650;' + r.directivesFired + '</span>' : '');
-  }
-  const tag = $('tag-' + r.arm + '-' + r.shift);
-  if (!tag) return;
-  if (r.arm === 'blind'){ tag.className = 'tag na'; tag.textContent = 'n/a'; }
-  else if (r.exposed > 0){ tag.className = 'tag exposed'; tag.textContent = r.exposed + ' exposed'; }
-  else { tag.className = 'tag clean'; tag.textContent = '0 exposed'; }
-}
-
-fetch('/api/state').then(r => r.json()).then(s => {
-  $('status').innerHTML = s.offline
-    ? 'offline stand-in'
-    : '<b>xtrace hosted</b> &middot; ' + esc(s.namespace);
+fetch('/api/state').then(function(r){ return r.json(); }).then(function(s){
+  $('live').textContent = s.offline ? 'offline stand-in' : 'xtrace hosted';
+  $('ns').textContent = s.offline ? '' : s.namespace;
   if (s.last && s.last.results && s.last.results.length){
-    ARMS.forEach(a => $('arm-' + a.key).classList.remove('idle'));
+    ARMS.forEach(function(a){ $('arm-' + a.key).classList.remove('idle'); });
     apply(s.last.results, true);
+    setProgress(1);
   }
 });
 
 $('run').addEventListener('click', function(){
-  const btn = $('run');
-  btn.disabled = true; btn.textContent = 'Running';
-  railEl.innerHTML = ''; tickets = 0; shiftsDone = 0; expectedShifts = TOTAL_SHIFTS;
-  paintArms(); setProgress(0, true);
-  ['s-fid','s-exp','s-dir'].forEach(function(id){
-    $(id).className = 'score-v idle'; $(id).textContent = '—';
+  var btn = $('run'), label = $('run-label');
+  btn.disabled = true; btn.classList.add('busy'); label.textContent = 'Running';
+  rail.innerHTML = ''; tickets = 0; done = 0;
+  paintArms(); setProgress(0);
+  ['c-fid','c-exp','c-dir','c-tok'].forEach(function(id){
+    $(id).className = 'card-v idle'; $(id).textContent = '—';
   });
+  $('ghost').textContent = '—';
+  $('footnote').textContent = '';
 
-  const src = new EventSource('/api/replay');
+  var src = new EventSource('/api/replay');
 
   src.onmessage = function(e){
-    const msg = JSON.parse(e.data);
-    const kind = msg.kind, payload = msg.payload;
+    var m = JSON.parse(e.data), k = m.kind, p = m.payload;
 
-    if (kind === 'arm'){
-      ARMS.forEach(a => $('arm-' + a.key).classList.toggle('idle', a.key !== payload.arm));
-      btn.textContent = 'Running · ' + payload.label;
-      ticket({ kind:'arm', label:'ARM', meta:payload.arm, body:payload.label });
+    if (k === 'arm'){
+      ARMS.forEach(function(a){ $('arm-' + a.key).classList.toggle('idle', a.key !== p.arm); });
+      label.textContent = p.label;
+      entry({ kind:'arm', dest:'arm', meta:p.arm, text:p.label });
     }
-    if (kind === 'seeded' && payload.arm === 'mise'){
-      ticket({ kind:'floor', label:'SEED', meta:'pre-service',
-        body: payload.conversations + ' house conversations and ' + payload.background + ' background messages loaded' });
+    if (k === 'seeded' && p.arm === 'mise'){
+      entry({ kind:'floor', dest:'seed', meta:'pre-service',
+        text: p.conversations + ' house conversations and ' + p.background + ' background messages loaded' });
     }
-    if (kind === 'turn' && payload.arm === 'mise'){
-      ticket({ kind:'floor', label:'FLOOR', meta:'svc ' + payload.shift + ' · ' + payload.user, body:payload.text });
+    if (k === 'turn' && p.arm === 'mise'){
+      entry({ kind:'floor', dest:'hosted', meta:'svc ' + p.shift + ' · ' + p.user, text:p.text });
     }
-    if (kind === 'trigger'){
-      ticket({ kind:'proc', label:'PROCEDURE', meta:payload.action.tool, hot:true,
-        body:(payload.rows[0] && payload.rows[0].text) || '',
-        fire:'fired before ' + payload.action.tool + ' ran' });
+    if (k === 'trigger'){
+      entry({ kind:'proc', dest:'procedure', meta:p.action.tool,
+        text:(p.rows[0] && p.rows[0].text) || '',
+        fire:'fired before ' + p.action.tool + ' ran' });
     }
-    if (kind === 'debrief' && payload.arm === 'mise'){
-      ticket({ kind:'vault', label:'DEBRIEF', meta:'svc ' + payload.shift,
-        body: payload.directives + ' standing procedure(s) learned. Condition redacted, category kept.',
+    if (k === 'debrief' && p.arm === 'mise'){
+      entry({ kind:'vault', dest:'debrief', meta:'svc ' + p.shift,
+        text: p.directives + ' standing procedure(s) learned. Condition redacted, category kept.',
         fire:'available to tomorrow\u2019s tripwire' });
     }
-    if (kind === 'shift'){
-      paintShift(payload);
-      shiftsDone++;
-      setProgress(shiftsDone / expectedShifts, true);
-    }
-    if (kind === 'done'){
-      setProgress(1, false);
-      ARMS.forEach(a => $('arm-' + a.key).classList.remove('idle'));
-      apply(payload.results);
-      btn.disabled = false; btn.textContent = 'Run again';
+    if (k === 'shift'){ paintShift(p); done++; setProgress(done / TOTAL); }
+    if (k === 'done'){
+      setProgress(1);
+      ARMS.forEach(function(a){ $('arm-' + a.key).classList.remove('idle'); });
+      apply(p.results);
+      btn.disabled = false; btn.classList.remove('busy'); label.textContent = 'Run again';
       src.close();
     }
-    if (kind === 'error'){
-      ticket({ kind:'err', label:'ERROR', meta:'run stopped', body:payload.message });
-      setProgress(shiftsDone / expectedShifts, false);
-      btn.disabled = false; btn.textContent = 'Run the pass';
+    if (k === 'error'){
+      entry({ kind:'err', dest:'error', meta:'run stopped', text:p.message });
+      btn.disabled = false; btn.classList.remove('busy'); label.textContent = 'Run the pass';
       src.close();
     }
   };
 
   src.onerror = function(){
-    setProgress(shiftsDone / expectedShifts, false);
-    btn.disabled = false; btn.textContent = 'Run the pass';
+    btn.disabled = false; btn.classList.remove('busy'); label.textContent = 'Run the pass';
     src.close();
   };
 });
@@ -402,40 +459,53 @@ function apply(results, quiet){
   results.forEach(paintShift);
 
   ARMS.forEach(function(a){
-    const rows = results.filter(r => r.arm === a.key);
-    const el = $('avg-' + a.key);
-    if (!rows.length){ el.innerHTML = '<span>not run</span>'; return; }
-    const avg = rows.reduce((s, r) => s + r.fidelity, 0) / rows.length;
-    el.innerHTML = '<span>avg</span> ' + Math.round(avg * 100) + '%';
+    var rows = results.filter(function(r){ return r.arm === a.key; });
+    var el = $('avg-' + a.key);
+    if (!rows.length){ el.textContent = '—'; return; }
+    var avg = rows.reduce(function(s, r){ return s + r.fidelity; }, 0) / rows.length;
+    el.textContent = Math.round(avg * 100) + '%';
   });
 
-  const mise = results.filter(r => r.arm === 'mise');
-  const pooled = results.filter(r => r.arm === 'pooled');
+  var mise = results.filter(function(r){ return r.arm === 'mise'; });
+  var pooled = results.filter(function(r){ return r.arm === 'pooled'; });
+  var blind = results.filter(function(r){ return r.arm === 'blind'; });
 
   if (mise.length){
-    const last = mise[mise.length - 1];
-    const el = $('s-fid');
-    el.className = 'score-v ember';
-    if (quiet) el.textContent = Math.round(last.fidelity * 100) + '%';
-    else countTo(el, Math.round(last.fidelity * 100), '%');
-    $('s-fid-sub').textContent = 'up from ' + Math.round(mise[0].fidelity * 100) + '% on service one';
+    var last = mise[mise.length - 1];
+    var f = $('c-fid'); f.className = 'card-v mint';
+    if (quiet) f.textContent = Math.round(last.fidelity * 100) + '%';
+    else countTo(f, Math.round(last.fidelity * 100), '%');
+    $('c-fid-s').textContent = 'up from ' + Math.round(mise[0].fidelity * 100) + '% on service one';
+    $('ghost').textContent = Math.round(
+      mise.reduce(function(s, r){ return s + r.fidelity; }, 0) / mise.length * 100) + '%';
 
-    const dirs = mise.reduce((s, r) => s + r.directivesFired, 0);
-    const d = $('s-dir');
-    d.className = 'score-v ember';
+    var dirs = mise.reduce(function(s, r){ return s + r.directivesFired; }, 0);
+    var d = $('c-dir'); d.className = 'card-v';
     if (quiet) d.textContent = dirs; else countTo(d, dirs);
+
+    var t = $('c-tok'); t.className = 'card-v';
+    t.textContent = last.tokensPerAnswer || '—';
   }
 
-  const el = $('s-exp');
+  var e = $('c-exp');
   if (pooled.length){
-    const worst = Math.max.apply(null, pooled.map(r => r.exposed));
-    el.className = 'score-v';
-    el.textContent = '0';
-    $('s-exp-sub').innerHTML = 'the pooled baseline is holding <em>' + worst + '</em>';
+    var worst = Math.max.apply(null, pooled.map(function(r){ return r.exposed; }));
+    e.className = 'card-v mint'; e.textContent = '0';
+    $('c-exp-s').innerHTML = 'the pooled baseline is holding <em>' + worst + '</em>';
   } else if (mise.length){
-    el.className = 'score-v';
-    el.textContent = '0';
-    $('s-exp-sub').innerHTML = 'run all three arms to see the baseline';
+    e.className = 'card-v mint'; e.textContent = '0';
+    $('c-exp-s').textContent = 'run all three arms to see the baseline';
+  }
+
+  if (blind.length && mise.length){
+    var b0 = blind[0].tokensPerAnswer, b5 = blind[blind.length - 1].tokensPerAnswer;
+    var m5 = mise[mise.length - 1].tokensPerAnswer;
+    $('c-tok-s').textContent = 'the long-context arm is at ' + b5 + ', from ' + b0;
+    $('footnote').innerHTML =
+      'The long-context arm carries every turn and every debrief forward. At five services it is ' +
+      'the honest winner on accuracy &mdash; and its prompt grew ' + b0 + ' &rarr; ' + b5 +
+      ' tokens, linear in everything ever said. Mise is at ' + m5 +
+      ', bounded by what retrieval returns.<br>Restaurants run 360 services a year.';
   }
 }
 </script>
