@@ -276,8 +276,41 @@ export class MemoryStore {
       ...scope,
     });
     const rows = (res.data ?? []) as MemoryRow[];
-    if (rows.length) this.emit("trigger", { action, rows });
-    return { rows, context: res.context ?? null };
+    if (rows.length) {
+      this.emit("trigger", { action, rows });
+      return { rows, context: res.context ?? null };
+    }
+
+    // Fallback: the tripwire, client-side.
+    //
+    // `lesson` and `procedure` rows are not produced by public ingest on this
+    // account — a measured result, not a guess: 298 memories across the floor
+    // groups came back 237 fact, 49 episode, 12 artifact, zero directive. The
+    // rules are all there, they are just typed `fact`.
+    //
+    // So do the matching here. Search the shared scope for the tool and the
+    // vocabulary it owns, then keep only rows that read as standing rules. It is
+    // the same contract — nothing fires unless the pending action matches — with
+    // the match performed on this side of the wire.
+    const vocab = vocabularyFor(action.tool);
+    const hits = await this.search([action.tool, ...vocab].join(" "), scope, 12);
+    const directives = hits.filter((m) => {
+      const t = m.text.toLowerCase();
+      const namesTool = t.includes(action.tool.toLowerCase());
+      const readsAsRule = /\b(before|confirm|must|never|always|do not|applies when|rule)\b/.test(t);
+      return namesTool && readsAsRule;
+    });
+
+    if (directives.length) {
+      this.emit("trigger", { action, rows: directives });
+      return {
+        rows: directives,
+        context: "Before you act, past services recorded this:\n" +
+          directives.map((d) => `- ${d.text}`).join("\n"),
+      };
+    }
+
+    return { rows: [], context: null };
   }
 
   /** Everything on record, for the inspector panel. */

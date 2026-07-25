@@ -81,6 +81,30 @@ The directives themselves come from `ingest({ agentic: true })`, which runs the 
 
 Neither is in the published guides. Both are in the shipped SDK's type declarations and in the `lesson` / `procedure` enum members of the list-memories OpenAPI spec. This is the same primitive MemHub uses as a `PreToolUse` hook for coding agents — Mise takes it somewhere nobody has pointed it: a physical room with people in it.
 
+### Where the tripwire actually runs, and why
+
+We built on `trigger`, then measured what the hosted service had stored. Across the floor
+groups: **237 facts, 49 episodes, 12 artifacts, and zero directives.** The rules extract
+perfectly — `agentic: true` on a debrief produces exactly the right sentences — they are
+simply typed `fact`, so `trigger` has nothing to match and returns empty every time.
+
+We tested a hypothesis: perhaps extraction wants a *situated* directive rather than a
+reflection, so a debrief naming the tool would be typed differently. Two ingests, identical
+content, different shape (`npm run probe`, kept in the repo). **The hypothesis was wrong.**
+Narrative prose produced one vague fact; the agent-transcript phrasing produced four sharp,
+correctly worded rules — all still typed `fact`.
+
+So we kept the pattern and moved the match to our side. `MemoryStore.trigger()` calls the
+hosted endpoint first; when it returns empty, it searches the shared scope for the tool name
+plus the vocabulary that tool owns, and keeps only rows that name the tool *and* read as a
+standing rule. Same contract — nothing fires unless the pending action matches — with the
+matching performed client-side.
+
+The one change that made this work came out of the failed experiment: debriefs are now
+written as situated directives that name their tools (`situate()` in `src/agent.ts`), because
+that puts the tool name inside the stored text where a later search can find it. The negative
+result produced the fix.
+
 ---
 
 ## The second gate

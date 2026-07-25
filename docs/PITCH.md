@@ -65,6 +65,14 @@ Let the output sit on screen.
 
 > "That's `agentic: true` on ingest to capture the directive and `trigger` to fire it. Neither is in the guides — they're in the SDK's type declarations and the `lesson` and `procedure` enum members of the OpenAPI spec. Same primitive MemHub uses as a PreToolUse hook for coding agents. We pointed it at a room with people in it."
 
+## 2:20 - the honest thirty seconds
+
+Do not skip this. It buys credibility for every number you just showed.
+
+> "One thing I want to be straight about. We built on XTrace's `trigger` endpoint, then measured what the service had actually stored. Two hundred ninety-eight memories: two hundred thirty-seven facts, forty-nine episodes, twelve artifacts, and zero directives. The rules extract perfectly, they're just typed as facts, so `trigger` has nothing to match.
+>
+> We had a theory about why, tested it, and were wrong. So we kept the pattern and moved the matching to our side. Same contract: nothing fires unless the pending action matches."
+
 ## 2:35 — close
 
 > "The architecture isn't about restaurants. Any operation where the knowledge is procedural, the staff rotate, and some of what gets said is somebody's medical record — clinics, home care, field service — has the same two problems and needs the same two gates.
@@ -88,6 +96,12 @@ Because then nothing is shareable and you have rebuilt a filing cabinet. The int
 
 **"Does the redaction break the procedure?"**
 No — the tool anchors are what the tripwire fires on, and those are unchanged. `[dietary restriction]` reads the same to a cook as the diagnosis did.
+
+**"Is the hosted trigger endpoint what's firing?"**
+No, and say so immediately. It is called first on every action and returns empty, because no `lesson` or `procedure` rows exist on this account. We measured it; the census is in the README. The match runs client-side over semantic memory: search the shared scope for the tool plus its vocabulary, keep rows that name the tool and read as a rule. Same contract, our side of the wire.
+
+**"Then isn't this just search with extra steps?"**
+The contract is what matters, not the transport. A search returns whatever is nearest to a query. This returns nothing at all unless the specific action about to run matches a recorded rule — it is silent on most actions, which is exactly what makes it safe to call before every one of them. Swap the transport and the behaviour is unchanged.
 
 **"What if the classifier doesn't tag something?"**
 Tagging is an LLM relevance call and the personal gate fails closed. Nothing in the system requires a specific fact to be tagged, and `ignored_group_ids` is checked on every ingest.

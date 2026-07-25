@@ -81,7 +81,61 @@ Background traffic — payroll, rotas, marketing, the sister location — is ing
 | `artifact` | server-extracted from close-of-service notes | `get`, with `full_content` |
 | `lesson` / `procedure` | `ingest({ agentic: true })` on debriefs | `trigger`, never `search` |
 
-The last row is the important one. `lesson` and `procedure` are not reachable by semantic search — they are recalled by the tripwire on exact identifier overlap, scoped by `namespace`. So a rule learned in one working context does not fire in an unrelated one, and global rules always pass.
+The last row is the important one — and it is where measurement contradicted the design.
+
+`lesson` and `procedure` are meant to be unreachable by semantic search, recalled only by the
+tripwire on exact identifier overlap and scoped by `namespace`. That is the documented model
+and it is what Mise was built against.
+
+On the hosted service, those rows do not exist. A census of the floor groups
+(`npm run inspect -- --directives`) returns:
+
+```
+237  fact
+ 49  episode
+ 12  artifact
+  0  lesson / procedure
+```
+
+The rules are all present and correctly worded; they are typed `fact`. `trigger` therefore
+matches nothing and returns empty on every call.
+
+## The client-side tripwire
+
+`MemoryStore.trigger()` runs in two stages:
+
+```
+  action about to run
+        |
+        v
+  1  POST /v1/memories/trigger      hosted, exact entity overlap
+        |                            rows? use them  (currently: never)
+        v  empty
+  2  POST /v1/memories/search       scoped to the shared groups
+        |  query = tool name + the vocabulary that tool owns
+        v
+     filter: names the tool AND reads as a standing rule
+        |  before | confirm | must | never | always | do not | applies when | rule
+        v
+     directives
+```
+
+Stage 1 stays first and would take over the moment directives are typed as such. Stage 2 is
+what fires today.
+
+### What made stage 2 possible
+
+A failed experiment. We suspected extraction wanted a *situated* directive — a named action
+with an outcome — rather than a reflection, and that reshaping the debrief would change its
+type. It did not. But the reshaped version produced four sharp rules where the narrative
+version produced one vague one, and each contained the tool name verbatim:
+
+> "Before calling `fire_ticket` with `second_wave` true, the first wave must be confirmed as
+> picked up."
+
+That is what stage 2 matches on. `situate()` in `src/agent.ts` appends an explicit
+applies-when clause to every debrief for exactly this reason. The negative result produced
+the mechanism.
 
 ## Scoping, precisely
 

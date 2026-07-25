@@ -213,7 +213,14 @@ export class ServiceAgent {
     // The baseline ingests the debrief verbatim, diagnosis and all. Mise strips
     // the condition and keeps the category, so the procedure is still shareable
     // and still fires, without a guest's medical record riding along with it.
-    const body = arm === "mise" ? redact(text).text : text;
+    // Phrase the debrief as a situated directive rather than a reflection.
+    // The extraction pass returns `fact` rows either way on this account, but a
+    // debrief that names the tool and its arguments produces four rule-shaped
+    // facts where narrative prose produced one vague one — and, critically, the
+    // tool name ends up *inside* the stored text, which is what makes the
+    // tripwire able to find it later.
+    const anchored = arm === "mise" ? situate(redact(text).text) : text;
+    const body = anchored;
 
     const res = await store.ingest({
       messages: [
@@ -256,6 +263,35 @@ export class ServiceAgent {
       recalledCount: brief.sources.personal + brief.sources.shared + brief.sources.vault,
     };
   }
+}
+
+/**
+ * Rewrites a debrief so the tools it governs are named in the text.
+ *
+ * "before firing any second wave, confirm the first wave was picked up"
+ *   becomes
+ * "... This rule applies when calling fire_ticket with second_wave true."
+ *
+ * Nothing clever — it looks for the vocabulary each tool owns and appends an
+ * explicit applies-when clause. The clause is what a later tripwire search
+ * matches on.
+ */
+const TOOL_VOCAB: Array<{ tool: string; match: RegExp; clause: string }> = [
+  { tool: "fire_ticket", match: /second wave|first wave|double.?fired|two waves|fir(e|ing)/i,
+    clause: "This rule applies when calling fire_ticket with second_wave true." },
+  { tool: "fry_station", match: /fry station|fryer|cross.?contam|dedicated basket/i,
+    clause: "This rule applies when calling fry_station." },
+  { tool: "pour_drink", match: /alcohol|pairing|wine pour|no-alcohol|marker on the dupe/i,
+    clause: "This rule applies when calling pour_drink." },
+  { tool: "check_walkin", match: /temp log|compressor|41f|raw fish/i,
+    clause: "This rule applies when calling check_walkin." },
+  { tool: "open_doors", match: /reservation book|known press|before doors|pre.?service/i,
+    clause: "This rule applies when calling open_doors." },
+];
+
+export function situate(text: string): string {
+  const clauses = TOOL_VOCAB.filter((v) => v.match.test(text)).map((v) => v.clause);
+  return clauses.length ? `${text} ${clauses.join(" ")}` : text;
 }
 
 /**
