@@ -71,8 +71,18 @@ export class ServiceAgent {
     this.deps = deps;
   }
 
-  /** Clears the in-context window. Called between services. */
+  /**
+   * Called between services.
+   *
+   * Every arm with a memory layer starts the night with an empty window and
+   * recalls what it needs. The long-context arm does not: it carries the entire
+   * transcript of every prior service forward, because that is the actual claim
+   * being tested — that a large enough window makes a memory system unnecessary.
+   * Clearing it between services would have tested a session-scoped chatbot
+   * instead, which is a weaker and less interesting baseline.
+   */
   newService(): void {
+    if (this.deps.arm === "blind") return;
     this.windowLines = [];
   }
 
@@ -204,7 +214,14 @@ export class ServiceAgent {
    */
   async debrief(text: string, userId: string, convId: string): Promise<number> {
     const { store, groups, arm } = this.deps;
-    if (arm === "blind") return 0;
+    if (arm === "blind") {
+      // The long-context arm has no memory service to write to, but it does have
+      // a window, and a real deployment would leave the debrief in the thread.
+      // Withholding it would be the difference between a fair baseline and a
+      // convenient one.
+      this.windowLines.push(`- ${text}`);
+      return 0;
+    }
 
     const groupIds = arm === "pooled"
       ? [groups.pooled!]
@@ -252,6 +269,15 @@ export class ServiceAgent {
     // pool. The same fact surfacing from the local vault is the system working.
     const leaks = brief.sharedLines.filter((line) => route(line).some((r) => r.destination === "vault"));
 
+    // Separately: how much protected data is sitting in the prompt itself. A
+    // long-context agent never writes anything to a memory service, so it scores
+    // zero on records exposed — and then ships every allergy and diagnosis it has
+    // ever been told to the model provider on every single call. Not storing data
+    // is not the same as not transmitting it.
+    const inPrompt = brief.context
+      .split("\n")
+      .filter((line) => route(line).some((r) => r.destination === "vault")).length;
+
     return {
       query: probe.query,
       asker: probe.user_id,
@@ -261,6 +287,8 @@ export class ServiceAgent {
       leaks,
       directives: brief.directiveText,
       recalledCount: brief.sources.personal + brief.sources.shared + brief.sources.vault,
+      contextChars: brief.context.length,
+      sensitiveInPrompt: inPrompt,
     };
   }
 }

@@ -63,6 +63,10 @@ export interface ProbeResult {
   leaks: string[];
   directives: string[];
   recalledCount: number;
+  /** Characters in the context the agent assembled before answering. */
+  contextChars: number;
+  /** Protected lines sitting in the prompt itself, shipped to the model each call. */
+  sensitiveInPrompt: number;
 }
 
 export interface ShiftResult {
@@ -75,6 +79,10 @@ export interface ShiftResult {
   /** Distinct third-party medical facts this architecture has sent to the hosted service. */
   exposed: number;
   directivesFired: number;
+  /** Mean prompt tokens per answer this service. The cost axis. */
+  tokensPerAnswer: number;
+  /** Mean protected lines per prompt. Transmission, as distinct from storage. */
+  sensitiveInPrompt: number;
   probes: ProbeResult[];
 }
 

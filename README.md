@@ -27,24 +27,34 @@ Five services at a 60-seat restaurant, run three ways, scored identically.
 
 Measured against the hosted XTrace service:
 
-| | avg fidelity | service 1 → 5 | guest records exposed |
-|---|---|---|---|
-| Context window only | 48% | 71% → 40% | 0 |
-| Single shared pool | 88% | 88% → 88% | **6** |
-| **Mise** | **96%** | **88% → 100%** | **0** |
+| | avg fidelity | service 1 → 5 | records exposed | tokens/answer |
+|---|---|---|---|---|
+| Full transcript in context | **100%** | 100% → 100% | 0 stored / **5 per prompt** | 569 → **1,215** |
+| Single shared pool | 88% | 88% → 88% | **6** | 307 → 352 |
+| **Mise** | **96%** | **88% → 100%** | **0** | 343 → 704 |
 
-The pooled baseline is flat. It ends its fifth service no better than its first,
-because one undifferentiated bucket has nowhere for a lesson to live. Mise climbs.
+**Read the first row honestly.** A long-context agent given the whole history —
+corpus, turns, debriefs, nothing evicted — is *perfect* on this workload. Five
+services of restaurant chatter is a few thousand tokens and attention finds
+everything. At this scale, long context wins outright, and any pitch that hides
+that is one question from collapsing.
 
-(The offline stand-in scores Mise at 90% rather than 96% — real extraction and real
-vector search beat a keyword approximation, so the gap the architecture produces is
-wider on the hosted path than in the fallback.)
+What separates the arms is the shape of the curve and where the data goes:
 
-**Context fidelity** — of the facts the agent needed in hand to answer correctly, how many it actually retrieved. Scored against the brief the agent assembled, not against prose it generated, so no model judges another model and the number means exactly one thing.
+- **Cost is linear in history.** The long-context prompt grew 2.1× in five
+  nights. A retrieval-bounded context grows with the *relevance* of history, not
+  its length. Restaurants run 360 services a year.
+- **Not storing is not the same as not transmitting.** The long-context arm has
+  no memory service to leak from — and ships every allergy and diagnosis it has
+  ever been told with every question it answers. The pooled arm writes 6 medical
+  records to a hosted service. Mise does neither.
 
-**Records exposed** — distinct third-party medical facts sent to a hosted service. Measured at the wire, not at retrieval: once text is on someone else's server it is exposed whether or not a search ever returns it.
+The pooled baseline is also **flat** — 88% → 88%. It ends its fifth service no
+better than its first, because one undifferentiated bucket has nowhere for a
+lesson to live. Mise climbs.
 
-Read them together. The pooled baseline's accuracy is partly *purchased* with data it should not be holding.
+The full argument, including where long context genuinely wins and what we'd need
+to prove this properly, is in [docs/MEMORY-THESIS.md](docs/MEMORY-THESIS.md).
 
 ---
 

@@ -47,7 +47,7 @@ export interface RunOptions {
 }
 
 const ARM_LABEL: Record<Arm, string> = {
-  blind: "context window only",
+  blind: "full transcript in context",
   pooled: "single shared pool",
   mise: "Mise",
 };
@@ -90,6 +90,21 @@ export async function run(opts: RunOptions = {}): Promise<{
     const agent = new ServiceAgent({ store, vault, groups, arm });
     const ns = (id: string) => `${arm}:${id}`;
     store.resetExposure();
+
+    // The long-context arm gets the pre-service corpus too — into its window
+    // rather than into a memory service. Denying it the house standards while
+    // giving them to the other two would have made it a strawman, and the whole
+    // point of this arm is to be the strongest honest version of "just put
+    // everything in the prompt".
+    if (arm === "blind" && doSeed) {
+      for (const conv of seed.conversations) {
+        await agent.learn(
+          { user_id: ns(conv.user_id), groups: [], messages: conv.messages },
+          `${arm}:${conv.conv_id}`,
+        );
+      }
+      emit({ kind: "seeded", payload: { arm, conversations: seed.conversations.length, background: 0 } });
+    }
 
     if (arm !== "blind" && doSeed) {
       // Background traffic. Both arms receive the same messages; they differ in
@@ -134,6 +149,16 @@ export async function run(opts: RunOptions = {}): Promise<{
       const fidelity = probes.reduce((a, p) => a + p.fidelity, 0) / Math.max(1, probes.length);
       const exposed = store.exposureCount;
       const directivesFired = probes.reduce((a, p) => a + p.directives.length, 0);
+      // Four characters to the token is the usual rule of thumb for English. It
+      // is an estimate and the docs say so; what matters is that it is applied
+      // identically to all three arms, so the ratio between them is sound even
+      // where the absolute number is approximate.
+      const sensitiveInPrompt = Math.round(
+        probes.reduce((a, p) => a + p.sensitiveInPrompt, 0) / Math.max(1, probes.length),
+      );
+      const tokensPerAnswer = Math.round(
+        probes.reduce((a, p) => a + p.contextChars, 0) / Math.max(1, probes.length) / 4,
+      );
 
       const result: ShiftResult = {
         shift: shift.n,
@@ -144,6 +169,8 @@ export async function run(opts: RunOptions = {}): Promise<{
         fidelity,
         exposed,
         directivesFired,
+        tokensPerAnswer,
+        sensitiveInPrompt,
         probes,
       };
       results.push(result);
@@ -174,8 +201,8 @@ async function inParallel<T>(items: T[], limit: number, fn: (item: T) => Promise
   await Promise.all(workers);
 }
 
-export function summarise(results: ShiftResult[]): Record<Arm, { fidelity: number; exposed: number; lift: string }> {
-  const out = {} as Record<Arm, { fidelity: number; exposed: number; lift: string }>;
+export function summarise(results: ShiftResult[]): Record<Arm, { fidelity: number; exposed: number; lift: string; tokens: number; tokenGrowth: string; sensitive: number }> {
+  const out = {} as Record<Arm, { fidelity: number; exposed: number; lift: string; tokens: number; tokenGrowth: string; sensitive: number }>;
   const arms = [...new Set(results.map((r) => r.arm))];
   for (const arm of arms) {
     const rows = results.filter((r) => r.arm === arm);
@@ -185,6 +212,9 @@ export function summarise(results: ShiftResult[]): Record<Arm, { fidelity: numbe
     out[arm] = {
       fidelity,
       exposed: Math.max(...rows.map((r) => r.exposed)),
+      tokens: Math.round(rows.reduce((a, r) => a + r.tokensPerAnswer, 0) / rows.length),
+      tokenGrowth: `${rows[0]!.tokensPerAnswer} → ${rows[rows.length - 1]!.tokensPerAnswer}`,
+      sensitive: Math.max(...rows.map((r) => r.sensitiveInPrompt)),
       lift: `${(first * 100).toFixed(0)}% → ${(last * 100).toFixed(0)}%`,
     };
   }
