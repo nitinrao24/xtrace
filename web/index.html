@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mise · the pass</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pass:#14181d;      /* the kitchen after dark */
+  --steel:#1c2229;     /* panel */
+  --steel-2:#222a32;
+  --edge:#2c353f;      /* hairline */
+  --dupe:#f4efe3;      /* thermal ticket paper */
+  --ink:#1a1a17;       /* what a dot-matrix head puts on it */
+  --lamp:#ffae28;      /* heat lamp over the pass */
+  --walkin:#5bd6c0;    /* walk-in cool */
+  --eightysix:#ff5f52;
+  --text:#e7ecf1;
+  --mute:#8a97a5;
+  --faint:#5c6875;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--pass);
+  color:var(--text);
+  font-family:'Archivo',system-ui,sans-serif;
+  font-size:15px;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+.mono{font-family:'Courier Prime',ui-monospace,monospace}
+
+/* ------------------------------------------------------------------ header */
+header{
+  display:flex;align-items:baseline;gap:20px;flex-wrap:wrap;
+  padding:22px 28px 20px;
+  border-bottom:1px solid var(--edge);
+  position:relative;
+}
+header::after{ /* the lamp */
+  content:'';position:absolute;left:0;right:0;top:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--lamp),transparent);
+  opacity:.5;
+}
+.wordmark{
+  font-weight:800;font-size:23px;letter-spacing:-.02em;margin:0;
+}
+.wordmark span{color:var(--lamp)}
+.tagline{color:var(--mute);font-size:13.5px}
+.spacer{flex:1}
+.link{
+  font-family:'Courier Prime',monospace;font-size:12px;color:var(--faint);
+  text-transform:uppercase;letter-spacing:.09em;
+}
+.run{
+  font-family:'Archivo';font-weight:600;font-size:14px;
+  background:var(--lamp);color:#241a05;border:0;border-radius:2px;
+  padding:9px 20px;cursor:pointer;letter-spacing:.01em;
+}
+.run:hover{background:#ffc059}
+.run:disabled{background:var(--edge);color:var(--faint);cursor:default}
+.run:focus-visible{outline:2px solid var(--dupe);outline-offset:2px}
+
+/* ------------------------------------------------------------------ layout */
+main{display:grid;grid-template-columns:1fr 380px;min-height:calc(100vh - 74px)}
+@media(max-width:1000px){main{grid-template-columns:1fr}}
+.pass{padding:26px 28px 40px}
+.rail{
+  border-left:1px solid var(--edge);
+  background:#11151a;
+  padding:22px 20px 40px;
+  overflow:hidden;
+}
+
+.eyebrow{
+  font-family:'Courier Prime',monospace;font-size:11px;
+  text-transform:uppercase;letter-spacing:.16em;color:var(--faint);
+  margin:0 0 14px;
+}
+
+/* ------------------------------------------------------------------ arms */
+.arm{margin-bottom:26px}
+.arm-head{display:flex;align-items:baseline;gap:10px;margin-bottom:9px}
+.arm-name{font-weight:600;font-size:15px}
+.arm-note{color:var(--faint);font-size:12.5px}
+.arm-badge{
+  margin-left:auto;font-family:'Courier Prime',monospace;font-size:11.5px;
+  color:var(--mute);
+}
+.services{display:flex;flex-direction:column;gap:5px}
+.svc{display:grid;grid-template-columns:64px 1fr 46px 92px;gap:12px;align-items:center}
+.svc-n{font-family:'Courier Prime',monospace;font-size:11.5px;color:var(--faint)}
+.track{height:15px;background:#181d23;border:1px solid var(--edge);position:relative;overflow:hidden}
+.fill{height:100%;width:0;transition:width .5s cubic-bezier(.2,.7,.3,1)}
+.arm-blind  .fill{background:#3d4854}
+.arm-pooled .fill{background:#5f6f80}
+.arm-mise   .fill{background:linear-gradient(90deg,#c07a12,var(--lamp))}
+.pct{font-family:'Courier Prime',monospace;font-size:12.5px;text-align:right}
+.tag{font-family:'Courier Prime',monospace;font-size:11px;text-align:right}
+.tag.clean{color:var(--walkin)}
+.tag.exposed{color:var(--eightysix)}
+.tag.na{color:var(--faint)}
+
+/* ------------------------------------------------------------------ scores */
+.scores{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:var(--edge);border:1px solid var(--edge);margin-top:28px;
+}
+.score{background:var(--steel);padding:16px 18px}
+.score-k{
+  font-family:'Courier Prime',monospace;font-size:10.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--faint);margin-bottom:7px;
+}
+.score-v{font-size:30px;font-weight:800;letter-spacing:-.02em;line-height:1}
+.score-v.good{color:var(--walkin)}
+.score-v.bad{color:var(--eightysix)}
+.score-v.lamp{color:var(--lamp)}
+.score-s{color:var(--mute);font-size:12.5px;margin-top:6px}
+
+.note{
+  margin-top:22px;padding:14px 16px;border-left:2px solid var(--lamp);
+  background:#191d23;color:var(--mute);font-size:13.5px;max-width:62ch;
+}
+.note b{color:var(--text);font-weight:600}
+
+/* ------------------------------------------------------------------ tickets */
+.rail-inner{display:flex;flex-direction:column;gap:9px;max-height:calc(100vh - 150px);overflow-y:auto;padding-right:4px}
+.rail-inner::-webkit-scrollbar{width:5px}
+.rail-inner::-webkit-scrollbar-thumb{background:var(--edge)}
+
+.ticket{
+  background:var(--dupe);color:var(--ink);
+  font-family:'Courier Prime',monospace;font-size:11.5px;line-height:1.45;
+  padding:9px 11px 10px;position:relative;
+  animation:feed .34s cubic-bezier(.2,.8,.3,1);
+  transform-origin:top center;
+}
+/* perforated top edge, the way a dupe tears off the printer */
+.ticket::before{
+  content:'';position:absolute;left:0;right:0;top:0;height:3px;
+  background:repeating-linear-gradient(90deg,var(--dupe) 0 3px,transparent 3px 6px);
+}
+@keyframes feed{
+  from{opacity:0;transform:translateY(-9px) scaleY(.9)}
+  to{opacity:1;transform:none}
+}
+@media(prefers-reduced-motion:reduce){
+  .ticket{animation:none}
+  .fill{transition:none}
+}
+.t-head{
+  display:flex;gap:7px;align-items:center;
+  font-size:9.5px;letter-spacing:.11em;text-transform:uppercase;
+  border-bottom:1px dashed #c9c1af;padding-bottom:5px;margin-bottom:6px;
+}
+.t-kind{font-weight:700;padding:1px 5px;color:var(--dupe)}
+.t-kind.floor{background:#3f6b52}
+.t-kind.vault{background:#4a3f6b}
+.t-kind.proc{background:#8a5a08}
+.t-kind.expose{background:#a3352c}
+.t-meta{color:#7d7566;margin-left:auto}
+.t-body{white-space:pre-wrap;word-break:break-word}
+.t-fire{color:#8a5a08;font-weight:700;margin-top:5px;font-size:10.5px}
+
+.empty{color:var(--faint);font-size:13px;font-family:'Courier Prime',monospace}
+</style>
+</head>
+<body>
+
+<header>
+  <h1 class="wordmark">MISE<span>.</span></h1>
+  <div class="tagline">Verano &middot; five services, three architectures</div>
+  <div class="spacer"></div>
+  <div class="link" id="mode">checking</div>
+  <button class="run" id="run">Run the pass</button>
+</header>
+
+<main>
+  <section class="pass">
+    <p class="eyebrow">Context fidelity &middot; did the agent have the right thing in hand before it acted</p>
+    <div id="arms"></div>
+
+    <div class="scores">
+      <div class="score">
+        <div class="score-k">Mise, service five</div>
+        <div class="score-v lamp" id="s-fid">&mdash;</div>
+        <div class="score-s" id="s-fid-sub">not run yet</div>
+      </div>
+      <div class="score">
+        <div class="score-k">Guest records exposed</div>
+        <div class="score-v" id="s-exp">&mdash;</div>
+        <div class="score-s" id="s-exp-sub">medical facts sent to a hosted service</div>
+      </div>
+      <div class="score">
+        <div class="score-k">Procedures fired</div>
+        <div class="score-v lamp" id="s-dir">&mdash;</div>
+        <div class="score-s">unprompted, on the tripwire</div>
+      </div>
+    </div>
+
+    <div class="note" id="note">
+      Three ways to run the same five services. <b>Context window only</b> knows everything said
+      tonight and nothing said before. <b>Single shared pool</b> puts every message in one
+      catch-all group &mdash; the shortcut most memory demos take. <b>Mise</b> routes each line
+      before writing it, keeps guest medical data in an encrypted local vault, and fires house
+      procedure off a tripwire on the action about to run.
+    </div>
+  </section>
+
+  <aside class="rail">
+    <p class="eyebrow">The rail &middot; memory as it is written</p>
+    <div class="rail-inner" id="rail">
+      <div class="empty">Press <b>Run the pass</b>.</div>
+    </div>
+  </aside>
+</main>
+
+<script>
+const ARMS = [
+  { key:'blind',  name:'Context window only', note:'no persistence' },
+  { key:'pooled', name:'Single shared pool',  note:'one catch-all group' },
+  { key:'mise',   name:'Mise',                note:'routed, grouped, tripwired' },
+];
+
+const $ = (id) => document.getElementById(id);
+const railEl = $('rail');
+let ticketCount = 0;
+
+function paintArms() {
+  $('arms').innerHTML = ARMS.map(a => `
+    <div class="arm arm-${a.key}" id="arm-${a.key}">
+      <div class="arm-head">
+        <span class="arm-name">${a.name}</span>
+        <span class="arm-note">${a.note}</span>
+        <span class="arm-badge" id="badge-${a.key}"></span>
+      </div>
+      <div class="services">
+        ${[1,2,3,4,5].map(n => `
+          <div class="svc">
+            <span class="svc-n">service ${n}</span>
+            <span class="track"><span class="fill" id="fill-${a.key}-${n}"></span></span>
+            <span class="pct" id="pct-${a.key}-${n}">&middot;</span>
+            <span class="tag" id="tag-${a.key}-${n}"></span>
+          </div>`).join('')}
+      </div>
+    </div>`).join('');
+}
+paintArms();
+
+function ticket({ kind, label, meta, body, fire }) {
+  if (ticketCount === 0) railEl.innerHTML = '';
+  const el = document.createElement('div');
+  el.className = 'ticket';
+  el.innerHTML = `
+    <div class="t-head">
+      <span class="t-kind ${kind}">${label}</span>
+      <span class="t-meta">${meta ?? ''}</span>
+    </div>
+    <div class="t-body">${escape(body)}</div>
+    ${fire ? `<div class="t-fire">▲ ${escape(fire)}</div>` : ''}`;
+  railEl.prepend(el);
+  ticketCount++;
+  while (railEl.children.length > 40) railEl.lastChild.remove();
+}
+
+function escape(s) {
+  return String(s ?? '').replace(/[&<>]/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;' }[c]));
+}
+
+fetch('/api/state').then(r => r.json()).then(s => {
+  $('mode').textContent = s.offline ? 'offline stand-in' : 'xtrace hosted · ' + s.namespace;
+  if (s.last) apply(s.last.results, s.last.summary);
+});
+
+$('run').addEventListener('click', () => {
+  const btn = $('run');
+  btn.disabled = true;
+  btn.textContent = 'Running…';
+  railEl.innerHTML = '';
+  ticketCount = 0;
+  paintArms();
+
+  const src = new EventSource('/api/replay');
+  let arm = null;
+
+  src.onmessage = (e) => {
+    const { kind, payload } = JSON.parse(e.data);
+
+    if (kind === 'arm') {
+      arm = payload.arm;
+      ticket({ kind:'proc', label:'ARM', meta:payload.arm, body:payload.label });
+    }
+
+    if (kind === 'seeded' && payload.arm === 'mise') {
+      ticket({ kind:'floor', label:'SEED', meta:'pre-service',
+        body:`${payload.conversations} house conversations + ${payload.background} background messages loaded` });
+    }
+
+    if (kind === 'turn' && payload.arm === 'mise') {
+      ticket({ kind:'floor', label:'FLOOR', meta:`svc ${payload.shift} · ${payload.user}`, body:payload.text });
+    }
+
+    if (kind === 'trigger') {
+      ticket({ kind:'proc', label:'PROCEDURE', meta:payload.action.tool,
+        body:payload.rows[0]?.text ?? '', fire:`fired before ${payload.action.tool} ran` });
+    }
+
+    if (kind === 'probe' && payload.arm === 'mise' && payload.recalledCount) {
+      const v = payload.vaultLines ?? [];
+      if (payload.fidelity === 1) {
+        ticket({ kind:'vault', label:'BRIEF', meta:`svc ${payload.shift} · ${payload.asker}`,
+          body:payload.query, fire:`answered from ${payload.recalledCount} recalled rows` });
+      }
+    }
+
+    if (kind === 'shift') {
+      const p = payload;
+      const fill = $(`fill-${p.arm}-${p.shift}`);
+      if (fill) fill.style.width = (p.fidelity * 100).toFixed(0) + '%';
+      const pct = $(`pct-${p.arm}-${p.shift}`);
+      if (pct) pct.textContent = Math.round(p.fidelity * 100) + '%';
+      const tag = $(`tag-${p.arm}-${p.shift}`);
+      if (tag) {
+        if (p.arm === 'blind') { tag.className = 'tag na'; tag.textContent = '—'; }
+        else if (p.exposed > 0) { tag.className = 'tag exposed'; tag.textContent = p.exposed + ' exposed'; }
+        else { tag.className = 'tag clean'; tag.textContent = '0 exposed'; }
+      }
+    }
+
+    if (kind === 'debrief' && payload.arm === 'mise') {
+      ticket({ kind:'proc', label:'DEBRIEF', meta:`svc ${payload.shift}`,
+        body:`${payload.directives} standing procedure(s) learned — condition redacted, category kept`,
+        fire:'available to tomorrow\u2019s tripwire' });
+    }
+
+    if (kind === 'done') {
+      apply(payload.results);
+      btn.disabled = false;
+      btn.textContent = 'Run again';
+      src.close();
+    }
+
+    if (kind === 'error') {
+      ticket({ kind:'expose', label:'ERROR', meta:'', body:payload.message });
+      btn.disabled = false;
+      btn.textContent = 'Run the pass';
+      src.close();
+    }
+  };
+
+  src.onerror = () => { btn.disabled = false; btn.textContent = 'Run the pass'; src.close(); };
+});
+
+function apply(results) {
+  for (const r of results) {
+    const fill = $(`fill-${r.arm}-${r.shift}`);
+    if (fill) fill.style.width = (r.fidelity * 100).toFixed(0) + '%';
+    const pct = $(`pct-${r.arm}-${r.shift}`);
+    if (pct) pct.textContent = Math.round(r.fidelity * 100) + '%';
+    const tag = $(`tag-${r.arm}-${r.shift}`);
+    if (tag) {
+      if (r.arm === 'blind') { tag.className = 'tag na'; tag.textContent = '—'; }
+      else if (r.exposed > 0) { tag.className = 'tag exposed'; tag.textContent = r.exposed + ' exposed'; }
+      else { tag.className = 'tag clean'; tag.textContent = '0 exposed'; }
+    }
+  }
+
+  for (const a of ARMS) {
+    const rows = results.filter(r => r.arm === a.key);
+    if (!rows.length) continue;
+    const avg = rows.reduce((s, r) => s + r.fidelity, 0) / rows.length;
+    $(`badge-${a.key}`).textContent = `avg ${Math.round(avg * 100)}%`;
+  }
+
+  const mise = results.filter(r => r.arm === 'mise');
+  const pooled = results.filter(r => r.arm === 'pooled');
+  if (mise.length) {
+    const last = mise[mise.length - 1];
+    $('s-fid').textContent = Math.round(last.fidelity * 100) + '%';
+    $('s-fid-sub').textContent = `up from ${Math.round(mise[0].fidelity * 100)}% on service one`;
+    $('s-dir').textContent = mise.reduce((s, r) => s + r.directivesFired, 0);
+  }
+  if (pooled.length) {
+    const worst = Math.max(...pooled.map(r => r.exposed));
+    const el = $('s-exp');
+    el.textContent = '0';
+    el.className = 'score-v good';
+    $('s-exp-sub').textContent = `the pooled baseline is holding ${worst}`;
+  }
+}
+</script>
+</body>
+</html>

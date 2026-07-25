@@ -1,0 +1,9 @@
+node_modules/
+.env
+.mise/
+vault/.venv/
+vault/data/
+vault/__pycache__/
+__pycache__/
+*.pyc
+.DS_Store

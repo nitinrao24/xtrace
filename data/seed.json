@@ -1,0 +1,279 @@
+{
+  "staff": [
+    {
+      "user_id": "maya",
+      "role": "General manager, works the pass"
+    },
+    {
+      "user_id": "dev",
+      "role": "Sous chef, hot line"
+    },
+    {
+      "user_id": "priya",
+      "role": "Server, sections 1-3"
+    },
+    {
+      "user_id": "tom",
+      "role": "Bar"
+    }
+  ],
+  "groups": [
+    {
+      "key": "service",
+      "name": "Verano service floor",
+      "prompt": "Operational facts about service at Verano: which dishes are 86'd, table and reservation notes, prep and timing instructions, supplier and delivery issues, equipment status, and guest preferences that the floor needs to plan service. Do not include staff personal circumstances."
+    },
+    {
+      "key": "playbook",
+      "name": "Verano playbook",
+      "prompt": null
+    }
+  ],
+  "conversations": [
+    {
+      "conv_id": "seed_house_standards",
+      "user_id": "maya",
+      "groups": [
+        "service"
+      ],
+      "messages": [
+        {
+          "role": "user",
+          "content": "House standard: every ticket over six covers gets fired in two waves, apps then mains, never all at once."
+        },
+        {
+          "role": "assistant",
+          "content": "Recorded as a service standard."
+        },
+        {
+          "role": "user",
+          "content": "The walk-in's second compressor has been unreliable since April. If the temp log reads above 41F we pull all raw fish immediately."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted, with the 41F threshold."
+        }
+      ]
+    },
+    {
+      "conv_id": "seed_menu",
+      "user_id": "dev",
+      "groups": [
+        "service"
+      ],
+      "messages": [
+        {
+          "role": "user",
+          "content": "Current menu: hamachi crudo, wood-grilled scallops, duck breast with cherries, cavatelli with nettles, burnt basque cheesecake."
+        },
+        {
+          "role": "assistant",
+          "content": "Menu logged."
+        },
+        {
+          "role": "user",
+          "content": "The cavatelli is finished with a white wine reduction. The duck jus also has madeira in it."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted which dishes carry alcohol."
+        },
+        {
+          "role": "user",
+          "content": "Scallops take nine minutes on the wood grill, not four. Everyone underestimates this and the pass backs up."
+        },
+        {
+          "role": "assistant",
+          "content": "Nine minutes recorded for scallops."
+        }
+      ]
+    },
+    {
+      "conv_id": "seed_suppliers",
+      "user_id": "maya",
+      "groups": [
+        "service"
+      ],
+      "messages": [
+        {
+          "role": "user",
+          "content": "Monterey Fish delivers Tuesday and Friday before 10am. If they are late it is always the Friday truck."
+        },
+        {
+          "role": "assistant",
+          "content": "Delivery pattern recorded."
+        },
+        {
+          "role": "user",
+          "content": "Bayview Produce short-ships nettles roughly one week in three. We keep frozen pea shoots as the sub."
+        },
+        {
+          "role": "assistant",
+          "content": "Substitution noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "seed_g_okonkwo",
+      "user_id": "priya",
+      "groups": [
+        "service"
+      ],
+      "guest_id": "g_okonkwo",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Ada Okonkwo always books the corner banquette, table 14."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        },
+        {
+          "role": "user",
+          "content": "Ada Okonkwo drinks only Basque cider, never wine."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        },
+        {
+          "role": "user",
+          "content": "Ada Okonkwo has a severe tree-nut allergy and carries an epi-pen."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "seed_g_reyes",
+      "user_id": "priya",
+      "groups": [
+        "service"
+      ],
+      "guest_id": "g_reyes",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Marco Reyes brings clients on Thursdays and wants the check dropped discreetly."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        },
+        {
+          "role": "user",
+          "content": "Marco Reyes orders the tasting menu every visit."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        },
+        {
+          "role": "user",
+          "content": "Marco Reyes is in recovery and must never be offered alcohol, including sauces finished with wine."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "seed_g_lindqvist",
+      "user_id": "priya",
+      "groups": [
+        "service"
+      ],
+      "guest_id": "g_lindqvist",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Sofia Lindqvist is a food writer for the Chronicle and visits unannounced."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        },
+        {
+          "role": "user",
+          "content": "Sofia Lindqvist prefers to sit at the counter facing the pass."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "seed_g_barros",
+      "user_id": "priya",
+      "groups": [
+        "service"
+      ],
+      "guest_id": "g_barros",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Ines Barros celebrates her anniversary at Verano every March 12th."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        },
+        {
+          "role": "user",
+          "content": "Ines Barros loves the burnt basque cheesecake."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        },
+        {
+          "role": "user",
+          "content": "Ines Barros is coeliac; cross-contamination on the fry station is a medical risk."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "seed_g_haddad",
+      "user_id": "priya",
+      "groups": [
+        "service"
+      ],
+      "guest_id": "g_haddad",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Karim Haddad hosts a monthly supper club of twelve on the first Tuesday."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        },
+        {
+          "role": "user",
+          "content": "Karim Haddad wants family-style service, no plated courses."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        },
+        {
+          "role": "user",
+          "content": "Karim Haddad's partner is undergoing chemotherapy and cannot be seated near strong aromatics."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    }
+  ]
+}

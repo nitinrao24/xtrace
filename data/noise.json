@@ -1,0 +1,4204 @@
+{
+  "conversations": [
+    {
+      "conv_id": "noise_payroll_01_0",
+      "user_id": "maya",
+      "topic": "payroll",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Payroll runs on the 15th and the last day of the month, no exceptions."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_payroll_01_1",
+      "user_id": "maya",
+      "topic": "payroll",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Overtime over eight hours needs my sign-off before the shift, not after."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_payroll_01_2",
+      "user_id": "maya",
+      "topic": "payroll",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The new hire paperwork for the dish station is still sitting with the accountant."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_payroll_01_3",
+      "user_id": "maya",
+      "topic": "payroll",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Holiday pay accrues at one hour per thirty worked under the current contract."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_payroll_01_4",
+      "user_id": "maya",
+      "topic": "payroll",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Direct deposit changes have to clear two business days before the run."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_scheduling_01_0",
+      "user_id": "maya",
+      "topic": "scheduling",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Dev is off the second week of April, cover is Ramon from the Oakland room."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_scheduling_01_1",
+      "user_id": "maya",
+      "topic": "scheduling",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Priya asked to drop Sundays through the summer."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_scheduling_01_2",
+      "user_id": "maya",
+      "topic": "scheduling",
+      "messages": [
+        {
+          "role": "user",
+          "content": "We are short one runner on weekends until the new rota starts."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_scheduling_01_3",
+      "user_id": "maya",
+      "topic": "scheduling",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Tom swapped Thursday with Ramon for the rest of the month."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_scheduling_01_4",
+      "user_id": "maya",
+      "topic": "scheduling",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Nobody is scheduled more than five services in a row, that is the rule."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_marketing_01_0",
+      "user_id": "maya",
+      "topic": "marketing",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The Instagram post about the spring menu goes out Tuesday at eleven."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_marketing_01_1",
+      "user_id": "maya",
+      "topic": "marketing",
+      "messages": [
+        {
+          "role": "user",
+          "content": "We are not doing paid social this quarter, the return was not there."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_marketing_01_2",
+      "user_id": "maya",
+      "topic": "marketing",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The newsletter open rate was thirty one percent last month."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_marketing_01_3",
+      "user_id": "maya",
+      "topic": "marketing",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Someone needs to reply to the wedding catering enquiry from the website form."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_marketing_01_4",
+      "user_id": "maya",
+      "topic": "marketing",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The photographer is booked for the second week of April for new menu shots."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_facilities_01_0",
+      "user_id": "maya",
+      "topic": "facilities",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The landlord is repainting the exterior in June and we lose the patio for a week."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_facilities_01_1",
+      "user_id": "maya",
+      "topic": "facilities",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Insurance renewal is due the first of May, the broker sent three quotes."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_facilities_01_2",
+      "user_id": "maya",
+      "topic": "facilities",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The grease trap service comes quarterly, next one is late April."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_facilities_01_3",
+      "user_id": "maya",
+      "topic": "facilities",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Fire extinguisher inspection tags expire in August."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_facilities_01_4",
+      "user_id": "maya",
+      "topic": "facilities",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The awning on the west side needs replacing before the rainy season."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_oakland_01_0",
+      "user_id": "dev",
+      "topic": "oakland",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The Oakland room is running a completely different menu this season."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_oakland_01_1",
+      "user_id": "dev",
+      "topic": "oakland",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Oakland 86'd their lamb dish permanently, it never sold."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_oakland_01_2",
+      "user_id": "dev",
+      "topic": "oakland",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Oakland's walk-in was replaced last year so they do not have our compressor issue."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_oakland_01_3",
+      "user_id": "dev",
+      "topic": "oakland",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Oakland does forty covers on a good night, we do ninety."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_oakland_01_4",
+      "user_id": "dev",
+      "topic": "oakland",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The Oakland pastry section makes our cheesecake bases twice a week."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_admin_01_0",
+      "user_id": "maya",
+      "topic": "admin",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The POS contract renews automatically unless we cancel sixty days out."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_admin_01_1",
+      "user_id": "maya",
+      "topic": "admin",
+      "messages": [
+        {
+          "role": "user",
+          "content": "We switched card processors in January and the rates dropped forty basis points."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_admin_01_2",
+      "user_id": "maya",
+      "topic": "admin",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Health inspection scored ninety six on the last visit."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_admin_01_3",
+      "user_id": "maya",
+      "topic": "admin",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The liquor licence renewal paperwork is filed and acknowledged."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_admin_01_4",
+      "user_id": "maya",
+      "topic": "admin",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Waste hauling moved to Wednesday pickups this year."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_insurance_01_0",
+      "user_id": "maya",
+      "topic": "insurance",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Workers comp audit is scheduled for the second quarter."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_insurance_01_1",
+      "user_id": "maya",
+      "topic": "insurance",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The general liability policy covers the patio but not the sidewalk seating."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_insurance_01_2",
+      "user_id": "maya",
+      "topic": "insurance",
+      "messages": [
+        {
+          "role": "user",
+          "content": "We raised the equipment breakdown limit after the compressor scare."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_insurance_01_3",
+      "user_id": "maya",
+      "topic": "insurance",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Business interruption cover has a seventy two hour waiting period."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_insurance_01_4",
+      "user_id": "maya",
+      "topic": "insurance",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The broker wants updated payroll figures before renewal."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_payroll_02_0",
+      "user_id": "maya",
+      "topic": "payroll",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Payroll runs on the 15th and the last day of the month, no exceptions."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_payroll_02_1",
+      "user_id": "maya",
+      "topic": "payroll",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Overtime over eight hours needs my sign-off before the shift, not after."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_payroll_02_2",
+      "user_id": "maya",
+      "topic": "payroll",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The new hire paperwork for the dish station is still sitting with the accountant."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_payroll_02_3",
+      "user_id": "maya",
+      "topic": "payroll",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Holiday pay accrues at one hour per thirty worked under the current contract."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_payroll_02_4",
+      "user_id": "maya",
+      "topic": "payroll",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Direct deposit changes have to clear two business days before the run."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_scheduling_02_0",
+      "user_id": "maya",
+      "topic": "scheduling",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Dev is off the second week of April, cover is Ramon from the Oakland room."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_scheduling_02_1",
+      "user_id": "maya",
+      "topic": "scheduling",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Priya asked to drop Sundays through the summer."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_scheduling_02_2",
+      "user_id": "maya",
+      "topic": "scheduling",
+      "messages": [
+        {
+          "role": "user",
+          "content": "We are short one runner on weekends until the new rota starts."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_scheduling_02_3",
+      "user_id": "maya",
+      "topic": "scheduling",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Tom swapped Thursday with Ramon for the rest of the month."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_scheduling_02_4",
+      "user_id": "maya",
+      "topic": "scheduling",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Nobody is scheduled more than five services in a row, that is the rule."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_marketing_02_0",
+      "user_id": "maya",
+      "topic": "marketing",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The Instagram post about the spring menu goes out Tuesday at eleven."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_marketing_02_1",
+      "user_id": "maya",
+      "topic": "marketing",
+      "messages": [
+        {
+          "role": "user",
+          "content": "We are not doing paid social this quarter, the return was not there."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_marketing_02_2",
+      "user_id": "maya",
+      "topic": "marketing",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The newsletter open rate was thirty one percent last month."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_marketing_02_3",
+      "user_id": "maya",
+      "topic": "marketing",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Someone needs to reply to the wedding catering enquiry from the website form."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_marketing_02_4",
+      "user_id": "maya",
+      "topic": "marketing",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The photographer is booked for the second week of April for new menu shots."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_facilities_02_0",
+      "user_id": "maya",
+      "topic": "facilities",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The landlord is repainting the exterior in June and we lose the patio for a week."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_facilities_02_1",
+      "user_id": "maya",
+      "topic": "facilities",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Insurance renewal is due the first of May, the broker sent three quotes."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_facilities_02_2",
+      "user_id": "maya",
+      "topic": "facilities",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The grease trap service comes quarterly, next one is late April."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_facilities_02_3",
+      "user_id": "maya",
+      "topic": "facilities",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Fire extinguisher inspection tags expire in August."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_facilities_02_4",
+      "user_id": "maya",
+      "topic": "facilities",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The awning on the west side needs replacing before the rainy season."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_oakland_02_0",
+      "user_id": "dev",
+      "topic": "oakland",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The Oakland room is running a completely different menu this season."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_oakland_02_1",
+      "user_id": "dev",
+      "topic": "oakland",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Oakland 86'd their lamb dish permanently, it never sold."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_oakland_02_2",
+      "user_id": "dev",
+      "topic": "oakland",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Oakland's walk-in was replaced last year so they do not have our compressor issue."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_oakland_02_3",
+      "user_id": "dev",
+      "topic": "oakland",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Oakland does forty covers on a good night, we do ninety."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_oakland_02_4",
+      "user_id": "dev",
+      "topic": "oakland",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The Oakland pastry section makes our cheesecake bases twice a week."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_admin_02_0",
+      "user_id": "maya",
+      "topic": "admin",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The POS contract renews automatically unless we cancel sixty days out."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_admin_02_1",
+      "user_id": "maya",
+      "topic": "admin",
+      "messages": [
+        {
+          "role": "user",
+          "content": "We switched card processors in January and the rates dropped forty basis points."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_admin_02_2",
+      "user_id": "maya",
+      "topic": "admin",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Health inspection scored ninety six on the last visit."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_admin_02_3",
+      "user_id": "maya",
+      "topic": "admin",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The liquor licence renewal paperwork is filed and acknowledged."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_admin_02_4",
+      "user_id": "maya",
+      "topic": "admin",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Waste hauling moved to Wednesday pickups this year."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_insurance_02_0",
+      "user_id": "maya",
+      "topic": "insurance",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Workers comp audit is scheduled for the second quarter."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_insurance_02_1",
+      "user_id": "maya",
+      "topic": "insurance",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The general liability policy covers the patio but not the sidewalk seating."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_insurance_02_2",
+      "user_id": "maya",
+      "topic": "insurance",
+      "messages": [
+        {
+          "role": "user",
+          "content": "We raised the equipment breakdown limit after the compressor scare."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_insurance_02_3",
+      "user_id": "maya",
+      "topic": "insurance",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Business interruption cover has a seventy two hour waiting period."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_insurance_02_4",
+      "user_id": "maya",
+      "topic": "insurance",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The broker wants updated payroll figures before renewal."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_payroll_03_0",
+      "user_id": "maya",
+      "topic": "payroll",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Payroll runs on the 15th and the last day of the month, no exceptions."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_payroll_03_1",
+      "user_id": "maya",
+      "topic": "payroll",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Overtime over eight hours needs my sign-off before the shift, not after."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_payroll_03_2",
+      "user_id": "maya",
+      "topic": "payroll",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The new hire paperwork for the dish station is still sitting with the accountant."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_payroll_03_3",
+      "user_id": "maya",
+      "topic": "payroll",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Holiday pay accrues at one hour per thirty worked under the current contract."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_payroll_03_4",
+      "user_id": "maya",
+      "topic": "payroll",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Direct deposit changes have to clear two business days before the run."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_scheduling_03_0",
+      "user_id": "maya",
+      "topic": "scheduling",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Dev is off the second week of April, cover is Ramon from the Oakland room."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_scheduling_03_1",
+      "user_id": "maya",
+      "topic": "scheduling",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Priya asked to drop Sundays through the summer."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_scheduling_03_2",
+      "user_id": "maya",
+      "topic": "scheduling",
+      "messages": [
+        {
+          "role": "user",
+          "content": "We are short one runner on weekends until the new rota starts."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_scheduling_03_3",
+      "user_id": "maya",
+      "topic": "scheduling",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Tom swapped Thursday with Ramon for the rest of the month."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_scheduling_03_4",
+      "user_id": "maya",
+      "topic": "scheduling",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Nobody is scheduled more than five services in a row, that is the rule."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_marketing_03_0",
+      "user_id": "maya",
+      "topic": "marketing",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The Instagram post about the spring menu goes out Tuesday at eleven."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_marketing_03_1",
+      "user_id": "maya",
+      "topic": "marketing",
+      "messages": [
+        {
+          "role": "user",
+          "content": "We are not doing paid social this quarter, the return was not there."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_marketing_03_2",
+      "user_id": "maya",
+      "topic": "marketing",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The newsletter open rate was thirty one percent last month."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_marketing_03_3",
+      "user_id": "maya",
+      "topic": "marketing",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Someone needs to reply to the wedding catering enquiry from the website form."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_marketing_03_4",
+      "user_id": "maya",
+      "topic": "marketing",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The photographer is booked for the second week of April for new menu shots."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_facilities_03_0",
+      "user_id": "maya",
+      "topic": "facilities",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The landlord is repainting the exterior in June and we lose the patio for a week."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_facilities_03_1",
+      "user_id": "maya",
+      "topic": "facilities",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Insurance renewal is due the first of May, the broker sent three quotes."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_facilities_03_2",
+      "user_id": "maya",
+      "topic": "facilities",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The grease trap service comes quarterly, next one is late April."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_facilities_03_3",
+      "user_id": "maya",
+      "topic": "facilities",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Fire extinguisher inspection tags expire in August."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_facilities_03_4",
+      "user_id": "maya",
+      "topic": "facilities",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The awning on the west side needs replacing before the rainy season."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_oakland_03_0",
+      "user_id": "dev",
+      "topic": "oakland",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The Oakland room is running a completely different menu this season."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_oakland_03_1",
+      "user_id": "dev",
+      "topic": "oakland",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Oakland 86'd their lamb dish permanently, it never sold."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_oakland_03_2",
+      "user_id": "dev",
+      "topic": "oakland",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Oakland's walk-in was replaced last year so they do not have our compressor issue."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_oakland_03_3",
+      "user_id": "dev",
+      "topic": "oakland",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Oakland does forty covers on a good night, we do ninety."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_oakland_03_4",
+      "user_id": "dev",
+      "topic": "oakland",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The Oakland pastry section makes our cheesecake bases twice a week."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_admin_03_0",
+      "user_id": "maya",
+      "topic": "admin",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The POS contract renews automatically unless we cancel sixty days out."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_admin_03_1",
+      "user_id": "maya",
+      "topic": "admin",
+      "messages": [
+        {
+          "role": "user",
+          "content": "We switched card processors in January and the rates dropped forty basis points."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_admin_03_2",
+      "user_id": "maya",
+      "topic": "admin",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Health inspection scored ninety six on the last visit."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_admin_03_3",
+      "user_id": "maya",
+      "topic": "admin",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The liquor licence renewal paperwork is filed and acknowledged."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_admin_03_4",
+      "user_id": "maya",
+      "topic": "admin",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Waste hauling moved to Wednesday pickups this year."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_insurance_03_0",
+      "user_id": "maya",
+      "topic": "insurance",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Workers comp audit is scheduled for the second quarter."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_insurance_03_1",
+      "user_id": "maya",
+      "topic": "insurance",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The general liability policy covers the patio but not the sidewalk seating."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_insurance_03_2",
+      "user_id": "maya",
+      "topic": "insurance",
+      "messages": [
+        {
+          "role": "user",
+          "content": "We raised the equipment breakdown limit after the compressor scare."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_insurance_03_3",
+      "user_id": "maya",
+      "topic": "insurance",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Business interruption cover has a seventy two hour waiting period."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_insurance_03_4",
+      "user_id": "maya",
+      "topic": "insurance",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The broker wants updated payroll figures before renewal."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_payroll_04_0",
+      "user_id": "maya",
+      "topic": "payroll",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Payroll runs on the 15th and the last day of the month, no exceptions."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_payroll_04_1",
+      "user_id": "maya",
+      "topic": "payroll",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Overtime over eight hours needs my sign-off before the shift, not after."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_payroll_04_2",
+      "user_id": "maya",
+      "topic": "payroll",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The new hire paperwork for the dish station is still sitting with the accountant."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_payroll_04_3",
+      "user_id": "maya",
+      "topic": "payroll",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Holiday pay accrues at one hour per thirty worked under the current contract."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_payroll_04_4",
+      "user_id": "maya",
+      "topic": "payroll",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Direct deposit changes have to clear two business days before the run."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_scheduling_04_0",
+      "user_id": "maya",
+      "topic": "scheduling",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Dev is off the second week of April, cover is Ramon from the Oakland room."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_scheduling_04_1",
+      "user_id": "maya",
+      "topic": "scheduling",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Priya asked to drop Sundays through the summer."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_scheduling_04_2",
+      "user_id": "maya",
+      "topic": "scheduling",
+      "messages": [
+        {
+          "role": "user",
+          "content": "We are short one runner on weekends until the new rota starts."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_scheduling_04_3",
+      "user_id": "maya",
+      "topic": "scheduling",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Tom swapped Thursday with Ramon for the rest of the month."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_scheduling_04_4",
+      "user_id": "maya",
+      "topic": "scheduling",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Nobody is scheduled more than five services in a row, that is the rule."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_marketing_04_0",
+      "user_id": "maya",
+      "topic": "marketing",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The Instagram post about the spring menu goes out Tuesday at eleven."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_marketing_04_1",
+      "user_id": "maya",
+      "topic": "marketing",
+      "messages": [
+        {
+          "role": "user",
+          "content": "We are not doing paid social this quarter, the return was not there."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_marketing_04_2",
+      "user_id": "maya",
+      "topic": "marketing",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The newsletter open rate was thirty one percent last month."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_marketing_04_3",
+      "user_id": "maya",
+      "topic": "marketing",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Someone needs to reply to the wedding catering enquiry from the website form."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_marketing_04_4",
+      "user_id": "maya",
+      "topic": "marketing",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The photographer is booked for the second week of April for new menu shots."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_facilities_04_0",
+      "user_id": "maya",
+      "topic": "facilities",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The landlord is repainting the exterior in June and we lose the patio for a week."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_facilities_04_1",
+      "user_id": "maya",
+      "topic": "facilities",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Insurance renewal is due the first of May, the broker sent three quotes."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_facilities_04_2",
+      "user_id": "maya",
+      "topic": "facilities",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The grease trap service comes quarterly, next one is late April."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_facilities_04_3",
+      "user_id": "maya",
+      "topic": "facilities",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Fire extinguisher inspection tags expire in August."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_facilities_04_4",
+      "user_id": "maya",
+      "topic": "facilities",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The awning on the west side needs replacing before the rainy season."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_oakland_04_0",
+      "user_id": "dev",
+      "topic": "oakland",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The Oakland room is running a completely different menu this season."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_oakland_04_1",
+      "user_id": "dev",
+      "topic": "oakland",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Oakland 86'd their lamb dish permanently, it never sold."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_oakland_04_2",
+      "user_id": "dev",
+      "topic": "oakland",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Oakland's walk-in was replaced last year so they do not have our compressor issue."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_oakland_04_3",
+      "user_id": "dev",
+      "topic": "oakland",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Oakland does forty covers on a good night, we do ninety."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_oakland_04_4",
+      "user_id": "dev",
+      "topic": "oakland",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The Oakland pastry section makes our cheesecake bases twice a week."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_admin_04_0",
+      "user_id": "maya",
+      "topic": "admin",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The POS contract renews automatically unless we cancel sixty days out."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_admin_04_1",
+      "user_id": "maya",
+      "topic": "admin",
+      "messages": [
+        {
+          "role": "user",
+          "content": "We switched card processors in January and the rates dropped forty basis points."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_admin_04_2",
+      "user_id": "maya",
+      "topic": "admin",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Health inspection scored ninety six on the last visit."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_admin_04_3",
+      "user_id": "maya",
+      "topic": "admin",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The liquor licence renewal paperwork is filed and acknowledged."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_admin_04_4",
+      "user_id": "maya",
+      "topic": "admin",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Waste hauling moved to Wednesday pickups this year."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_insurance_04_0",
+      "user_id": "maya",
+      "topic": "insurance",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Workers comp audit is scheduled for the second quarter."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_insurance_04_1",
+      "user_id": "maya",
+      "topic": "insurance",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The general liability policy covers the patio but not the sidewalk seating."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_insurance_04_2",
+      "user_id": "maya",
+      "topic": "insurance",
+      "messages": [
+        {
+          "role": "user",
+          "content": "We raised the equipment breakdown limit after the compressor scare."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_insurance_04_3",
+      "user_id": "maya",
+      "topic": "insurance",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Business interruption cover has a seventy two hour waiting period."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_insurance_04_4",
+      "user_id": "maya",
+      "topic": "insurance",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The broker wants updated payroll figures before renewal."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_payroll_05_0",
+      "user_id": "maya",
+      "topic": "payroll",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Payroll runs on the 15th and the last day of the month, no exceptions."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_payroll_05_1",
+      "user_id": "maya",
+      "topic": "payroll",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Overtime over eight hours needs my sign-off before the shift, not after."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_payroll_05_2",
+      "user_id": "maya",
+      "topic": "payroll",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The new hire paperwork for the dish station is still sitting with the accountant."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_payroll_05_3",
+      "user_id": "maya",
+      "topic": "payroll",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Holiday pay accrues at one hour per thirty worked under the current contract."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_payroll_05_4",
+      "user_id": "maya",
+      "topic": "payroll",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Direct deposit changes have to clear two business days before the run."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_scheduling_05_0",
+      "user_id": "maya",
+      "topic": "scheduling",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Dev is off the second week of April, cover is Ramon from the Oakland room."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_scheduling_05_1",
+      "user_id": "maya",
+      "topic": "scheduling",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Priya asked to drop Sundays through the summer."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_scheduling_05_2",
+      "user_id": "maya",
+      "topic": "scheduling",
+      "messages": [
+        {
+          "role": "user",
+          "content": "We are short one runner on weekends until the new rota starts."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_scheduling_05_3",
+      "user_id": "maya",
+      "topic": "scheduling",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Tom swapped Thursday with Ramon for the rest of the month."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_scheduling_05_4",
+      "user_id": "maya",
+      "topic": "scheduling",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Nobody is scheduled more than five services in a row, that is the rule."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_marketing_05_0",
+      "user_id": "maya",
+      "topic": "marketing",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The Instagram post about the spring menu goes out Tuesday at eleven."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_marketing_05_1",
+      "user_id": "maya",
+      "topic": "marketing",
+      "messages": [
+        {
+          "role": "user",
+          "content": "We are not doing paid social this quarter, the return was not there."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_marketing_05_2",
+      "user_id": "maya",
+      "topic": "marketing",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The newsletter open rate was thirty one percent last month."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_marketing_05_3",
+      "user_id": "maya",
+      "topic": "marketing",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Someone needs to reply to the wedding catering enquiry from the website form."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_marketing_05_4",
+      "user_id": "maya",
+      "topic": "marketing",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The photographer is booked for the second week of April for new menu shots."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_facilities_05_0",
+      "user_id": "maya",
+      "topic": "facilities",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The landlord is repainting the exterior in June and we lose the patio for a week."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_facilities_05_1",
+      "user_id": "maya",
+      "topic": "facilities",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Insurance renewal is due the first of May, the broker sent three quotes."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_facilities_05_2",
+      "user_id": "maya",
+      "topic": "facilities",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The grease trap service comes quarterly, next one is late April."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_facilities_05_3",
+      "user_id": "maya",
+      "topic": "facilities",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Fire extinguisher inspection tags expire in August."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_facilities_05_4",
+      "user_id": "maya",
+      "topic": "facilities",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The awning on the west side needs replacing before the rainy season."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_oakland_05_0",
+      "user_id": "dev",
+      "topic": "oakland",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The Oakland room is running a completely different menu this season."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_oakland_05_1",
+      "user_id": "dev",
+      "topic": "oakland",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Oakland 86'd their lamb dish permanently, it never sold."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_oakland_05_2",
+      "user_id": "dev",
+      "topic": "oakland",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Oakland's walk-in was replaced last year so they do not have our compressor issue."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_oakland_05_3",
+      "user_id": "dev",
+      "topic": "oakland",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Oakland does forty covers on a good night, we do ninety."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_oakland_05_4",
+      "user_id": "dev",
+      "topic": "oakland",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The Oakland pastry section makes our cheesecake bases twice a week."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_admin_05_0",
+      "user_id": "maya",
+      "topic": "admin",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The POS contract renews automatically unless we cancel sixty days out."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_admin_05_1",
+      "user_id": "maya",
+      "topic": "admin",
+      "messages": [
+        {
+          "role": "user",
+          "content": "We switched card processors in January and the rates dropped forty basis points."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_admin_05_2",
+      "user_id": "maya",
+      "topic": "admin",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Health inspection scored ninety six on the last visit."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_admin_05_3",
+      "user_id": "maya",
+      "topic": "admin",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The liquor licence renewal paperwork is filed and acknowledged."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_admin_05_4",
+      "user_id": "maya",
+      "topic": "admin",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Waste hauling moved to Wednesday pickups this year."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_insurance_05_0",
+      "user_id": "maya",
+      "topic": "insurance",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Workers comp audit is scheduled for the second quarter."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_insurance_05_1",
+      "user_id": "maya",
+      "topic": "insurance",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The general liability policy covers the patio but not the sidewalk seating."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_insurance_05_2",
+      "user_id": "maya",
+      "topic": "insurance",
+      "messages": [
+        {
+          "role": "user",
+          "content": "We raised the equipment breakdown limit after the compressor scare."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_insurance_05_3",
+      "user_id": "maya",
+      "topic": "insurance",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Business interruption cover has a seventy two hour waiting period."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_insurance_05_4",
+      "user_id": "maya",
+      "topic": "insurance",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The broker wants updated payroll figures before renewal."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_payroll_06_0",
+      "user_id": "maya",
+      "topic": "payroll",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Payroll runs on the 15th and the last day of the month, no exceptions."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_payroll_06_1",
+      "user_id": "maya",
+      "topic": "payroll",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Overtime over eight hours needs my sign-off before the shift, not after."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_payroll_06_2",
+      "user_id": "maya",
+      "topic": "payroll",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The new hire paperwork for the dish station is still sitting with the accountant."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_payroll_06_3",
+      "user_id": "maya",
+      "topic": "payroll",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Holiday pay accrues at one hour per thirty worked under the current contract."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_payroll_06_4",
+      "user_id": "maya",
+      "topic": "payroll",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Direct deposit changes have to clear two business days before the run."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_scheduling_06_0",
+      "user_id": "maya",
+      "topic": "scheduling",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Dev is off the second week of April, cover is Ramon from the Oakland room."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_scheduling_06_1",
+      "user_id": "maya",
+      "topic": "scheduling",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Priya asked to drop Sundays through the summer."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_scheduling_06_2",
+      "user_id": "maya",
+      "topic": "scheduling",
+      "messages": [
+        {
+          "role": "user",
+          "content": "We are short one runner on weekends until the new rota starts."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_scheduling_06_3",
+      "user_id": "maya",
+      "topic": "scheduling",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Tom swapped Thursday with Ramon for the rest of the month."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_scheduling_06_4",
+      "user_id": "maya",
+      "topic": "scheduling",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Nobody is scheduled more than five services in a row, that is the rule."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_marketing_06_0",
+      "user_id": "maya",
+      "topic": "marketing",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The Instagram post about the spring menu goes out Tuesday at eleven."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_marketing_06_1",
+      "user_id": "maya",
+      "topic": "marketing",
+      "messages": [
+        {
+          "role": "user",
+          "content": "We are not doing paid social this quarter, the return was not there."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_marketing_06_2",
+      "user_id": "maya",
+      "topic": "marketing",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The newsletter open rate was thirty one percent last month."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_marketing_06_3",
+      "user_id": "maya",
+      "topic": "marketing",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Someone needs to reply to the wedding catering enquiry from the website form."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_marketing_06_4",
+      "user_id": "maya",
+      "topic": "marketing",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The photographer is booked for the second week of April for new menu shots."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_facilities_06_0",
+      "user_id": "maya",
+      "topic": "facilities",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The landlord is repainting the exterior in June and we lose the patio for a week."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_facilities_06_1",
+      "user_id": "maya",
+      "topic": "facilities",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Insurance renewal is due the first of May, the broker sent three quotes."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_facilities_06_2",
+      "user_id": "maya",
+      "topic": "facilities",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The grease trap service comes quarterly, next one is late April."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_facilities_06_3",
+      "user_id": "maya",
+      "topic": "facilities",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Fire extinguisher inspection tags expire in August."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_facilities_06_4",
+      "user_id": "maya",
+      "topic": "facilities",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The awning on the west side needs replacing before the rainy season."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_oakland_06_0",
+      "user_id": "dev",
+      "topic": "oakland",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The Oakland room is running a completely different menu this season."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_oakland_06_1",
+      "user_id": "dev",
+      "topic": "oakland",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Oakland 86'd their lamb dish permanently, it never sold."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_oakland_06_2",
+      "user_id": "dev",
+      "topic": "oakland",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Oakland's walk-in was replaced last year so they do not have our compressor issue."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_oakland_06_3",
+      "user_id": "dev",
+      "topic": "oakland",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Oakland does forty covers on a good night, we do ninety."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_oakland_06_4",
+      "user_id": "dev",
+      "topic": "oakland",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The Oakland pastry section makes our cheesecake bases twice a week."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_admin_06_0",
+      "user_id": "maya",
+      "topic": "admin",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The POS contract renews automatically unless we cancel sixty days out."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_admin_06_1",
+      "user_id": "maya",
+      "topic": "admin",
+      "messages": [
+        {
+          "role": "user",
+          "content": "We switched card processors in January and the rates dropped forty basis points."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_admin_06_2",
+      "user_id": "maya",
+      "topic": "admin",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Health inspection scored ninety six on the last visit."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_admin_06_3",
+      "user_id": "maya",
+      "topic": "admin",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The liquor licence renewal paperwork is filed and acknowledged."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_admin_06_4",
+      "user_id": "maya",
+      "topic": "admin",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Waste hauling moved to Wednesday pickups this year."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_insurance_06_0",
+      "user_id": "maya",
+      "topic": "insurance",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Workers comp audit is scheduled for the second quarter."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_insurance_06_1",
+      "user_id": "maya",
+      "topic": "insurance",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The general liability policy covers the patio but not the sidewalk seating."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_insurance_06_2",
+      "user_id": "maya",
+      "topic": "insurance",
+      "messages": [
+        {
+          "role": "user",
+          "content": "We raised the equipment breakdown limit after the compressor scare."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_insurance_06_3",
+      "user_id": "maya",
+      "topic": "insurance",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Business interruption cover has a seventy two hour waiting period."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_insurance_06_4",
+      "user_id": "maya",
+      "topic": "insurance",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The broker wants updated payroll figures before renewal."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_payroll_07_0",
+      "user_id": "maya",
+      "topic": "payroll",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Payroll runs on the 15th and the last day of the month, no exceptions."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_payroll_07_1",
+      "user_id": "maya",
+      "topic": "payroll",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Overtime over eight hours needs my sign-off before the shift, not after."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_payroll_07_2",
+      "user_id": "maya",
+      "topic": "payroll",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The new hire paperwork for the dish station is still sitting with the accountant."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_payroll_07_3",
+      "user_id": "maya",
+      "topic": "payroll",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Holiday pay accrues at one hour per thirty worked under the current contract."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_payroll_07_4",
+      "user_id": "maya",
+      "topic": "payroll",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Direct deposit changes have to clear two business days before the run."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_scheduling_07_0",
+      "user_id": "maya",
+      "topic": "scheduling",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Dev is off the second week of April, cover is Ramon from the Oakland room."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_scheduling_07_1",
+      "user_id": "maya",
+      "topic": "scheduling",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Priya asked to drop Sundays through the summer."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_scheduling_07_2",
+      "user_id": "maya",
+      "topic": "scheduling",
+      "messages": [
+        {
+          "role": "user",
+          "content": "We are short one runner on weekends until the new rota starts."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_scheduling_07_3",
+      "user_id": "maya",
+      "topic": "scheduling",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Tom swapped Thursday with Ramon for the rest of the month."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_scheduling_07_4",
+      "user_id": "maya",
+      "topic": "scheduling",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Nobody is scheduled more than five services in a row, that is the rule."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_marketing_07_0",
+      "user_id": "maya",
+      "topic": "marketing",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The Instagram post about the spring menu goes out Tuesday at eleven."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_marketing_07_1",
+      "user_id": "maya",
+      "topic": "marketing",
+      "messages": [
+        {
+          "role": "user",
+          "content": "We are not doing paid social this quarter, the return was not there."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_marketing_07_2",
+      "user_id": "maya",
+      "topic": "marketing",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The newsletter open rate was thirty one percent last month."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_marketing_07_3",
+      "user_id": "maya",
+      "topic": "marketing",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Someone needs to reply to the wedding catering enquiry from the website form."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_marketing_07_4",
+      "user_id": "maya",
+      "topic": "marketing",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The photographer is booked for the second week of April for new menu shots."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_facilities_07_0",
+      "user_id": "maya",
+      "topic": "facilities",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The landlord is repainting the exterior in June and we lose the patio for a week."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_facilities_07_1",
+      "user_id": "maya",
+      "topic": "facilities",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Insurance renewal is due the first of May, the broker sent three quotes."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_facilities_07_2",
+      "user_id": "maya",
+      "topic": "facilities",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The grease trap service comes quarterly, next one is late April."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_facilities_07_3",
+      "user_id": "maya",
+      "topic": "facilities",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Fire extinguisher inspection tags expire in August."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_facilities_07_4",
+      "user_id": "maya",
+      "topic": "facilities",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The awning on the west side needs replacing before the rainy season."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_oakland_07_0",
+      "user_id": "dev",
+      "topic": "oakland",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The Oakland room is running a completely different menu this season."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_oakland_07_1",
+      "user_id": "dev",
+      "topic": "oakland",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Oakland 86'd their lamb dish permanently, it never sold."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_oakland_07_2",
+      "user_id": "dev",
+      "topic": "oakland",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Oakland's walk-in was replaced last year so they do not have our compressor issue."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_oakland_07_3",
+      "user_id": "dev",
+      "topic": "oakland",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Oakland does forty covers on a good night, we do ninety."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_oakland_07_4",
+      "user_id": "dev",
+      "topic": "oakland",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The Oakland pastry section makes our cheesecake bases twice a week."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_admin_07_0",
+      "user_id": "maya",
+      "topic": "admin",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The POS contract renews automatically unless we cancel sixty days out."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_admin_07_1",
+      "user_id": "maya",
+      "topic": "admin",
+      "messages": [
+        {
+          "role": "user",
+          "content": "We switched card processors in January and the rates dropped forty basis points."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_admin_07_2",
+      "user_id": "maya",
+      "topic": "admin",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Health inspection scored ninety six on the last visit."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_admin_07_3",
+      "user_id": "maya",
+      "topic": "admin",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The liquor licence renewal paperwork is filed and acknowledged."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_admin_07_4",
+      "user_id": "maya",
+      "topic": "admin",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Waste hauling moved to Wednesday pickups this year."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_insurance_07_0",
+      "user_id": "maya",
+      "topic": "insurance",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Workers comp audit is scheduled for the second quarter."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_insurance_07_1",
+      "user_id": "maya",
+      "topic": "insurance",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The general liability policy covers the patio but not the sidewalk seating."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_insurance_07_2",
+      "user_id": "maya",
+      "topic": "insurance",
+      "messages": [
+        {
+          "role": "user",
+          "content": "We raised the equipment breakdown limit after the compressor scare."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_insurance_07_3",
+      "user_id": "maya",
+      "topic": "insurance",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Business interruption cover has a seventy two hour waiting period."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_insurance_07_4",
+      "user_id": "maya",
+      "topic": "insurance",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The broker wants updated payroll figures before renewal."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_payroll_08_0",
+      "user_id": "maya",
+      "topic": "payroll",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Payroll runs on the 15th and the last day of the month, no exceptions."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_payroll_08_1",
+      "user_id": "maya",
+      "topic": "payroll",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Overtime over eight hours needs my sign-off before the shift, not after."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_payroll_08_2",
+      "user_id": "maya",
+      "topic": "payroll",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The new hire paperwork for the dish station is still sitting with the accountant."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_payroll_08_3",
+      "user_id": "maya",
+      "topic": "payroll",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Holiday pay accrues at one hour per thirty worked under the current contract."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_payroll_08_4",
+      "user_id": "maya",
+      "topic": "payroll",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Direct deposit changes have to clear two business days before the run."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_scheduling_08_0",
+      "user_id": "maya",
+      "topic": "scheduling",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Dev is off the second week of April, cover is Ramon from the Oakland room."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_scheduling_08_1",
+      "user_id": "maya",
+      "topic": "scheduling",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Priya asked to drop Sundays through the summer."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_scheduling_08_2",
+      "user_id": "maya",
+      "topic": "scheduling",
+      "messages": [
+        {
+          "role": "user",
+          "content": "We are short one runner on weekends until the new rota starts."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_scheduling_08_3",
+      "user_id": "maya",
+      "topic": "scheduling",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Tom swapped Thursday with Ramon for the rest of the month."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_scheduling_08_4",
+      "user_id": "maya",
+      "topic": "scheduling",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Nobody is scheduled more than five services in a row, that is the rule."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_marketing_08_0",
+      "user_id": "maya",
+      "topic": "marketing",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The Instagram post about the spring menu goes out Tuesday at eleven."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_marketing_08_1",
+      "user_id": "maya",
+      "topic": "marketing",
+      "messages": [
+        {
+          "role": "user",
+          "content": "We are not doing paid social this quarter, the return was not there."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_marketing_08_2",
+      "user_id": "maya",
+      "topic": "marketing",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The newsletter open rate was thirty one percent last month."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_marketing_08_3",
+      "user_id": "maya",
+      "topic": "marketing",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Someone needs to reply to the wedding catering enquiry from the website form."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_marketing_08_4",
+      "user_id": "maya",
+      "topic": "marketing",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The photographer is booked for the second week of April for new menu shots."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_facilities_08_0",
+      "user_id": "maya",
+      "topic": "facilities",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The landlord is repainting the exterior in June and we lose the patio for a week."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_facilities_08_1",
+      "user_id": "maya",
+      "topic": "facilities",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Insurance renewal is due the first of May, the broker sent three quotes."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_facilities_08_2",
+      "user_id": "maya",
+      "topic": "facilities",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The grease trap service comes quarterly, next one is late April."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_facilities_08_3",
+      "user_id": "maya",
+      "topic": "facilities",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Fire extinguisher inspection tags expire in August."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_facilities_08_4",
+      "user_id": "maya",
+      "topic": "facilities",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The awning on the west side needs replacing before the rainy season."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_oakland_08_0",
+      "user_id": "dev",
+      "topic": "oakland",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The Oakland room is running a completely different menu this season."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_oakland_08_1",
+      "user_id": "dev",
+      "topic": "oakland",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Oakland 86'd their lamb dish permanently, it never sold."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_oakland_08_2",
+      "user_id": "dev",
+      "topic": "oakland",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Oakland's walk-in was replaced last year so they do not have our compressor issue."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_oakland_08_3",
+      "user_id": "dev",
+      "topic": "oakland",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Oakland does forty covers on a good night, we do ninety."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_oakland_08_4",
+      "user_id": "dev",
+      "topic": "oakland",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The Oakland pastry section makes our cheesecake bases twice a week."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_admin_08_0",
+      "user_id": "maya",
+      "topic": "admin",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The POS contract renews automatically unless we cancel sixty days out."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_admin_08_1",
+      "user_id": "maya",
+      "topic": "admin",
+      "messages": [
+        {
+          "role": "user",
+          "content": "We switched card processors in January and the rates dropped forty basis points."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_admin_08_2",
+      "user_id": "maya",
+      "topic": "admin",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Health inspection scored ninety six on the last visit."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_admin_08_3",
+      "user_id": "maya",
+      "topic": "admin",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The liquor licence renewal paperwork is filed and acknowledged."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_admin_08_4",
+      "user_id": "maya",
+      "topic": "admin",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Waste hauling moved to Wednesday pickups this year."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_insurance_08_0",
+      "user_id": "maya",
+      "topic": "insurance",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Workers comp audit is scheduled for the second quarter."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_insurance_08_1",
+      "user_id": "maya",
+      "topic": "insurance",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The general liability policy covers the patio but not the sidewalk seating."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_insurance_08_2",
+      "user_id": "maya",
+      "topic": "insurance",
+      "messages": [
+        {
+          "role": "user",
+          "content": "We raised the equipment breakdown limit after the compressor scare."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_insurance_08_3",
+      "user_id": "maya",
+      "topic": "insurance",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Business interruption cover has a seventy two hour waiting period."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    },
+    {
+      "conv_id": "noise_insurance_08_4",
+      "user_id": "maya",
+      "topic": "insurance",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The broker wants updated payroll figures before renewal."
+        },
+        {
+          "role": "assistant",
+          "content": "Noted."
+        }
+      ]
+    }
+  ]
+}

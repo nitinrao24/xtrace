@@ -1,0 +1,4 @@
+# The vault runs on XTrace's encrypted vector SDK.
+# [embedding] adds Sentence Transformers for fully local embeddings;
+# [cli] adds the `xtrace` command used to create the knowledge base.
+xtrace-ai-sdk[embedding,cli]==0.1.1

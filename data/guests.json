@@ -1,0 +1,57 @@
+{
+  "guests": [
+    {
+      "id": "g_okonkwo",
+      "name": "Ada Okonkwo",
+      "shareable": [
+        "Ada Okonkwo always books the corner banquette, table 14.",
+        "Ada Okonkwo drinks only Basque cider, never wine."
+      ],
+      "sensitive": [
+        "Ada Okonkwo has a severe tree-nut allergy and carries an epi-pen."
+      ]
+    },
+    {
+      "id": "g_reyes",
+      "name": "Marco Reyes",
+      "shareable": [
+        "Marco Reyes brings clients on Thursdays and wants the check dropped discreetly.",
+        "Marco Reyes orders the tasting menu every visit."
+      ],
+      "sensitive": [
+        "Marco Reyes is in recovery and must never be offered alcohol, including sauces finished with wine."
+      ]
+    },
+    {
+      "id": "g_lindqvist",
+      "name": "Sofia Lindqvist",
+      "shareable": [
+        "Sofia Lindqvist is a food writer for the Chronicle and visits unannounced.",
+        "Sofia Lindqvist prefers to sit at the counter facing the pass."
+      ],
+      "sensitive": []
+    },
+    {
+      "id": "g_barros",
+      "name": "Ines Barros",
+      "shareable": [
+        "Ines Barros celebrates her anniversary at Verano every March 12th.",
+        "Ines Barros loves the burnt basque cheesecake."
+      ],
+      "sensitive": [
+        "Ines Barros is coeliac; cross-contamination on the fry station is a medical risk."
+      ]
+    },
+    {
+      "id": "g_haddad",
+      "name": "Karim Haddad",
+      "shareable": [
+        "Karim Haddad hosts a monthly supper club of twelve on the first Tuesday.",
+        "Karim Haddad wants family-style service, no plated courses."
+      ],
+      "sensitive": [
+        "Karim Haddad's partner is undergoing chemotherapy and cannot be seated near strong aromatics."
+      ]
+    }
+  ]
+}

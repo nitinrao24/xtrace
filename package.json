@@ -1,0 +1,24 @@
+{
+  "name": "mise",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A service agent that learns the house. Built on XTrace Memory.",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "setup": "node --experimental-strip-types src/scripts/bootstrap.ts",
+    "seed": "node --experimental-strip-types src/scripts/seed.ts",
+    "replay": "node --experimental-strip-types src/scripts/replay.ts",
+    "inspect": "node --experimental-strip-types src/scripts/inspect.ts",
+    "dev": "node --experimental-strip-types src/server.ts",
+    "demo": "npm run seed && npm run replay",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@xtraceai/memory": "^0.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.2"
+  }
+}

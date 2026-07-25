@@ -1,0 +1,755 @@
+{
+  "shifts": [
+    {
+      "n": 1,
+      "date": "2026-03-10",
+      "covers": 62,
+      "title": "Monday. Nothing is written down yet.",
+      "turns": [
+        {
+          "user_id": "dev",
+          "groups": [
+            "service"
+          ],
+          "messages": [
+            {
+              "role": "user",
+              "content": "86 the hamachi crudo, the Friday fish came in soft and I am not serving it."
+            },
+            {
+              "role": "assistant",
+              "content": "Noted."
+            }
+          ]
+        },
+        {
+          "user_id": "priya",
+          "groups": [
+            "service"
+          ],
+          "messages": [
+            {
+              "role": "user",
+              "content": "Table 14 is Ada Okonkwo tonight, eight thirty."
+            },
+            {
+              "role": "assistant",
+              "content": "Noted."
+            }
+          ],
+          "guest_id": "g_okonkwo"
+        },
+        {
+          "user_id": "tom",
+          "groups": [
+            "service"
+          ],
+          "messages": [
+            {
+              "role": "user",
+              "content": "We are out of Basque cider until the Thursday order lands."
+            },
+            {
+              "role": "assistant",
+              "content": "Noted."
+            }
+          ]
+        },
+        {
+          "user_id": "dev",
+          "groups": [
+            "service"
+          ],
+          "messages": [
+            {
+              "role": "user",
+              "content": "Cavatelli is running slow because the nettles came in short again, I am subbing pea shoots."
+            },
+            {
+              "role": "assistant",
+              "content": "Noted."
+            }
+          ]
+        },
+        {
+          "user_id": "priya",
+          "groups": [
+            "service"
+          ],
+          "messages": [
+            {
+              "role": "user",
+              "content": "Sofia Lindqvist just walked in and asked for the counter. I did not recognise her until she sat down."
+            },
+            {
+              "role": "assistant",
+              "content": "Noted."
+            }
+          ]
+        },
+        {
+          "user_id": "maya",
+          "groups": [
+            "service"
+          ],
+          "messages": [
+            {
+              "role": "user",
+              "content": "We double-fired table 9 and comped two hundred dollars of food. Nobody checked whether the apps had already gone."
+            },
+            {
+              "role": "assistant",
+              "content": "Noted."
+            }
+          ]
+        }
+      ],
+      "probes": [
+        {
+          "query": "What can I actually sell on the raw section right now?",
+          "user_id": "priya",
+          "scope": "service",
+          "must_recall": [
+            "hamachi",
+            "86"
+          ],
+          "must_avoid": []
+        },
+        {
+          "query": "Ada Okonkwo is on 14, what do I need to know before I take her order?",
+          "user_id": "priya",
+          "scope": "service",
+          "must_recall": [
+            "nut",
+            "cider",
+            "banquette"
+          ],
+          "must_avoid": []
+        },
+        {
+          "query": "Is the cavatelli still on?",
+          "user_id": "priya",
+          "scope": "service",
+          "must_recall": [
+            "pea shoot",
+            "nettle"
+          ],
+          "must_avoid": []
+        },
+        {
+          "query": "Who is at the counter and does it matter?",
+          "user_id": "maya",
+          "scope": "service",
+          "must_recall": [
+            "Lindqvist",
+            "writer"
+          ],
+          "must_avoid": []
+        }
+      ],
+      "debrief": "Two things cost us tonight. We comped table 9 because a second fire went out with no check on the first, and Sofia Lindqvist sat unrecognised for four minutes. Going forward: before firing any second wave, confirm the first wave was picked up; and check the reservation book against known press before doors, every service."
+    },
+    {
+      "n": 2,
+      "date": "2026-03-11",
+      "covers": 71,
+      "title": "Tuesday. The first lessons land.",
+      "turns": [
+        {
+          "user_id": "dev",
+          "groups": [
+            "service"
+          ],
+          "messages": [
+            {
+              "role": "user",
+              "content": "Fish came in clean today, hamachi is back on."
+            },
+            {
+              "role": "assistant",
+              "content": "Noted."
+            }
+          ]
+        },
+        {
+          "user_id": "maya",
+          "groups": [
+            "service"
+          ],
+          "messages": [
+            {
+              "role": "user",
+              "content": "Karim Haddad's supper club is in tonight, twelve people, family style as always."
+            },
+            {
+              "role": "assistant",
+              "content": "Noted."
+            }
+          ],
+          "guest_id": "g_haddad"
+        },
+        {
+          "user_id": "dev",
+          "groups": [
+            "service"
+          ],
+          "messages": [
+            {
+              "role": "user",
+              "content": "Scallops are backing up again, the wood grill is running cool with the new charcoal."
+            },
+            {
+              "role": "assistant",
+              "content": "Noted."
+            }
+          ]
+        },
+        {
+          "user_id": "tom",
+          "groups": [
+            "service"
+          ],
+          "messages": [
+            {
+              "role": "user",
+              "content": "Cider landed. Ada is in on Thursday so we are covered."
+            },
+            {
+              "role": "assistant",
+              "content": "Noted."
+            }
+          ]
+        },
+        {
+          "user_id": "priya",
+          "groups": [
+            "service"
+          ],
+          "messages": [
+            {
+              "role": "user",
+              "content": "Table 6 asked for the duck without alcohol and I had to check with the kitchen mid-service."
+            },
+            {
+              "role": "assistant",
+              "content": "Noted."
+            }
+          ]
+        },
+        {
+          "user_id": "maya",
+          "groups": [
+            "service"
+          ],
+          "messages": [
+            {
+              "role": "user",
+              "content": "Karim asked to move his party away from the grill side, too much smoke."
+            },
+            {
+              "role": "assistant",
+              "content": "Noted."
+            }
+          ]
+        }
+      ],
+      "probes": [
+        {
+          "query": "Karim's twelve-top is booked, how am I setting the room?",
+          "user_id": "maya",
+          "scope": "service",
+          "must_recall": [
+            "family",
+            "aromatic",
+            "grill"
+          ],
+          "must_avoid": []
+        },
+        {
+          "query": "Second wave is ready for table 11, can I fire?",
+          "user_id": "priya",
+          "scope": "service",
+          "must_recall": [
+            "first wave",
+            "confirm"
+          ],
+          "must_avoid": []
+        },
+        {
+          "query": "Which dishes do I need to flag for a no-alcohol table?",
+          "user_id": "priya",
+          "scope": "service",
+          "must_recall": [
+            "cavatelli",
+            "duck",
+            "madeira"
+          ],
+          "must_avoid": []
+        },
+        {
+          "query": "How long do I actually need on scallops tonight?",
+          "user_id": "dev",
+          "scope": "service",
+          "must_recall": [
+            "nine",
+            "grill"
+          ],
+          "must_avoid": []
+        }
+      ],
+      "debrief": "The no-alcohol question came up mid-service again and stalled a table. Build the alcohol flag into the order-taking step: whenever a guest declines alcohol, the server reads back cavatelli and duck as excluded before sending the ticket."
+    },
+    {
+      "n": 3,
+      "date": "2026-03-12",
+      "covers": 84,
+      "title": "Wednesday. Anniversary and a compressor.",
+      "turns": [
+        {
+          "user_id": "maya",
+          "groups": [
+            "service"
+          ],
+          "messages": [
+            {
+              "role": "user",
+              "content": "Ines Barros is in tonight, it is her anniversary, March twelfth like every year."
+            },
+            {
+              "role": "assistant",
+              "content": "Noted."
+            }
+          ],
+          "guest_id": "g_barros"
+        },
+        {
+          "user_id": "dev",
+          "groups": [
+            "service"
+          ],
+          "messages": [
+            {
+              "role": "user",
+              "content": "Walk-in temp log is reading 43F this afternoon."
+            },
+            {
+              "role": "assistant",
+              "content": "Noted."
+            }
+          ]
+        },
+        {
+          "user_id": "dev",
+          "groups": [
+            "service"
+          ],
+          "messages": [
+            {
+              "role": "user",
+              "content": "Pulled all the raw fish per the standard. Crudo is 86 for the night."
+            },
+            {
+              "role": "assistant",
+              "content": "Noted."
+            }
+          ]
+        },
+        {
+          "user_id": "priya",
+          "groups": [
+            "service"
+          ],
+          "messages": [
+            {
+              "role": "user",
+              "content": "Ines asked whether the cheesecake is safe for her."
+            },
+            {
+              "role": "assistant",
+              "content": "Noted."
+            }
+          ]
+        },
+        {
+          "user_id": "tom",
+          "groups": [
+            "service"
+          ],
+          "messages": [
+            {
+              "role": "user",
+              "content": "Marco Reyes booked a client dinner Thursday, four covers."
+            },
+            {
+              "role": "assistant",
+              "content": "Noted."
+            }
+          ],
+          "guest_id": "g_reyes"
+        },
+        {
+          "user_id": "maya",
+          "groups": [
+            "service"
+          ],
+          "messages": [
+            {
+              "role": "user",
+              "content": "Fry station was used for both the churros and the calamari tonight with no changeover."
+            },
+            {
+              "role": "assistant",
+              "content": "Noted."
+            }
+          ]
+        }
+      ],
+      "probes": [
+        {
+          "query": "Temp log says 43, what is the call?",
+          "user_id": "dev",
+          "scope": "service",
+          "must_recall": [
+            "41",
+            "pull",
+            "raw fish"
+          ],
+          "must_avoid": []
+        },
+        {
+          "query": "Ines Barros, table 3, anything I should be handling differently?",
+          "user_id": "priya",
+          "scope": "service",
+          "must_recall": [
+            "coeliac",
+            "anniversary",
+            "cheesecake"
+          ],
+          "must_avoid": []
+        },
+        {
+          "query": "Can I run the churros and the calamari out of the same fryer?",
+          "user_id": "dev",
+          "scope": "service",
+          "must_recall": [
+            "cross-contam",
+            "coeliac"
+          ],
+          "must_avoid": []
+        },
+        {
+          "query": "What is on for Marco Reyes tomorrow?",
+          "user_id": "maya",
+          "scope": "service",
+          "must_recall": [
+            "tasting",
+            "check",
+            "Thursday"
+          ],
+          "must_avoid": []
+        }
+      ],
+      "debrief": "We nearly served a coeliac guest out of a shared fryer. New procedure: when any ticket in the room carries a coeliac flag, the fry station runs a dedicated basket for the whole service and the expo calls it out at the start of the shift, not when the dessert order lands."
+    },
+    {
+      "n": 4,
+      "date": "2026-03-13",
+      "covers": 78,
+      "title": "Thursday. Clients, cider, and a late truck.",
+      "turns": [
+        {
+          "user_id": "maya",
+          "groups": [
+            "service"
+          ],
+          "messages": [
+            {
+              "role": "user",
+              "content": "Monterey is late again, Friday truck pattern but on a Thursday this time."
+            },
+            {
+              "role": "assistant",
+              "content": "Noted."
+            }
+          ]
+        },
+        {
+          "user_id": "tom",
+          "groups": [
+            "service"
+          ],
+          "messages": [
+            {
+              "role": "user",
+              "content": "Marco Reyes is on table 8 at seven, four covers, clients."
+            },
+            {
+              "role": "assistant",
+              "content": "Noted."
+            }
+          ],
+          "guest_id": "g_reyes"
+        },
+        {
+          "user_id": "priya",
+          "groups": [
+            "service"
+          ],
+          "messages": [
+            {
+              "role": "user",
+              "content": "Ada Okonkwo moved her booking to tonight, she is on 14."
+            },
+            {
+              "role": "assistant",
+              "content": "Noted."
+            }
+          ],
+          "guest_id": "g_okonkwo"
+        },
+        {
+          "user_id": "dev",
+          "groups": [
+            "service"
+          ],
+          "messages": [
+            {
+              "role": "user",
+              "content": "Nettles short again so cavatelli is pea shoots, third week in a row."
+            },
+            {
+              "role": "assistant",
+              "content": "Noted."
+            }
+          ]
+        },
+        {
+          "user_id": "maya",
+          "groups": [
+            "service"
+          ],
+          "messages": [
+            {
+              "role": "user",
+              "content": "Someone nearly poured Marco a glass of the pairing wine."
+            },
+            {
+              "role": "assistant",
+              "content": "Noted."
+            }
+          ]
+        },
+        {
+          "user_id": "tom",
+          "groups": [
+            "service"
+          ],
+          "messages": [
+            {
+              "role": "user",
+              "content": "Cider is in the low boy for table 14."
+            },
+            {
+              "role": "assistant",
+              "content": "Noted."
+            }
+          ]
+        }
+      ],
+      "probes": [
+        {
+          "query": "Marco Reyes table 8, brief me before service.",
+          "user_id": "tom",
+          "scope": "service",
+          "must_recall": [
+            "alcohol",
+            "check",
+            "tasting"
+          ],
+          "must_avoid": []
+        },
+        {
+          "query": "Ada on 14 again, what is the drink and what is the risk?",
+          "user_id": "priya",
+          "scope": "service",
+          "must_recall": [
+            "cider",
+            "nut"
+          ],
+          "must_avoid": []
+        },
+        {
+          "query": "Nettles are short a third time, what do we do about it?",
+          "user_id": "dev",
+          "scope": "service",
+          "must_recall": [
+            "pea shoot",
+            "Bayview"
+          ],
+          "must_avoid": []
+        },
+        {
+          "query": "Truck is late, what usually happens next?",
+          "user_id": "maya",
+          "scope": "service",
+          "must_recall": [
+            "Monterey",
+            "Friday"
+          ],
+          "must_avoid": []
+        }
+      ],
+      "debrief": "The near-miss on Marco's wine pour is the third alcohol incident in four services. Escalate it: any guest flagged no-alcohol gets a marker on the dupe itself, and the bar confirms the flag before any pairing pour leaves the well."
+    },
+    {
+      "n": 5,
+      "date": "2026-03-14",
+      "covers": 91,
+      "title": "Friday. The room runs itself.",
+      "turns": [
+        {
+          "user_id": "dev",
+          "groups": [
+            "service"
+          ],
+          "messages": [
+            {
+              "role": "user",
+              "content": "Grill is back to temperature with the old charcoal supplier."
+            },
+            {
+              "role": "assistant",
+              "content": "Noted."
+            }
+          ]
+        },
+        {
+          "user_id": "maya",
+          "groups": [
+            "service"
+          ],
+          "messages": [
+            {
+              "role": "user",
+              "content": "Full book, ninety one on the sheet, two known press bookings."
+            },
+            {
+              "role": "assistant",
+              "content": "Noted."
+            }
+          ]
+        },
+        {
+          "user_id": "priya",
+          "groups": [
+            "service"
+          ],
+          "messages": [
+            {
+              "role": "user",
+              "content": "Ines Barros came back in with friends, six covers."
+            },
+            {
+              "role": "assistant",
+              "content": "Noted."
+            }
+          ]
+        },
+        {
+          "user_id": "dev",
+          "groups": [
+            "service"
+          ],
+          "messages": [
+            {
+              "role": "user",
+              "content": "Fish landed on time and clean, everything is on."
+            },
+            {
+              "role": "assistant",
+              "content": "Noted."
+            }
+          ]
+        },
+        {
+          "user_id": "tom",
+          "groups": [
+            "service"
+          ],
+          "messages": [
+            {
+              "role": "user",
+              "content": "Marco is in again, same table."
+            },
+            {
+              "role": "assistant",
+              "content": "Noted."
+            }
+          ]
+        },
+        {
+          "user_id": "maya",
+          "groups": [
+            "service"
+          ],
+          "messages": [
+            {
+              "role": "user",
+              "content": "No comps tonight and no incidents."
+            },
+            {
+              "role": "assistant",
+              "content": "Noted."
+            }
+          ]
+        }
+      ],
+      "probes": [
+        {
+          "query": "Full book with a coeliac and a no-alcohol guest in the room. Walk me through the setup.",
+          "user_id": "maya",
+          "scope": "service",
+          "must_recall": [
+            "fry",
+            "dedicated",
+            "marker",
+            "bar"
+          ],
+          "must_avoid": []
+        },
+        {
+          "query": "Press is in, what is the pre-service check?",
+          "user_id": "maya",
+          "scope": "service",
+          "must_recall": [
+            "reservation",
+            "press",
+            "doors"
+          ],
+          "must_avoid": []
+        },
+        {
+          "query": "Table 22 is six covers, how do I fire it?",
+          "user_id": "priya",
+          "scope": "service",
+          "must_recall": [
+            "two waves",
+            "confirm"
+          ],
+          "must_avoid": []
+        },
+        {
+          "query": "Everything I need on scallops and the grill.",
+          "user_id": "dev",
+          "scope": "service",
+          "must_recall": [
+            "nine",
+            "charcoal"
+          ],
+          "must_avoid": []
+        }
+      ],
+      "debrief": "Clean service. Ninety one covers, no comps, no near misses. The procedures held. Keep the pre-doors read of the book, the two-wave confirmation, the dedicated fry basket, and the dupe-level alcohol marker as standing house procedure."
+    }
+  ]
+}
