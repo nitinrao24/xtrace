@@ -32,6 +32,11 @@ interface Rule {
  */
 const VAULT_RULES: Rule[] = [
   { id: "allergy", pattern: /\ballerg\w*|epi-?pen|anaphyla\w*/i, why: "allergy — medical, identifies a named guest" },
+  {
+    id: "allergen",
+    pattern: /\b(no|cannot have|can't have|avoid(?:s|ing)?|fatal if|reacts? to)\b[^.!?]{0,25}\b(nuts?|peanuts?|tree nuts?|shellfish|crustaceans?|gluten|dairy|lactose|sesame|soy|eggs?)\b/i,
+    why: "named allergen without the word 'allergy' — same risk, different phrasing",
+  },
   { id: "coeliac", pattern: /\bcoeliac|celiac\b/i, why: "diagnosed condition" },
   { id: "treatment", pattern: /chemo\w*|dialysis|immunocompromised|in treatment/i, why: "ongoing medical treatment" },
   { id: "recovery", pattern: /\bin recovery\b|sober|must never be offered alcohol/i, why: "protected personal circumstance" },
@@ -79,6 +84,7 @@ export function rules(): Array<{ id: string; why: string }> {
 /** What a redacted term is replaced with. The category survives; the diagnosis does not. */
 const CATEGORY: Record<string, string> = {
   allergy: "[allergy flag]",
+  allergen: "[allergy flag]",
   coeliac: "[dietary restriction]",
   treatment: "[care requirement]",
   recovery: "[no-alcohol flag]",
